@@ -1,6 +1,6 @@
 # Klipot — SAMBU Ecosystem Control Plane
 
-**Klipot is the discovery, integration and operator-facing control plane for seven independent engineering repositories.** It connects their contracts, documentation, tools and evidence without collapsing their distinct runtime responsibilities.
+**Klipot is the black-and-yellow discovery, integration and operator portal for seven independent engineering repositories.** It connects their contracts, documentation, tools and evidence without collapsing their distinct runtime responsibilities.
 
 <p align="center">
   <img src="assets/sambu-ecosystem-overview.svg" width="100%" alt="SAMBU Ecosystem architecture: Klipot linked to Kloz, CO, SaintSI, ReaperCripple, SAMBU and ToolNG">
@@ -14,7 +14,7 @@
 
 ## Open the portal
 
-The single-file web application is available at [Klipot GitHub Pages](https://bboroski.github.io/Klipot/) after GitHub Pages is enabled for the repository and the deployment workflow has completed. The source is [index.html](index.html).
+The public deployment target is [Klipot GitHub Pages](https://bboroski.github.io/Klipot/). The repository owner must select **Settings → Pages → GitHub Actions** once; every subsequent portal change on `main` is deployed by the workflow. The source is [index.html](index.html).
 
 The portal includes:
 - a repository directory with domain filters and search;
@@ -92,6 +92,6 @@ The [cross-repository contract workflow](.github/workflows/mesh-contracts.yml) c
 
 ## Portal interface preview
 
-<p align="center"><img src="assets/portal-ui-preview.svg" width="100%" alt="Static UI preview of the Klipot responsive dashboard and project workspace"></p>
+<p align="center"><img src="assets/portal-ui-preview.svg" width="100%" alt="Black and yellow preview of the Klipot landing portal, project mesh and capability cards"></p>
 
-The UI includes animated view transitions, responsive project cards, search/filter controls, pressed/hover states and interactive API-concept labs. [Interaction and design guide](docs/PORTAL_UI.md). This SVG is a static illustration of the layout, not a live application screenshot.
+The black-and-yellow portal includes responsive navigation, animated view transitions, repository search and domain filters, copyable clone commands, four interactive API-concept labs and a shared contract guide. [Interaction and design guide](docs/PORTAL_UI.md). This SVG is a static visual preview, not a live application screenshot.
