@@ -5,6 +5,7 @@
 Klipot connects documentation, capability registries, versioned integration contracts, and browser labs. It helps users explore architecture and responsibility boundaries without collapsing distinct runtime components into an indistinguishable monolith.
 
 [Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Repository](https://github.com/bboroski/Klipot) · [Public portal](https://bboroski.github.io/Klipot/)
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="Nine-repository integration map" width="100%"></p>
 
 ## The nine repositories
 
