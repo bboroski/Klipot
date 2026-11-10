@@ -114,7 +114,7 @@ def evaluate_evolution(
 ) -> EvolutionDecision:
     required = {item.strip() for item in required_evidence}
     available = {item.strip() for item in available_evidence}
-    if "" in required or "" in available:
+    if any(not isinstance(item, str) or not item.strip() for item in required | available):
         raise ValueError("evidence identifiers cannot be empty")
     missing = tuple(sorted(required - available))
     approved = not missing and rollback_ready
