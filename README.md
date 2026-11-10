@@ -97,3 +97,9 @@ Host-тест доводить лише переносні програмні і
 ## Reaper cycle capability
 
 [Capability registry contract](docs/REAPER_CAPABILITY_REGISTRY.md) — versioned admission, provenance, quarantine, dependency validation, and rollback boundaries.
+
+## NUN Mesh
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh architecture map" width="960" /></p>
+
+NUN Mesh is the documented map of the independent ecosystem: ownership, contract boundaries, and repository-to-repository integration. The diagram is static documentation; it does not imply a shared runtime or live cross-repository execution.
