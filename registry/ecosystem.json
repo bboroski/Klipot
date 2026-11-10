@@ -148,32 +148,47 @@
       "module_id": "toolng-diagnostics"
     },
     {
-      "id": "nun",
+      "id": "nun-os-kernel",
       "repository": "bboroski/NUN",
-      "role": "minimal-operating-system-kernel-specification",
-      "maturity": "documentation-scaffold-no-kernel-implementation",
+      "role": "x86-64-operating-system-kernel",
+      "maturity": "early-boot-foundation",
       "provides": [
-        "kernel-architecture-documentation"
-      ],
-      "consumes": [],
-      "url": "https://github.com/bboroski/NUN",
-      "ecosystem": "NUN",
-      "module_id": "nun-kernel"
-    },
-    {
-      "id": "nunlauncher",
-      "repository": "bboroski/NUNLauncher",
-      "role": "kernel-bootstrap-and-handoff-specification",
-      "maturity": "documentation-scaffold-no-loader-implementation",
-      "provides": [
-        "kernel-bootstrap-documentation"
+        "limine-boot-handoff",
+        "serial-diagnostics",
+        "framebuffer-marker",
+        "physical-page-allocation",
+        "kernel-service-contract-smoke-tests"
       ],
       "consumes": [
-        "NUN kernel specification"
+        "Kloz-platform-abi",
+        "CO-lifecycle-runtime",
+        "SaintSI-health-observer",
+        "ReaperCripple-portable-supervisor"
+      ],
+      "url": "https://github.com/bboroski/NUN",
+      "ecosystem": "SAMBU",
+      "module_id": "nun-os-kernel",
+      "module_manifest": "sambu.module.json"
+    },
+    {
+      "id": "nunlauncher-android-home",
+      "repository": "bboroski/NUNLauncher",
+      "role": "android-home-launcher",
+      "maturity": "android-home-foundation",
+      "provides": [
+        "android-home-role",
+        "application-discovery",
+        "application-search",
+        "application-dispatch",
+        "duck-ui-android"
+      ],
+      "consumes": [
+        "Android-LauncherApps-API"
       ],
       "url": "https://github.com/bboroski/NUNLauncher",
-      "ecosystem": "NUN",
-      "module_id": "nunlauncher-bootstrap"
+      "ecosystem": "SAMBU",
+      "module_id": "nunlauncher-android-home",
+      "module_manifest": "sambu.module.json"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",

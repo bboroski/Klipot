@@ -117,30 +117,43 @@
       "integration_status": "manifest-planner-v0.1"
     },
     {
-      "id": "nun",
+      "id": "nun-os-kernel",
       "repo": "bboroski/NUN",
-      "role": "minimal operating-system kernel specification",
-      "depends_on": [],
-      "provides": [
-        "kernel.architecture.specification.v1"
-      ],
-      "requires": [],
-      "integration_status": "documentation-only-scaffold"
-    },
-    {
-      "id": "nunlauncher",
-      "repo": "bboroski/NUNLauncher",
-      "role": "kernel bootstrap and handoff specification",
+      "role": "x86-64 bare-metal operating-system kernel and boot foundation",
       "depends_on": [
-        "nun"
+        "kloz",
+        "co",
+        "saintsi",
+        "reapercripple"
       ],
       "provides": [
-        "kernel.bootstrap.specification.v1"
+        "kernel.boot.handoff.v1",
+        "kernel.serial.diagnostics.v1",
+        "kernel.framebuffer.marker.v1",
+        "kernel.physical-page-allocator.v1",
+        "nun.system.foundation.v1"
       ],
       "requires": [
-        "kernel.image.contract.specification.v1"
+        "limine.boot.protocol.v1",
+        "x86_64.platform.abi.v1"
       ],
-      "integration_status": "documentation-only-scaffold"
+      "integration_status": "early-boot-foundation-implemented; user-space-and-device-subsystems-pending"
+    },
+    {
+      "id": "nunlauncher-android-home",
+      "repo": "bboroski/NUNLauncher",
+      "role": "Android HOME launcher and local application catalog",
+      "depends_on": [],
+      "provides": [
+        "android.home.launcher.v1",
+        "android.launcherapps.catalog.v1",
+        "android.launcherapps.search.v1",
+        "android.launcherapps.dispatch.v1"
+      ],
+      "requires": [
+        "android.launcherapps.api"
+      ],
+      "integration_status": "android-home-foundation-implemented; authenticated-NUN-bridge-planned"
     }
   ]
 }
