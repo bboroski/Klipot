@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bboroski/Klipot/blob/main/schemas/resource-profile.schema.json",
+  "title": "NUN Resource Profile v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["memory_bytes", "queue_slots", "work_units", "reserve_percent", "overflow_policy", "criticality"],
+  "properties": {
+    "memory_bytes": {"type": "integer", "minimum": 0},
+    "queue_slots": {"type": "integer", "minimum": 0},
+    "work_units": {"type": "integer", "minimum": 0},
+    "reserve_percent": {"type": "integer", "minimum": 0, "maximum": 100},
+    "overflow_policy": {"enum": ["reject_new", "backpressure", "drop_oldest_telemetry", "shed_optional"]},
+    "criticality": {"enum": ["critical", "important", "optional"]},
+    "window_unit": {"type": "string", "minLength": 1},
+    "profile_id": {"type": "string", "minLength": 1}
+  },
+  "description": "Hard ceilings. Zero means no capacity is admitted, never unlimited. Work units are defined by the caller."
+}
