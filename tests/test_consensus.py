@@ -91,6 +91,10 @@ class ConsensusTests(unittest.TestCase):
         with self.assertRaises(ConsensusError):
             evaluate_consensus("x", self.eligible, {})
         with self.assertRaises(ConsensusError):
+            evaluate_consensus("x", self.eligible, [
+                {"reviewer": "maintainer-a", "decision": [], "evidence_refs": ["ci:1"]}
+            ])
+        with self.assertRaises(ConsensusError):
             evaluate_consensus("", self.eligible, [])
         with self.assertRaises(ConsensusError):
             evaluate_consensus("x", ["one", "one"], [])
