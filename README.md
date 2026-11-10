@@ -93,3 +93,8 @@ Host-тест доводить лише переносні програмні і
 
 - [Project-specific architecture mapping](docs/REAPER_DOMAIN_INTEGRATION.md)
 - [Canonical 50-pattern catalogue in SAMBU](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
+
+
+## Abstract mesh UI preview
+
+Open `ui/index.html` for the Klipot constellation view of the nine repositories. The shared product grammar and the nine individual palette/layout mappings are documented in [Abstract UI Grammar](docs/ABSTRACT_UI_GRAMMAR.md). The constellation's links are conceptual catalog relationships, not proof of runtime dependencies.
