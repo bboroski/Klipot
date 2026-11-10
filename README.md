@@ -84,3 +84,8 @@ MIT. Див. [LICENSE](LICENSE).
 - [Контракт и правила использования](docs/BIOLOGY_DOMAIN_PACK.md)
 
 Справочный офлайн-набор для обучения и метаданных; он не управляет системами, устройствами и диагностикой.
+
+
+## Abstract mesh UI preview
+
+A second, abstract constellation view is available in `ui/`. It translates the hand-drawn layout into a status rail, a spatial map of the nine repositories, explicit relationship paths, a contextual contract inspector and a lower navigation bar. It complements rather than replaces the main public portal. Open `ui/index.html` in a modern browser.
