@@ -1,7 +1,7 @@
 {
   "module_id": "klipot-control-plane",
   "repository": "bboroski/Klipot",
-  "display_name": "Klipot",
+  "display_name": "EICP — Ecosystem Integration & Control Plane",
   "version": null,
   "role": "ecosystem-registry-and-operator-control-plane",
   "runtime": [
