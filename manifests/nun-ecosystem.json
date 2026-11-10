@@ -122,7 +122,8 @@
       "role": "minimal operating-system kernel specification",
       "depends_on": [],
       "provides": [
-        "kernel.architecture.specification.v1"
+        "kernel.architecture.specification.v1",
+        "kernel.image.contract.specification.v1"
       ],
       "requires": [],
       "integration_status": "documentation-only-scaffold"
