@@ -2,6 +2,8 @@ from __future__ import annotations
 
 import json
 import re
+import subprocess
+import tempfile
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
@@ -50,6 +52,13 @@ def main() -> None:
     assert registry_ids == set(EXPECTED.values()), registry_ids
 
     portal = (ROOT / "Klipot" / "index.html").read_text(encoding="utf-8")
+    assert 'src="assets/nun-mesh-overview.svg"' in portal
+    script_match = re.search(r"<script>(.*?)</script>", portal, re.DOTALL)
+    assert script_match, "portal has no application script"
+    with tempfile.NamedTemporaryFile(mode="w", suffix=".js", encoding="utf-8") as handle:
+        handle.write(script_match.group(1))
+        handle.flush()
+        subprocess.run(["node", "--check", handle.name], check=True)
     for marker in ("project-grid", "arena-alloc", "co-start", "health-heartbeat", "gate-validate"):
         assert marker in portal, f"portal missing functional control: {marker}"
     print("NUN Mesh registry, manifests, localized README diagrams and portal controls are valid.")
