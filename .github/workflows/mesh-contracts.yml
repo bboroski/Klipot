@@ -1,0 +1,67 @@
+name: Cross-repository mesh contract check
+
+on:
+  pull_request:
+    paths:
+      - "contracts/**"
+      - "tests/**"
+      - ".github/workflows/mesh-contracts.yml"
+  push:
+    branches: [main]
+    paths:
+      - "contracts/**"
+      - "tests/**"
+      - ".github/workflows/mesh-contracts.yml"
+  workflow_dispatch:
+  schedule:
+    - cron: "23 4 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  headers:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Klipot
+        uses: actions/checkout@v4
+        with:
+          path: Klipot
+      - name: Checkout Kloz
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/Kloz
+          path: Kloz
+      - name: Checkout CO
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/CO
+          path: CO
+      - name: Checkout SaintSI
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/SaintSI
+          path: SaintSI
+      - name: Checkout ReaperCripple
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/ReaperCripple
+          path: ReaperCripple
+      - name: Compile the optional cross-project headers
+        run: |
+          cc -std=c11 -Wall -Wextra -pedantic -fsyntax-only \
+            -IKlipot/contracts \
+            -IKloz/include -ICO/include -ISaintSI/include \
+            -IReaperCripple/include \
+            Klipot/tests/mesh_header_smoke.c
+      - name: Validate every repository manifest
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          repos = ["Klipot", "Kloz", "CO", "SaintSI", "ReaperCripple"]
+          for repo in repos:
+              path = Path(repo) / ("registry/ecosystem.json" if repo == "Klipot" else "ecosystem/manifest.json")
+              json.loads(path.read_text(encoding="utf-8"))
+              print("valid:", path)
+          PY
