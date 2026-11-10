@@ -1,0 +1,116 @@
+{
+  "schema_version": "klipot.uncertainty.v1",
+  "repository": "bboroski/Klipot",
+  "items": [
+    {
+      "id": "SAMBU.native-backend",
+      "domain": "compiler",
+      "statement": "The native compiler path does not yet provide a complete parser-to-machine-code pipeline.",
+      "feature": "Backend capability matrix and conformance suite",
+      "resolution_mode": "feature-flag",
+      "unknown_behavior": "Keep native compilation disabled unless the selected target backend passes its conformance checks.",
+      "verification": ["Parser-to-IR lowering tests pass.", "Object emission and linker integration are tested for each declared target.", "The binary executes in a documented emulator or target environment."],
+      "status": "open"
+    },
+    {
+      "id": "ToolNG.device-state",
+      "domain": "diagnostics",
+      "statement": "A missing device signal can mean no device, unavailable probe, or incomplete coverage.",
+      "feature": "Evidence-state normalization and coverage report",
+      "resolution_mode": "probe",
+      "unknown_behavior": "Report unknown or unavailable separately from a confirmed negative result.",
+      "verification": ["Unavailable scan is not reported as no device.", "Coverage is displayed separately from readiness score.", "Tests cover contradictory evidence."],
+      "status": "open"
+    },
+    {
+      "id": "ReaperCripple.target-qualification",
+      "domain": "embedded-platform",
+      "statement": "Host tests do not establish that a BSP, toolchain, board revision, fixture, or electrical envelope works on target.",
+      "feature": "Per-target qualification profile and evidence gate",
+      "resolution_mode": "human-gate",
+      "unknown_behavior": "Do not mark a target READY based on host tests alone.",
+      "verification": ["Each target identifies exact compiler, board revision, linker script, fixtures, and test evidence.", "READY requires target qualification.", "Missing measurements keep lifecycle degraded or unqualified."],
+      "status": "open"
+    },
+    {
+      "id": "Kloz.platform-capabilities",
+      "domain": "platform-abi",
+      "statement": "An unadvertised capability and an invalid advertised capability are different conditions.",
+      "feature": "Tri-state platform capability query",
+      "resolution_mode": "probe",
+      "unknown_behavior": "Invalid platform tables return UNKNOWN; an absent capability in a valid table returns UNAVAILABLE.",
+      "verification": ["Every advertised capability has its required callback.", "A capability query distinguishes UNKNOWN, UNAVAILABLE, AVAILABLE, and INVALID.", "Legacy validation behavior remains covered."],
+      "status": "open"
+    },
+    {
+      "id": "CO.lifecycle-policy",
+      "domain": "runtime",
+      "statement": "Scheduling, concurrency, deadlines, and watchdog policy are intentionally outside the component lifecycle core.",
+      "feature": "Explicit runtime policy adapter points",
+      "resolution_mode": "explicit-config",
+      "unknown_behavior": "CO does not invent a scheduler, concurrency guarantee, deadline, or watchdog policy.",
+      "verification": ["The runtime exposes lifecycle outcomes without owning scheduling.", "Concurrent access requirements are documented by the caller.", "Unsupported policy requests return an explicit error."],
+      "status": "open"
+    },
+    {
+      "id": "SaintSI.empty-coverage",
+      "domain": "observability",
+      "statement": "An empty component registry currently has no heartbeat evidence and must not be mistaken for a healthy system.",
+      "feature": "Unknown/unobserved health state with coverage counters",
+      "resolution_mode": "staged-implementation",
+      "unknown_behavior": "Return UNKNOWN when no components are registered; HEALTHY requires at least one observed component.",
+      "verification": ["An empty registry reports UNKNOWN.", "A fresh registered component reports HEALTHY.", "A stale component reports DEGRADED."],
+      "status": "open"
+    },
+    {
+      "id": "NUN.boot-architecture",
+      "domain": "kernel",
+      "statement": "CPU architecture, privilege model, boot protocol, and memory map are not selected.",
+      "feature": "Versioned boot-information validator and explicit architecture gate",
+      "resolution_mode": "explicit-config",
+      "unknown_behavior": "Reject boot handoff when architecture, memory map, or ABI version is unknown or invalid.",
+      "verification": ["Malformed boot information is rejected.", "Memory ranges are checked for overflow and overlap.", "Only an explicitly selected architecture is accepted."],
+      "status": "open"
+    },
+    {
+      "id": "NUNLauncher.product-modes",
+      "domain": "bootstrap-and-android-shell",
+      "statement": "Kernel bootstrap and Android home-screen launcher are distinct product targets with different privileges and APIs.",
+      "feature": "Separated build profiles and a shared versioned handoff contract",
+      "resolution_mode": "explicit-config",
+      "unknown_behavior": "Never mix Android app code with privileged boot code or imply that an Android launcher can load a kernel.",
+      "verification": ["Build profiles are separate.", "Boot profile validates an image and prepares handoff data.", "Android profile is reported as specification-only until an app target is implemented."],
+      "status": "open"
+    },
+    {
+      "id": "Fragile-Baby.elbrus-toolchain",
+      "domain": "elbrus-platform",
+      "statement": "Exact Elbrus CPU revision, compiler, ABI, sysroot, board support, and hardware test environment are not confirmed.",
+      "feature": "Elbrus target profile, toolchain preflight, ABI probes, and qualification matrix",
+      "resolution_mode": "explicit-config",
+      "unknown_behavior": "Do not infer compiler names, CPU features, ABI details, or hardware support; refuse target builds until an explicit toolchain is supplied.",
+      "verification": ["Compiler and sysroot are supplied by the operator.", "Target identity is emitted in the build report.", "ABI probes run with the selected toolchain.", "Hardware support is marked verified only with target evidence."],
+      "status": "open"
+    },
+    {
+      "id": "Luci.repository-observability",
+      "domain": "developer-tooling",
+      "statement": "The workspace needs a deterministic way to detect missing build, test, license, capability, and integration evidence.",
+      "feature": "Local repository audit and feature-resolution report",
+      "resolution_mode": "staged-implementation",
+      "unknown_behavior": "Report missing evidence as unknown or missing; never infer a passing build from repository metadata.",
+      "verification": ["The audit works offline on a local workspace.", "Each signal includes the file path used as evidence.", "Missing files are reported as gaps, not failures of unrelated code."],
+      "status": "open"
+    },
+    {
+      "id": "Klipot.capability-ambiguity",
+      "domain": "ecosystem-planning",
+      "statement": "Multiple providers for one required capability make integration ambiguous.",
+      "feature": "Deterministic uncertainty planner and provider conflict diagnostics",
+      "resolution_mode": "fail-closed",
+      "unknown_behavior": "Reject the plan until the provider is explicitly selected or the manifest is corrected.",
+      "verification": ["Duplicate uncertainty IDs are rejected.", "Provider ambiguity remains an error.", "Resolution output is stable across runs."],
+      "status": "open"
+    }
+  ]
+}
