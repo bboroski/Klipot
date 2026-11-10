@@ -1,0 +1,16 @@
+[workspace]
+resolver = "2"
+members = ["crates/naun-core", "crates/naun-kernel", "crates/naun-cli"]
+default-members = ["crates/naun-core", "crates/naun-kernel", "crates/naun-cli"]
+
+[workspace.package]
+edition = "2021"
+license = "MIT"
+rust-version = "1.75"
+version = "0.1.0"
+
+[workspace.lints.rust]
+unsafe_op_in_unsafe_fn = "deny"
+
+[workspace.lints.clippy]
+all = "warn"
