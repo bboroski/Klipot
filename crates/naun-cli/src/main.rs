@@ -70,7 +70,10 @@ fn run_demo() -> Result<(), Box<dyn Error>> {
         );
     }
 
-    let bundle = report.outputs.first().ok_or("workflow produced no terminal artifact")?;
+    let bundle = report.outputs.first().ok_or_else(|| std::io::Error::new(
+        std::io::ErrorKind::NotFound,
+        "workflow produced no terminal artifact",
+    ))?;
     let parts = decode_bundle(&bundle.data)?;
     println!("result: {} ({} bytes)", bundle.media_type, bundle.data.len());
     for (index, part) in parts.iter().enumerate() {

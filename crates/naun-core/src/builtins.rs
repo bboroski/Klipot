@@ -16,8 +16,8 @@ impl Arm for IdentityArm {
 pub struct PrefixArm { prefix: Vec<u8> }
 
 impl PrefixArm {
-    pub fn new(prefix: impl Into<Vec<u8>>) -> Self {
-        Self { prefix: prefix.into() }
+    pub fn new(prefix: impl AsRef<[u8]>) -> Self {
+        Self { prefix: prefix.as_ref().to_vec() }
     }
 }
 

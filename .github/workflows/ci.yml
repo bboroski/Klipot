@@ -17,7 +17,7 @@ jobs:
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: rustfmt, clippy
-      - name: Check formatting
+      - name: Format Rust sources
         run: cargo fmt --all
       - name: Test workspace
         run: cargo test --workspace --all-targets
