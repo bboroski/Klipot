@@ -93,3 +93,7 @@ Host-тест доводить лише переносні програмні і
 
 - [Project-specific architecture mapping](docs/REAPER_DOMAIN_INTEGRATION.md)
 - [Canonical 50-pattern catalogue in SAMBU](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
+
+## Reaper cycle capability
+
+[Capability registry contract](docs/REAPER_CAPABILITY_REGISTRY.md) — versioned admission, provenance, quarantine, dependency validation, and rollback boundaries.
