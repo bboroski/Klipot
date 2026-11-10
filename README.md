@@ -95,3 +95,10 @@ The [cross-repository contract workflow](.github/workflows/mesh-contracts.yml) c
 <p align="center"><img src="assets/portal-ui-preview.svg" width="100%" alt="Black and yellow preview of the Klipot landing portal, project mesh and capability cards"></p>
 
 The black-and-yellow portal includes responsive navigation, animated view transitions, repository search and domain filters, copyable clone commands, four interactive API-concept labs and a shared contract guide. [Interaction and design guide](docs/PORTAL_UI.md). This SVG is a static visual preview, not a live application screenshot.
+
+
+## One-knob workflow / Один запуск / Запуск однією командою
+
+- **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
+- The default run validates the portal, checks all sibling repositories when the seven checkouts sit side by side, validates the shared mesh contracts, then opens the portal.
+- **Verify only:** run `python one.py check`. The browser labs remain simulations; real target validation stays with each hardware module.
