@@ -17,12 +17,13 @@ Klipot помогает командам видеть связи между ко
 - Ссылки на исходный код, документацию GUI и инструкции запуска.
 - Копирование clone-команд.
 - Machine-readable registry и versioned integration protocol.
+- Локальные реестры неопределённостей, детерминированный workspace planner и evidence-gated статусы реализации.
 - Browser-labs для демонстрации allocation, lifecycle, heartbeat и capability-gate.
 - CI-проверки метаданных, контрактов, схем и синтаксиса статического портала.
 
 **Важно:** browser-labs — симуляции. Они не исполняют C-код, не читают телеметрию реального оборудования, не управляют производственными fixtures и не подтверждают физическое состояние устройства.
 
-## Девять проектов экосистемы
+## Одиннадцать проектов экосистемы
 
 | Репозиторий | Роль | Текущая зрелость |
 |---|---|---|
@@ -34,9 +35,11 @@ Klipot помогает командам видеть связи между ко
 | [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-мониторинг и CRC | Host-tested core |
 | [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракты и портал | Static portal |
 | [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Documentation scaffold |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и handoff | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Проверка образа и handoff-метаданных | Host contract; no CPU transfer |
+| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Квалификация toolchain/ABI/платформ Elbrus E2K | Host qualification contract; target pending |
+| [Luci](https://github.com/bboroski/Luci) | Офлайн-аудит репозиториев и планирование функций | Early Python implementation |
 
-NUN и NUNLauncher пока не являются загружаемой ОС или загрузчиком: соответствующих реализаций в этих репозиториях нет.
+NUN проверяет boot-метаданные на host, но не является загружаемой ОС. NUNLauncher проверяет образ и handoff-структуру, но пока не передаёт управление CPU и не является готовым загрузчиком. Fragile-Baby не заявляет проверенную поддержку E2K hardware без целевых доказательств.
 
 ## Локальный запуск
 
