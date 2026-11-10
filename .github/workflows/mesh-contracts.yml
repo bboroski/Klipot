@@ -47,6 +47,16 @@ jobs:
         with:
           repository: bboroski/ReaperCripple
           path: ReaperCripple
+      - name: Checkout SAMBU
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/SAMBU
+          path: SAMBU
+      - name: Checkout ToolNG
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/ToolNG
+          path: ToolNG
       - name: Compile the optional cross-project headers
         run: |
           cc -std=c11 -Wall -Wextra -pedantic -fsyntax-only \
@@ -54,12 +64,16 @@ jobs:
             -IKloz/include -ICO/include -ISaintSI/include \
             -IReaperCripple/include \
             Klipot/tests/mesh_header_smoke.c
+      - name: Validate every repository manifest and README diagram
+        run: python Klipot/tests/validate_mesh.py
+      - name: Validate the Klipot registry JSON
+        run: python -m json.tool Klipot/registry/ecosystem.json > /dev/null
       - name: Validate every repository manifest
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          repos = ["Klipot", "Kloz", "CO", "SaintSI", "ReaperCripple"]
+          repos = ["Klipot", "Kloz", "CO", "SaintSI", "ReaperCripple", "SAMBU", "ToolNG"]
           for repo in repos:
               path = Path(repo) / ("registry/ecosystem.json" if repo == "Klipot" else "ecosystem/manifest.json")
               json.loads(path.read_text(encoding="utf-8"))
