@@ -1,10 +1,12 @@
 {
   "schema_version": 1,
-  "ecosystem": "NUN Mesh",
+  "ecosystem": "SAMBU Ecosystem",
   "control_plane": "klipot",
   "contracts": {
-    "c_abi_reference": "../contracts/mesh-envelope.h",
-    "integration_protocol": "../docs/INTEGRATION_PROTOCOL.md",
+    "integration_protocol": "docs/INTEGRATION_PROTOCOL.md",
+    "canonical_architecture": "https://github.com/bboroski/SAMBU/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md",
+    "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
+    "manifest_schema": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/module.schema.json",
     "major_version": 1
   },
   "projects": [
@@ -20,7 +22,10 @@
         "browser-labs"
       ],
       "consumes": [],
-      "url": "https://github.com/bboroski/Klipot"
+      "url": "https://github.com/bboroski/Klipot",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "klipot-control-plane"
     },
     {
       "id": "kloz",
@@ -35,7 +40,10 @@
       "consumes": [
         "board-cpu-port"
       ],
-      "url": "https://github.com/bboroski/Kloz"
+      "url": "https://github.com/bboroski/Kloz",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "kloz-platform"
     },
     {
       "id": "co",
@@ -51,7 +59,10 @@
         "application-callbacks",
         "optional-kloz-platform"
       ],
-      "url": "https://github.com/bboroski/CO"
+      "url": "https://github.com/bboroski/CO",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "co-lifecycle"
     },
     {
       "id": "saintsi",
@@ -67,7 +78,10 @@
         "caller-timebase",
         "optional-kloz-clock"
       ],
-      "url": "https://github.com/bboroski/SaintSI"
+      "url": "https://github.com/bboroski/SaintSI",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "saintsi-assurance"
     },
     {
       "id": "reapercripple",
@@ -86,7 +100,10 @@
         "fixture-evidence",
         "optional-kloz-co-saintsi-adapters"
       ],
-      "url": "https://github.com/bboroski/ReaperCripple"
+      "url": "https://github.com/bboroski/ReaperCripple",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "reapercripple-hardware"
     },
     {
       "id": "sambu",
@@ -105,7 +122,10 @@
         "host-adapters"
       ],
       "url": "https://github.com/bboroski/SAMBU",
-      "studio": "https://github.com/bboroski/SAMBU/blob/main/docs/DUCK_STUDIO.md"
+      "studio": "https://github.com/bboroski/SAMBU/blob/main/docs/DUCK_STUDIO.md",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "sambu-core"
     },
     {
       "id": "toolng",
@@ -122,7 +142,12 @@
         "windows-evidence"
       ],
       "url": "https://github.com/bboroski/ToolNG",
-      "gui": "https://github.com/bboroski/ToolNG/blob/main/docs/GUI_DESIGN.md"
+      "gui": "https://github.com/bboroski/ToolNG/blob/main/docs/GUI_DESIGN.md",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "toolng-diagnostics"
     }
-  ]
+  ],
+  "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
+  "manifest_schema": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/module.schema.json"
 }
