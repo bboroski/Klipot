@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bboroski/Klipot/blob/main/schemas/event-envelope.schema.json",
+  "title": "NUN Event Envelope v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "event_id", "producer", "sequence", "clock", "severity", "kind", "data_classification", "payload"],
+  "properties": {
+    "schema_version": {"const": "nun.event.v1"},
+    "event_id": {"type": "string", "minLength": 1},
+    "producer": {"type": "string", "minLength": 1},
+    "sequence": {"type": "integer", "minimum": 0},
+    "clock": {
+      "type": "object",
+      "required": ["kind", "value", "unit"],
+      "properties": {
+        "kind": {"const": "monotonic"},
+        "value": {"type": "integer", "minimum": 0},
+        "unit": {"type": "string", "minLength": 1}
+      },
+      "additionalProperties": false
+    },
+    "severity": {"enum": ["trace", "info", "warning", "error", "critical"]},
+    "kind": {"type": "string", "minLength": 1},
+    "data_classification": {"enum": ["public", "internal", "sensitive", "restricted"]},
+    "correlation_id": {"type": "string"},
+    "payload": {"type": "object"}
+  },
+  "description": "Sequence is monotonic per producer, not a global order. Event transport is not an authorization channel."
+}
