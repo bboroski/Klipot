@@ -18,8 +18,8 @@ EXPECTED = {
     "ReaperCripple": "reapercripple",
     "SAMBU": "sambu",
     "ToolNG": "toolng",
-    "NUN": "nun-kernel",
-    "NUNLauncher": "nun-launcher",
+    "NUN": "nun",
+    "NUNLauncher": "nunlauncher",
 }
 
 
