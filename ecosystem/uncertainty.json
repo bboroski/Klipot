@@ -1,0 +1,22 @@
+{
+  "schema_version": "klipot.uncertainty.v1",
+  "repository": "bboroski/Klipot",
+  "items": [
+    {
+      "id": "Klipot.capability-ambiguity",
+      "domain": "ecosystem-control-plane",
+      "statement": "Cross-repository manifests may contain incomplete, contradictory or ambiguously owned capability declarations.",
+      "feature": "Workspace uncertainty aggregation, provider conflict diagnostics and evidence-gated resolution planning",
+      "resolution_mode": "fail-closed",
+      "unknown_behavior": "Do not generate an execution plan when required capabilities are unresolved or multiple providers are ambiguous.",
+      "verification": [
+        "Every repository-local uncertainty registry validates against the common contract.",
+        "Workspace plans are stable regardless of repository input order.",
+        "Duplicate repository IDs and duplicate uncertainty IDs are rejected.",
+        "Implemented items stay open until acceptance evidence exists."
+      ],
+      "implementation_status": "implemented",
+      "status": "open"
+    }
+  ]
+}
