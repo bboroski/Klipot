@@ -1,87 +1,89 @@
-# Klipot — Ecosystem Integration & Control Plane
+<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Duck mark" width="104" /></p>
+<h1 align="center">Klipot</h1>
+<p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
+<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/LICENSE-MIT-FFD600?style=for-the-badge&labelColor=111111" /></p>
+<p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<hr />
 
-**A module catalog, contract registry, and operator portal for independent engineering components.**
+**A single map of the engineering ecosystem: modules, contracts, documentation, and an operator portal—without forcing independent runtimes into one monolith.**
 
-Klipot connects documentation, capability registries, versioned integration contracts, and browser labs. It helps users explore architecture and responsibility boundaries without collapsing distinct runtime components into an indistinguishable monolith.
+## Product position
 
-[Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Repository](https://github.com/bboroski/Klipot) · [Public portal](https://bboroski.github.io/Klipot/)
-<p align="center"><img src="assets/nun-mesh-overview.svg" alt="Nine-repository integration map" width="100%"></p>
-
-## The nine repositories
-
-| Repository | Responsibility | Current state |
-|---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Language, IDE, Studio, and workflow tooling | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Native Windows diagnostics and local evidence reports | Desktop application |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, calibration, and manufacturing engineering | Host-tested; target validation required |
-| [Kloz](https://github.com/bboroski/Kloz) | C11 platform ABI, bounded memory, and CPU/board services | Host-tested core |
-| [CO](https://github.com/bboroski/CO) | Deterministic component lifecycle runtime | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat supervision and accidental-corruption checks | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Repository catalog, contracts, and integration portal | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Minimal operating-system kernel specification | Documentation scaffold; no kernel implementation |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Kernel bootstrap and handoff specification | Documentation scaffold; no loader implementation |
-
-NUN and NUNLauncher are not yet a bootable OS or a bootloader. Their READMEs describe proposed boundaries and do not claim missing implementations as completed features.
+Klipot helps teams understand how components relate, who owns each responsibility, and which integration contracts are documented. It is a catalog and control plane for transparent coordination, not a hidden monolith.
 
 ## Portal capabilities
 
-- module directory with domain filters and search;
-- links to source repositories, GUI documentation, and run instructions;
-- copyable clone commands;
-- machine-readable registry and versioned integration protocol;
-- interactive browser labs demonstrating allocation, lifecycle, heartbeat, and capability-gate concepts;
-- CI validation of metadata, contracts, and static-portal syntax.
+- Module catalog with domain filters and search.
+- Links to source code, GUI documentation, and run instructions.
+- Copyable clone commands.
+- Machine-readable registry and versioned integration protocol.
+- Browser labs demonstrating allocation, lifecycle, heartbeat, and capability-gate concepts.
+- CI checks for metadata, contracts, schemas, and static-portal syntax.
 
-**Browser labs are simulations.** They do not execute C code, read telemetry from physical hardware, control production fixtures, or prove a device's physical state.
+**Important:** browser labs are simulations. They do not execute C code, read live hardware telemetry, control manufacturing fixtures, or prove physical device state.
+
+## The nine ecosystem projects
+
+| Repository | Role | Current maturity |
+|---|---|---|
+| [SAMBU](https://github.com/bboroski/SAMBU) | Language, IDE, modeling, and workflows | Experimental alpha |
+| [ToolNG](https://github.com/bboroski/ToolNG) | Windows diagnostics and local evidence | Windows desktop utility |
+| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, calibration, and manufacturing | Host-tested; target validation required |
+| [Kloz](https://github.com/bboroski/Kloz) | Portable C11 substrate and platform ABI | Host-tested core |
+| [CO](https://github.com/bboroski/CO) | Deterministic component lifecycle | Host-tested core |
+| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat monitoring and CRC | Host-tested core |
+| [Klipot](https://github.com/bboroski/Klipot) | Catalog, contracts, and portal | Static portal |
+| [NUN](https://github.com/bboroski/NUN) | Minimal OS-kernel specification | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Bootstrap and handoff specification | Documentation scaffold |
+
+NUN and NUNLauncher are not yet a bootable OS or loader: the corresponding implementations are not present in those repositories.
 
 ## Run locally
 
-Open <code>index.html</code> in a modern browser. No external framework or JavaScript package is required.
+Open <code>index.html</code> in a modern browser or start a local server:
 
 ~~~bash
 python -m http.server 8080
 ~~~
 
-Then open <code>http://localhost:8080</code>.
+Then open <code>http://localhost:8080</code>. No external JavaScript framework or package is required.
 
-## Publish
+## Publishing and checks
 
-The portal is published through the GitHub Pages workflow at <code>.github/workflows/pages.yml</code>. Configure **Settings → Pages → GitHub Actions** once in repository settings. Subsequent changes to the default branch are handled by the workflow.
+The portal uses the GitHub Pages workflow at <code>.github/workflows/pages.yml</code>. The repository setting must be **Settings → Pages → GitHub Actions**.
 
-## Architecture rules
+~~~bash
+python one.py
+python one.py check
+~~~
 
-1. **Domain ownership:** each module owns its code, API, tests, and release decisions.
-2. **Explicit coupling:** integrations use versioned interfaces, not hidden global state.
-3. **Evidence before status:** observed, not found, unknown, failed, and passed are distinct.
-4. **Bounded execution:** capacity, ownership, timeout, and cleanup are documented explicitly.
-5. **Honest maturity:** an adapter-ready contract is not described as a finished production integration.
+The check command validates the portal, manifests, schemas, and JavaScript without opening a browser.
 
-## Verification and boundaries
+## Ecosystem governance
 
-A host test validates portable software invariants only. Target compiler, linker map, board revision, fixtures, measurement provenance, and hardware-in-the-loop checks are separate evidence gates. Klipot displays these boundaries; it does not waive them.
+1. **Domain ownership:** each module owns its code, API, tests, and release.
+2. **Explicit links:** integrations use versioned interfaces rather than hidden globals.
+3. **Evidence before status:** observed, not found, unknown, failed, and passed remain distinct.
+4. **Bounded execution:** capacity, ownership, timeout, and cleanup are documented.
+5. **Honest maturity:** an adapter-ready contract is not described as a completed production integration.
 
+## Readiness criteria
+
+A host test proves portable software invariants only. Target compiler checks, linker maps, board revisions, fixtures, measurement provenance, and hardware-in-the-loop are separate evidence gates.
+
+Documentation:
 - [Shared integration protocol](docs/INTEGRATION_PROTOCOL.md)
 - [Module registry](registry/ecosystem.json)
 - [Portal UI guide](docs/PORTAL_UI.md)
 
 ## Technical identity
 
-**Klipot** is the canonical portal and control-plane name. The current GitHub path and public Pages URL remain stable addresses.
+**Klipot** is the canonical portal and control-plane name. The GitHub path and public Pages URL are stable project addresses.
+
+## Ecosystem
+
+[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher).
 
 ## License
 
-MIT. See [LICENSE](LICENSE).
-
-
-## One-knob launch
-
-- **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
-- `python one.py check` validates the portal, manifests, schemas and JavaScript without opening a browser.
-- When all nine repositories are checked out as sibling directories, mesh mode also runs `one.py check` in every module and validates cross-repository contracts. The default run opens the portal after checks.
-
-## Academic biology glossary
-
-- [500 academic terms EN–RU](data/biology/academic_terms_500.tsv)
-- [Data contract and usage boundaries](docs/BIOLOGY_DOMAIN_PACK.md)
-
-An offline reference pack for education and metadata; it does not control systems, devices or diagnostics.
+MIT — see [LICENSE](LICENSE).
