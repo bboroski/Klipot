@@ -146,6 +146,34 @@
       "module_manifest": "sambu.module.json",
       "ecosystem": "SAMBU",
       "module_id": "toolng-diagnostics"
+    },
+    {
+      "id": "nun",
+      "repository": "bboroski/NUN",
+      "role": "minimal-operating-system-kernel-specification",
+      "maturity": "documentation-scaffold-no-kernel-implementation",
+      "provides": [
+        "kernel-architecture-documentation"
+      ],
+      "consumes": [],
+      "url": "https://github.com/bboroski/NUN",
+      "ecosystem": "NUN",
+      "module_id": "nun-kernel"
+    },
+    {
+      "id": "nunlauncher",
+      "repository": "bboroski/NUNLauncher",
+      "role": "kernel-bootstrap-and-handoff-specification",
+      "maturity": "documentation-scaffold-no-loader-implementation",
+      "provides": [
+        "kernel-bootstrap-documentation"
+      ],
+      "consumes": [
+        "NUN kernel specification"
+      ],
+      "url": "https://github.com/bboroski/NUNLauncher",
+      "ecosystem": "NUN",
+      "module_id": "nunlauncher-bootstrap"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
