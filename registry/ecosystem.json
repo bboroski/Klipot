@@ -35,7 +35,10 @@
       "provides": [
         "fixed-capacity-memory",
         "versioned-platform-ops",
-        "stable-status-abi"
+        "stable-status-abi",
+        "generation-bound-arena-markers",
+        "arena-high-water-accounting",
+        "checkpoint-rewind"
       ],
       "consumes": [
         "board-cpu-port"
@@ -53,7 +56,9 @@
       "provides": [
         "deterministic-lifecycle",
         "bounded-poll",
-        "rollback-aware-shutdown"
+        "rollback-aware-shutdown",
+        "bounded-multi-stage-pipeline",
+        "stage-transition-markers"
       ],
       "consumes": [
         "application-callbacks",
@@ -72,7 +77,9 @@
       "provides": [
         "bounded-heartbeats",
         "rollover-safe-health-check",
-        "crc32-corruption-check"
+        "crc32-corruption-check",
+        "versioned-integrity-markers",
+        "portable-status-snapshots"
       ],
       "consumes": [
         "caller-timebase",
@@ -93,7 +100,9 @@
         "staged-bootstrap",
         "calibration",
         "fixture-recipes",
-        "mes-events"
+        "mes-events",
+        "bounded-quintic-motion-planner",
+        "animatronic-setpoint-reference"
       ],
       "consumes": [
         "board-specific-profile",
@@ -115,7 +124,10 @@
         "ide",
         "duck-studio",
         "workflow-descriptions",
-        "policy-analysis"
+        "policy-analysis",
+        "deterministic-physics-reference-models",
+        "quintic-motion-sampling",
+        "animatronic-joint-limit-validation"
       ],
       "consumes": [
         "versioned-schemas",
@@ -174,6 +186,28 @@
       "url": "https://github.com/bboroski/NUNLauncher",
       "ecosystem": "NUN",
       "module_id": "nunlauncher-bootstrap"
+    },
+    {
+      "id": "fragile-baby",
+      "repository": "bboroski/Fragile-Baby",
+      "role": "incubation-placeholder",
+      "maturity": "incubating-unscoped",
+      "provides": [],
+      "consumes": [],
+      "integration_eligible": false,
+      "promotion_gate": "docs/ENGINEERING_PROMOTION_GATE.md",
+      "url": "https://github.com/bboroski/Fragile-Baby"
+    },
+    {
+      "id": "luci",
+      "repository": "bboroski/Luci",
+      "role": "incubation-placeholder",
+      "maturity": "incubating-unscoped",
+      "provides": [],
+      "consumes": [],
+      "integration_eligible": false,
+      "promotion_gate": "docs/ENGINEERING_PROMOTION_GATE.md",
+      "url": "https://github.com/bboroski/Luci"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
