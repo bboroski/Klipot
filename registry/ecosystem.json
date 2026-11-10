@@ -1,0 +1,13 @@
+{
+ "schema_version":1,"ecosystem":"NUN Mesh","control_plane":"klipot",
+ "contracts":{"c_abi_reference":"../contracts/mesh-envelope.h","integration_protocol":"../docs/INTEGRATION_PROTOCOL.md","major_version":1},
+ "projects":[
+  {"id":"klipot","repository":"bboroski/Klipot","role":"control-plane","maturity":"portal-bootstrap","provides":["registry","project-navigation","contract-catalog","browser-labs"],"consumes":[],"url":"https://github.com/bboroski/Klipot"},
+  {"id":"kloz","repository":"bboroski/Kloz","role":"platform-substrate","maturity":"host-tested-core","provides":["fixed-capacity-memory","versioned-platform-ops","stable-status-abi"],"consumes":["board-cpu-port"],"url":"https://github.com/bboroski/Kloz"},
+  {"id":"co","repository":"bboroski/CO","role":"lifecycle-runtime","maturity":"host-tested-core","provides":["deterministic-lifecycle","bounded-poll","rollback-aware-shutdown"],"consumes":["application-callbacks","optional-kloz-platform"],"url":"https://github.com/bboroski/CO"},
+  {"id":"saintsi","repository":"bboroski/SaintSI","role":"runtime-assurance","maturity":"host-tested-core","provides":["bounded-heartbeats","rollover-safe-health-check","crc32-corruption-check"],"consumes":["caller-timebase","optional-kloz-clock"],"url":"https://github.com/bboroski/SaintSI"},
+  {"id":"reapercripple","repository":"bboroski/ReaperCripple","role":"hardware-manufacturing","maturity":"host-tested-core-hardware-validation-required","provides":["bsp-adapters","staged-bootstrap","calibration","fixture-recipes","mes-events"],"consumes":["board-specific-profile","fixture-evidence","optional-kloz-co-saintsi-adapters"],"url":"https://github.com/bboroski/ReaperCripple"},
+  {"id":"sambu","repository":"bboroski/SAMBU","role":"language-and-tooling","maturity":"experimental-alpha","provides":["sambu-language","ide","duck-studio","workflow-descriptions","policy-analysis"],"consumes":["versioned-schemas","host-adapters"],"url":"https://github.com/bboroski/SAMBU","studio":"https://github.com/bboroski/SAMBU/blob/main/docs/DUCK_STUDIO.md"},
+  {"id":"toolng","repository":"bboroski/ToolNG","role":"windows-diagnostics","maturity":"native-desktop","provides":["apple-usb-observation","local-reports","evidence-quality-gate"],"consumes":["portable-sambu-policy-workflow-core","windows-evidence"],"url":"https://github.com/bboroski/ToolNG","gui":"https://github.com/bboroski/ToolNG/blob/main/docs/GUI_DESIGN.md"}
+ ]
+}
