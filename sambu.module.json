@@ -1,0 +1,50 @@
+{
+  "module_id": "klipot-control-plane",
+  "repository": "bboroski/Klipot",
+  "display_name": "Klipot",
+  "version": null,
+  "role": "ecosystem-registry-and-operator-control-plane",
+  "runtime": [
+    "Static HTML",
+    "CSS",
+    "JavaScript",
+    "Modern browser"
+  ],
+  "maturity": "portal-and-browser-simulations",
+  "provides": [
+    "module-discovery",
+    "dependency-graph-presentation",
+    "contract-catalog",
+    "browser-api-simulations",
+    "operator-navigation"
+  ],
+  "consumes": [
+    "sambu-ecosystem-registry-v1",
+    "sambu-module-manifest-v1",
+    "public-repository-metadata"
+  ],
+  "dependencies": [
+    {
+      "module_id": "sambu-core",
+      "relation": "metadata-projection",
+      "status": "mirrored",
+      "scope": "Klipot presents a local mirror of the canonical SAMBU registry; it is not a firmware or SAMBU runtime dependency."
+    }
+  ],
+  "boundaries": [
+    "Browser labs simulate API concepts and do not execute embedded C code or access real hardware.",
+    "The portal does not control firmware, production fixtures, or device state.",
+    "Each project retains its own release, tests, and safety authority."
+  ],
+  "verification": {
+    "host_tests": "Static asset and Pages workflow checks are documented; run the portal validation workflow.",
+    "target_validation": "Not applicable to the static portal; embedded target validation belongs to the relevant module.",
+    "evidence": [
+      "README.md",
+      "docs/INTEGRATION_PROTOCOL.md",
+      "registry/ecosystem.json"
+    ]
+  },
+  "schema_version": 1,
+  "ecosystem": "SAMBU"
+}
