@@ -22,7 +22,7 @@ Klipot helps teams understand how components relate, who owns each responsibilit
 
 **Important:** browser labs are simulations. They do not execute C code, read live hardware telemetry, control manufacturing fixtures, or prove physical device state.
 
-## The nine ecosystem projects
+## The eleven ecosystem projects
 
 | Repository | Role | Current maturity |
 |---|---|---|
@@ -87,3 +87,8 @@ Documentation:
 ## License
 
 Earlier project documentation declared MIT, but this repository has no LICENSE file. Confirm the license and add its full text before distribution.
+
+
+## Product system
+
+A shared system for Duck design, capability governance, multilingual documentation, marketing claims and release management: [docs/PRODUCT_SYSTEM.md](docs/PRODUCT_SYSTEM.md). The registry can scale to 10,000 capability IDs; only code-backed, tested capabilities count as implemented.
