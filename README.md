@@ -87,3 +87,10 @@ Klipot remains the static registry portal and operator-facing workbench. Its reg
 The [cross-repository contract workflow](.github/workflows/mesh-contracts.yml) checks the optional C header adapters against the current default branches of Kloz, CO, SaintSI and ReaperCripple. It also validates the seven manifests, localized README diagrams and portal JavaScript syntax. It is a compile/metadata check, not a hardware qualification test.
 
 [ Kloz manifest ](ecosystem/manifest.json) · [ Mesh protocol ](docs/INTEGRATION_PROTOCOL.md) · [ Registry ](registry/ecosystem.json)
+
+
+## Portal interface preview
+
+<p align="center"><img src="assets/portal-ui-preview.svg" width="100%" alt="Static UI preview of the Klipot responsive dashboard and project workspace"></p>
+
+The UI includes animated view transitions, responsive project cards, search/filter controls, pressed/hover states and interactive API-concept labs. [Interaction and design guide](docs/PORTAL_UI.md). This SVG is a static illustration of the layout, not a live application screenshot.
