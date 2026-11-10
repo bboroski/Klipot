@@ -42,6 +42,7 @@ The labs simulate API concepts in the browser. They do not execute C code, colle
 - [Integration protocol](docs/INTEGRATION_PROTOCOL.md) — responsibility boundaries, adapter status, versioning and evidence semantics.
 - [Mesh envelope reference](contracts/mesh-envelope.h) — a fixed-width, versioned C record layout for optional cross-project observations. It is not a transport or a serialization format.
 - [Machine-readable registry](registry/ecosystem.json) — project roles, provided/consumed capabilities and maturity labels.
+- [Multilingual signal contract](docs/MULTILINGUAL_SIGNAL_CONTRACT.md) — presentation boundary for the canonical [SAMBU metadata schema](https://github.com/bboroski/SAMBU/blob/main/schemas/text-signal-envelope.schema.json).
 
 The embedded libraries remain independently buildable. Optional adapters are explicit and must preserve their host projects' allocation, timing, concurrency and safety guarantees. The portal is not linked into firmware.
 
