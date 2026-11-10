@@ -1,87 +1,89 @@
-# Klipot — Ecosystem Integration & Control Plane
+<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Duck mark" width="104" /></p>
+<h1 align="center">Klipot</h1>
+<p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
+<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/LICENSE-MIT-FFD600?style=for-the-badge&labelColor=111111" /></p>
+<p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<hr />
 
-**Каталог модулів, реєстр контрактів і операторський портал для незалежних інженерних компонентів.**
+**Єдина карта інженерної екосистеми: модулі, контракти, документація та операторський портал — без штучного злиття незалежних runtime.**
 
-Klipot пов'язує документацію, реєстри можливостей, версійовані інтеграційні контракти та browser-labs. Він допомагає дослідити архітектуру й межі відповідальності, не зливаючи окремі runtime-компоненти в один нерозрізнений моноліт.
+## Продуктова роль
 
-[Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Репозиторій](https://github.com/bboroski/Klipot) · [Публічний портал](https://bboroski.github.io/Klipot/)
-<p align="center"><img src="assets/nun-mesh-overview.svg" alt="Nine-repository integration map" width="100%"></p>
+Klipot допомагає командам бачити, як пов'язані компоненти, хто володіє кожною зоною відповідальності та які інтеграційні контракти вже описані. Це каталог і control plane для прозорої координації, а не прихований моноліт.
 
-## Дев'ять репозиторіїв
+## Що надає портал
 
-| Репозиторій | Відповідальність | Поточний стан |
+- Каталог модулів із фільтрами за доменом і пошуком.
+- Посилання на вихідний код, GUI-документацію та інструкції запуску.
+- Копіювання clone-команд.
+- Machine-readable registry та versioned integration protocol.
+- Browser-labs для демонстрації allocation, lifecycle, heartbeat і capability-gate концепцій.
+- CI-перевірку метаданих, контрактів, схем і синтаксису статичного порталу.
+
+**Важливо:** browser-labs є симуляціями. Вони не виконують C-код, не читають телеметрію реального обладнання, не керують виробничими fixtures і не доводять фізичний стан пристрою.
+
+## Дев'ять проєктів екосистеми
+
+| Репозиторій | Роль | Поточна зрілість |
 |---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Мова, IDE, Studio та workflow-інструменти | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Нативна діагностика Windows і локальні звіти доказів | Desktop application |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калібрування та виробнича інженерія | Host-tested; target validation required |
-| [Kloz](https://github.com/bboroski/Kloz) | C11 platform ABI, пам'ять фіксованої місткості та платформи CPU/board | Host-tested core |
+| [SAMBU](https://github.com/bboroski/SAMBU) | Мова, IDE, modeling і workflow | Experimental alpha |
+| [ToolNG](https://github.com/bboroski/ToolNG) | Windows-діагностика та локальні докази | Windows desktop utility |
+| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калібрування й виробництво | Host-tested; target validation required |
+| [Kloz](https://github.com/bboroski/Kloz) | Переносний C11 substrate та platform ABI | Host-tested core |
 | [CO](https://github.com/bboroski/CO) | Детермінований життєвий цикл компонентів | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-нагляд і перевірка випадкового пошкодження | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракти та портал інтеграції | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Documentation scaffold; no kernel implementation |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і передачі керування ядру | Documentation scaffold; no loader implementation |
+| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-нагляд і CRC | Host-tested core |
+| [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракти та портал | Static portal |
+| [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Documentation scaffold |
 
-NUN і NUNLauncher поки що не є завантажуваною ОС або завантажувачем. Їхні README описують заплановані межі та не заявляють відсутні реалізації як готові функції.
-
-## Можливості порталу
-
-- каталог модулів із фільтрами за доменом і пошуком;
-- посилання на вихідний код, GUI-документацію та інструкції запуску;
-- копіювання clone-команд;
-- machine-readable registry і versioned integration protocol;
-- інтерактивні browser-labs для демонстрації allocation, lifecycle, heartbeat і capability-gate концепцій;
-- CI-перевірка метаданих, контрактів і синтаксису статичного порталу.
-
-**Browser-labs є симуляціями.** Вони не виконують C-код, не читають телеметрію реального обладнання, не керують виробничими fixtures і не доводять фізичний стан пристрою.
+NUN і NUNLauncher наразі не є завантажуваною ОС або завантажувачем: у цих репозиторіях ще немає відповідних реалізацій.
 
 ## Локальний запуск
 
-Відкрийте <code>index.html</code> у сучасному браузері. Зовнішній framework або пакет JavaScript не потрібен.
+Відкрийте <code>index.html</code> у сучасному браузері або запустіть локальний сервер:
 
 ~~~bash
 python -m http.server 8080
 ~~~
 
-Потім відкрийте <code>http://localhost:8080</code>.
+Потім відкрийте <code>http://localhost:8080</code>. Зовнішній framework чи пакет JavaScript не потрібен.
 
-## Публікація
+## Публікація та перевірки
 
-Портал публікується через GitHub Pages workflow у <code>.github/workflows/pages.yml</code>. У налаштуваннях репозиторію потрібно один раз вибрати **Settings → Pages → GitHub Actions**. Подальші зміни основної гілки проходять через workflow автоматично.
+Портал використовує GitHub Pages workflow у <code>.github/workflows/pages.yml</code>. У налаштуваннях репозиторію має бути вибрано **Settings → Pages → GitHub Actions**.
 
-## Архітектурні правила
+~~~bash
+python one.py
+python one.py check
+~~~
+
+Перевірка не відкриває браузер: вона перевіряє портал, маніфести, схеми та JavaScript.
+
+## Управління екосистемою
 
 1. **Володіння доменом:** кожен модуль володіє своїм кодом, API, тестами та релізом.
-2. **Явний зв'язок:** інтеграція йде через версійовані інтерфейси, а не приховані глобальні змінні.
-3. **Докази перед статусом:** розрізняються observed, not found, unknown, failed і passed.
+2. **Явний зв'язок:** інтеграції проходять через версійовані інтерфейси, а не приховані глобальні змінні.
+3. **Докази перед статусом:** відрізняються observed, not found, unknown, failed і passed.
 4. **Обмежене виконання:** capacity, ownership, timeout і cleanup документуються явно.
 5. **Чесна зрілість:** adapter-ready контракт не називається завершеною production-інтеграцією.
 
-## Перевірка та межі
+## Критерії готовності
 
-Host-тест доводить лише переносні програмні інваріанти. Перевірка цільового компілятора, linker map, board revision, fixtures, походження вимірювань і hardware-in-the-loop — окремі evidence gates. Klipot показує ці межі, а не скасовує їх.
+Host-тест доводить лише переносні програмні інваріанти. Перевірка цільового компілятора, linker map, board revision, fixtures, походження вимірювань і hardware-in-the-loop — окремі evidence gates.
 
+Документація:
 - [Спільний протокол інтеграції](docs/INTEGRATION_PROTOCOL.md)
 - [Реєстр модулів](registry/ecosystem.json)
 - [Посібник з UI порталу](docs/PORTAL_UI.md)
 
 ## Технічна ідентичність
 
-**Klipot** — канонічна назва порталу й control plane. Поточний GitHub-шлях і публічний Pages URL збережені як стабільні адреси.
+**Klipot** — канонічна назва порталу й control plane. GitHub-шлях і публічний Pages URL є стабільними адресами проєкту.
+
+## Екосистема
+
+[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher).
 
 ## Ліцензія
 
-MIT. Див. [LICENSE](LICENSE).
-
-
-## Запуск однією командою
-
-- **Windows:** двічі клацніть `one.cmd`; на будь-якій ОС використовуйте `python one.py`.
-- `python one.py check` перевіряє портал, маніфести, схеми та JavaScript без відкриття браузера.
-- Якщо всі дев'ять репозиторіїв розташовані поруч, mesh-runner додатково запускає `one.py check` кожного модуля та перевіряє міжрепозиторні контракти. Звичайний запуск після перевірки відкриває портал.
-
-## Академический биологический словарь
-
-- [500 академических терминов EN–RU](data/biology/academic_terms_500.tsv)
-- [Контракт и правила использования](docs/BIOLOGY_DOMAIN_PACK.md)
-
-Справочный офлайн-набор для обучения и метаданных; он не управляет системами, устройствами и диагностикой.
+MIT — див. [LICENSE](LICENSE).
