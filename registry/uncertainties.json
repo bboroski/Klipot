@@ -10,6 +10,7 @@
       "resolution_mode": "feature-flag",
       "unknown_behavior": "Keep native compilation disabled unless the selected target backend passes its conformance checks.",
       "verification": ["Parser-to-IR lowering tests pass.", "Object emission and linker integration are tested for each declared target.", "The binary executes in a documented emulator or target environment."],
+      "implementation_status": "planned",
       "status": "open"
     },
     {
@@ -20,6 +21,7 @@
       "resolution_mode": "probe",
       "unknown_behavior": "Report unknown or unavailable separately from a confirmed negative result.",
       "verification": ["Unavailable scan is not reported as no device.", "Coverage is displayed separately from readiness score.", "Tests cover contradictory evidence."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -30,6 +32,7 @@
       "resolution_mode": "human-gate",
       "unknown_behavior": "Do not mark a target READY based on host tests alone.",
       "verification": ["Each target identifies exact compiler, board revision, linker script, fixtures, and test evidence.", "READY requires target qualification.", "Missing measurements keep lifecycle degraded or unqualified."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -38,8 +41,9 @@
       "statement": "An unadvertised capability and an invalid advertised capability are different conditions.",
       "feature": "Tri-state platform capability query",
       "resolution_mode": "probe",
-      "unknown_behavior": "Invalid platform tables return UNKNOWN; an absent capability in a valid table returns UNAVAILABLE.",
+      "unknown_behavior": "Invalid platform tables return INVALID; an absent capability in a valid table returns UNAVAILABLE; no table returns UNKNOWN.",
       "verification": ["Every advertised capability has its required callback.", "A capability query distinguishes UNKNOWN, UNAVAILABLE, AVAILABLE, and INVALID.", "Legacy validation behavior remains covered."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -50,16 +54,18 @@
       "resolution_mode": "explicit-config",
       "unknown_behavior": "CO does not invent a scheduler, concurrency guarantee, deadline, or watchdog policy.",
       "verification": ["The runtime exposes lifecycle outcomes without owning scheduling.", "Concurrent access requirements are documented by the caller.", "Unsupported policy requests return an explicit error."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
       "id": "SaintSI.empty-coverage",
       "domain": "observability",
-      "statement": "An empty component registry currently has no heartbeat evidence and must not be mistaken for a healthy system.",
-      "feature": "Unknown/unobserved health state with coverage counters",
+      "statement": "An empty component registry has no heartbeat evidence and must not be mistaken for a healthy system.",
+      "feature": "Unknown/unobserved health state with component counters",
       "resolution_mode": "staged-implementation",
       "unknown_behavior": "Return UNKNOWN when no components are registered; HEALTHY requires at least one observed component.",
       "verification": ["An empty registry reports UNKNOWN.", "A fresh registered component reports HEALTHY.", "A stale component reports DEGRADED."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -70,6 +76,7 @@
       "resolution_mode": "explicit-config",
       "unknown_behavior": "Reject boot handoff when architecture, memory map, or ABI version is unknown or invalid.",
       "verification": ["Malformed boot information is rejected.", "Memory ranges are checked for overflow and overlap.", "Only an explicitly selected architecture is accepted."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -79,7 +86,8 @@
       "feature": "Separated build profiles and a shared versioned handoff contract",
       "resolution_mode": "explicit-config",
       "unknown_behavior": "Never mix Android app code with privileged boot code or imply that an Android launcher can load a kernel.",
-      "verification": ["Build profiles are separate.", "Boot profile validates an image and prepares handoff data.", "Android profile is reported as specification-only until an app target is implemented."],
+      "verification": ["Build profiles are separate.", "Boot profile validates an image and prepares handoff data.", "Android profile remains specification-only until an Android application target is implemented."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -90,6 +98,7 @@
       "resolution_mode": "explicit-config",
       "unknown_behavior": "Do not infer compiler names, CPU features, ABI details, or hardware support; refuse target builds until an explicit toolchain is supplied.",
       "verification": ["Compiler and sysroot are supplied by the operator.", "Target identity is emitted in the build report.", "ABI probes run with the selected toolchain.", "Hardware support is marked verified only with target evidence."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -100,6 +109,7 @@
       "resolution_mode": "staged-implementation",
       "unknown_behavior": "Report missing evidence as unknown or missing; never infer a passing build from repository metadata.",
       "verification": ["The audit works offline on a local workspace.", "Each signal includes the file path used as evidence.", "Missing files are reported as gaps, not failures of unrelated code."],
+      "implementation_status": "implemented",
       "status": "open"
     },
     {
@@ -110,6 +120,7 @@
       "resolution_mode": "fail-closed",
       "unknown_behavior": "Reject the plan until the provider is explicitly selected or the manifest is corrected.",
       "verification": ["Duplicate uncertainty IDs are rejected.", "Provider ambiguity remains an error.", "Resolution output is stable across runs."],
+      "implementation_status": "implemented",
       "status": "open"
     }
   ]
