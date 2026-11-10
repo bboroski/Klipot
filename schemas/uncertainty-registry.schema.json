@@ -24,6 +24,7 @@
           },
           "unknown_behavior": {"type": "string", "minLength": 1},
           "status": {"enum": ["open", "resolved", "blocked"], "default": "open"},
+          "implementation_status": {"enum": ["planned", "implemented", "verified"], "default": "planned"},
           "evidence": {"type": "array", "items": {"type": "string", "minLength": 1}},
           "verification": {"type": "array", "minItems": 1, "items": {"type": "string", "minLength": 1}}
         }
