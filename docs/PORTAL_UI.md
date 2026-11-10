@@ -15,7 +15,7 @@ The quick-start action copies the Klipot clone command. All actions are native l
 
 ## Visual system
 
-The visual language is strict black / graphite / signal yellow:
+The live portal has been normalized to the shared Duck palette. CSS variables in `index.html` map to the machine-readable `design/duck-ui.tokens.json` values: canvas `#0D0D0D`, elevated surfaces `#1A1A1A` / `#141414`, signal yellow `#FFD600`, secondary accent `#BFA100`, selected state `#332B00`, text `#E6E6E6`, muted text `#999999`, borders `#262626`, success `#4CAF50` and error `#FF4444`. The visual language is strict black / graphite / signal yellow:
 
 | Token | Use |
 |---|---|
@@ -25,7 +25,7 @@ The visual language is strict black / graphite / signal yellow:
 | Warm grey | Supporting copy and secondary labels |
 | Green / amber / red | Lab outcomes only: accepted, review or rejected |
 
-The page uses a responsive top navigation, layered hero, system-map illustration, metric strip, capability cards, project cards, labs and protocol panels. Hover and pressed states are visible. Cards lift subtly; view transitions are short and can be reduced by the operating-system preference.
+The page uses a responsive top navigation, layered hero, system-map illustration, metric strip, capability cards, project cards, labs and protocol panels. `assets/portal-ui-preview.svg` is a high-resolution vector design reference, not a screenshot of the running page. Hover and pressed states are visible. Cards lift subtly; view transitions are short and can be reduced by the operating-system preference.
 
 ## Interaction contract
 
