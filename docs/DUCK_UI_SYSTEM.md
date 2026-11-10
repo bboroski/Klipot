@@ -1,17 +1,41 @@
-# Duck UI foundation — Klipot
+# Duck UI system — Klipot
 
-**Status:** visual foundation only. This repository had no application source or UI to redesign when the theme was added. No working desktop or web application is claimed by this document.
+**Status:** applied to the existing single-file HTML/CSS/JavaScript control portal in `index.html`.
 
-## Shared visual contract
+## Product surface
 
-The canonical machine-readable tokens are in [`design/duck-ui.tokens.json`](../design/duck-ui.tokens.json). Use deep graphite `#0D0D0D`, panels `#1A1A1A` / `#141414`, primary yellow `#FFD600`, secondary yellow `#BFA100`, text `#E6E6E6`, muted text `#999999`, dividers `#262626`, success `#4CAF50` and errors `#FF4444`.
+Klipot is the operator-facing control plane for the seven-project engineering mesh. The actual portal contains four client-side views: Overview, Projects, Interactive labs and Mesh protocol. Search/filter, navigation, clone-copy actions and browser-side concept labs remain implemented in the page itself. The labs are simulations; they do not run embedded C code or produce hardware evidence.
 
-## Rules for future application screens
+## Applied visual system
 
-- Create a shared shell: header, collapsible sidebar, workspace, contextual inspector and durable status region.
-- Yellow is reserved for primary actions, active navigation, focus and progress.
-- Support 85–150% application zoom and OS DPI scaling; test 1366×768, 1920×1080 and 4K.
-- Prefer vector icons and SVG illustrations. Avoid low-resolution bitmap logos.
-- Keep reports and help content inside the application; external browser navigation is opt-in.
-- Keyboard navigation, 2 px focus indication, high-contrast mode and reduced motion are requirements.
-- Do not claim screenshots of a live application until a real build has been launched and captured.
+The canonical machine-readable source of truth is [`design/duck-ui.tokens.json`](../design/duck-ui.tokens.json). The live CSS variables in `index.html` use the matching palette:
+
+- Canvas: `#0D0D0D`
+- Elevated surfaces: `#1A1A1A` and `#141414`
+- Signal yellow: `#FFD600`
+- Secondary yellow: `#BFA100`
+- Selected state: `#332B00`
+- Primary text: `#E6E6E6`
+- Muted text: `#999999`
+- Dividers: `#262626`
+- Success / error: `#4CAF50` / `#FF4444`
+
+Yellow is reserved for the duck mark, primary actions, active navigation, focus and priority signals. The visual layer respects responsive layout and reduced-motion preferences. New interactions must preserve visible hover, pressed and keyboard-focus states.
+
+## Interaction and accessibility
+
+- Keep the existing four views and URL-hash navigation.
+- Preserve project search/filter and working copy controls.
+- Keep every lab outcome labelled as a simulation, with no claim of live device or hardware access.
+- Use semantic elements and keyboard-visible focus.
+- Respect reduced-motion preferences.
+- Keep essential documentation in portal views where practical; external links are used only for source repositories and explicitly external resources.
+- Never introduce inert buttons or mock controls that appear operational.
+
+## Vector preview policy
+
+[`assets/portal-ui-preview.svg`](../assets/portal-ui-preview.svg) is a high-resolution static vector layout preview, not a screenshot of the live portal. It must remain labelled as a preview. Runtime screenshots require a browser capture of the running page at a stated viewport size and must be kept distinct from the SVG illustration.
+
+## Validation
+
+After any portal change, run the repository's Pages workflow or equivalent local checks for inline JavaScript syntax, required interaction markers, SVG parsing, and responsive/reduced-motion rules. A successful browser demo is not firmware or hardware qualification evidence.
