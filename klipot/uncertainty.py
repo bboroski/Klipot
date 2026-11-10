@@ -6,7 +6,7 @@ execution and approval in the owning repository.
 """
 from __future__ import annotations
 
-from collections.abc import Mapping
+from collections.abc import Iterable, Mapping
 from typing import Any
 
 SCHEMA_VERSION = "klipot.uncertainty.v1"
@@ -102,35 +102,37 @@ def validate_registry(document: Any) -> list[dict[str, Any]]:
     return sorted(normalized, key=lambda value: value["id"])
 
 
-def build_resolution_plan(document: Any) -> dict[str, Any]:
-    """Build an actionable plan without probing, changing files, or guessing."""
-    items = validate_registry(document)
-    actions: list[dict[str, Any]] = []
-    for item in items:
-        status = item["status"]
-        implementation = item["implementation_status"]
-        mode = item["resolution_mode"]
-        if status == "resolved":
-            next_step = "none"
-        elif implementation == "implemented":
-            next_step = "run-acceptance-checks"
-        elif implementation == "verified":
-            next_step = "request-owner-closure"
-        else:
-            next_step = NEXT_STEPS[mode]
-        actions.append({
-            "id": item["id"],
-            "domain": item["domain"],
-            "feature": item["feature"],
-            "status": status,
-            "implementation_status": implementation,
-            "resolution_mode": mode,
-            "next_step": next_step,
-            "unknown_behavior": item["unknown_behavior"],
-            "verification": item["verification"],
-            "evidence": item["evidence"],
-        })
-    counts = {
+def _make_action(item: Mapping[str, Any], repository: str | None = None) -> dict[str, Any]:
+    status = item["status"]
+    implementation = item["implementation_status"]
+    mode = item["resolution_mode"]
+    if status == "resolved":
+        next_step = "none"
+    elif implementation == "implemented":
+        next_step = "run-acceptance-checks"
+    elif implementation == "verified":
+        next_step = "request-owner-closure"
+    else:
+        next_step = NEXT_STEPS[mode]
+    action = {
+        "id": item["id"],
+        "domain": item["domain"],
+        "feature": item["feature"],
+        "status": status,
+        "implementation_status": implementation,
+        "resolution_mode": mode,
+        "next_step": next_step,
+        "unknown_behavior": item["unknown_behavior"],
+        "verification": item["verification"],
+        "evidence": item["evidence"],
+    }
+    if repository is not None:
+        action["repository"] = repository
+    return action
+
+
+def _counts(items: list[Mapping[str, Any]]) -> tuple[dict[str, int], dict[str, int]]:
+    status_counts = {
         status: sum(1 for item in items if item["status"] == status)
         for status in sorted(STATUSES)
     }
@@ -140,10 +142,55 @@ def build_resolution_plan(document: Any) -> dict[str, Any]:
         )
         for state in sorted(IMPLEMENTATION_STATES)
     }
+    return status_counts, implementation_counts
+
+
+def build_resolution_plan(document: Any) -> dict[str, Any]:
+    """Build an actionable plan without probing, changing files, or guessing."""
+    items = validate_registry(document)
+    actions = [_make_action(item) for item in items]
+    counts, implementation_counts = _counts(items)
     return {
         "schema_version": "klipot.resolution-plan.v1",
         "repository": document["repository"],
         "total": len(items),
+        "counts": counts,
+        "implementation_counts": implementation_counts,
+        "actions": actions,
+    }
+
+
+def build_workspace_plan(documents: Iterable[Any]) -> dict[str, Any]:
+    """Aggregate repository registries into one deterministic workspace plan."""
+    if isinstance(documents, (str, bytes, Mapping)):
+        raise UncertaintyError("workspace registries must be an iterable of documents")
+
+    repositories: set[str] = set()
+    item_ids: set[str] = set()
+    normalized: list[dict[str, Any]] = []
+
+    for document in documents:
+        items = validate_registry(document)
+        repository = document["repository"].strip()
+        if repository in repositories:
+            raise UncertaintyError(f"duplicate repository registry: {repository}")
+        repositories.add(repository)
+        for item in items:
+            item_id = item["id"]
+            if item_id in item_ids:
+                raise UncertaintyError(f"duplicate workspace uncertainty id: {item_id}")
+            item_ids.add(item_id)
+            normalized.append({**item, "repository": repository})
+
+    normalized.sort(key=lambda value: (value["repository"], value["id"]))
+    actions = [_make_action(item, item["repository"]) for item in normalized]
+    counts, implementation_counts = _counts(normalized)
+
+    return {
+        "schema_version": "klipot.workspace-plan.v1",
+        "repository_count": len(repositories),
+        "repositories": sorted(repositories),
+        "total": len(normalized),
         "counts": counts,
         "implementation_counts": implementation_counts,
         "actions": actions,
