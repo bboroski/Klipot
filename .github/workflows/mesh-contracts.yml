@@ -8,12 +8,23 @@ on:
       - "assets/**"
       - "ecosystem/**"
       - "README*"
+      - "docs/**"
+      - "registry/**"
+      - "index.html"
+      - "web/**"
       - ".github/workflows/mesh-contracts.yml"
   push:
     branches: [main]
     paths:
       - "contracts/**"
       - "tests/**"
+      - "assets/**"
+      - "ecosystem/**"
+      - "docs/**"
+      - "registry/**"
+      - "README*"
+      - "index.html"
+      - "web/**"
       - ".github/workflows/mesh-contracts.yml"
   workflow_dispatch:
   schedule:
