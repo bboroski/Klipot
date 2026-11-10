@@ -27,10 +27,10 @@ NUN Mesh links seven repositories without turning them into one monolith. Each p
 | Link | Status | Meaning |
 |---|---|---|
 | Kloz → CO | **Contract-ready** | CO remains standalone; callback owners can use Kloz platform services without CO reaching into registers |
-| Kloz → SaintSI | **Adapter-ready** | Tick bridge is optional; tick units and wrap interval remain integrator responsibilities |
-| Kloz → ReaperCripple | **Adapter-ready** | Reaper BSP remains authoritative for board-specific measurement and safety callbacks |
-| CO → SaintSI | **Adapter-ready** | A host can report CO state/heartbeats to SaintSI; observation does not trigger a reset |
-| SaintSI → ReaperCripple | **Adapter-ready** | Reaper runtime health can be observed through an explicit bridge; policy stays with the application |
+| Kloz → SaintSI | **Optional adapter implemented** | SaintSI includes include/saintsi/kloz_clock.h; tick units and wrap interval remain integrator responsibilities |
+| Kloz → ReaperCripple | **Optional adapter implemented** | ReaperCripple includes include/reaper_kloz_clock.h; BSP remains authoritative for board-specific measurement and safety callbacks |
+| CO → SaintSI | **Optional adapter implemented** | CO includes include/co/saintsi_bridge.h; refresh only after successful polls; observation does not trigger a reset |
+| SaintSI → ReaperCripple | **Optional adapter implemented** | ReaperCripple includes include/reaper_saintsi_bridge.h; policy stays with the application |
 | SAMBU → ToolNG | **Existing integration** | ToolNG contains a portable policy/workflow core; it does not embed the Python interpreter or creative-text modules |
 | All projects → Klipot | **Registry/documentation** | Registry and portal describe capabilities; they do not claim one binary or a shared runtime |
 
