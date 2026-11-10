@@ -3,7 +3,7 @@
 **Klipot is the discovery, integration and operator-facing control plane for seven independent engineering repositories.** It connects their contracts, documentation, tools and evidence without collapsing their distinct runtime responsibilities.
 
 <p align="center">
-  <img src="assets/nun-mesh-overview.svg" width="100%" alt="SAMBU Ecosystem architecture: Klipot linked to Kloz, CO, SaintSI, ReaperCripple, SAMBU and ToolNG">
+  <img src="assets/sambu-ecosystem-overview.svg" width="100%" alt="SAMBU Ecosystem architecture: Klipot linked to Kloz, CO, SaintSI, ReaperCripple, SAMBU and ToolNG">
 </p>
 
 <p align="center">
