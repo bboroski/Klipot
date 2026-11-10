@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "catalog": "Mass Effect — Reapers terminology transfer map",
+  "source_reference": {
+    "term_count": 500,
+    "languages": [
+      "en",
+      "ru"
+    ],
+    "classification": "user-supplied reference list",
+    "import_status": "transfer-map-seed; full term-by-term import remains future work"
+  },
+  "domains": [
+    {
+      "id": "reaper.bio",
+      "label_en": "Reaper Biology, Harvesting & Cybernetics",
+      "label_ru": "Биология, переработка и кибернетика Жнецов"
+    },
+    {
+      "id": "reaper.physics",
+      "label_en": "Mass Effect Physics & Element Zero",
+      "label_ru": "Физика эффекта массы и Элемент Ноль"
+    },
+    {
+      "id": "reaper.systems",
+      "label_en": "Weapons, Defense & Infrastructure",
+      "label_ru": "Оружие, защита и инфраструктура"
+    },
+    {
+      "id": "reaper.history",
+      "label_en": "Lore, History, Philosophy & Cycles",
+      "label_ru": "Лор, история, философия и циклы"
+    },
+    {
+      "id": "reaper.ai",
+      "label_en": "Synthetic Biology, AI & Related Concepts",
+      "label_ru": "Синтетическая биология, ИИ и связанные понятия"
+    }
+  ],
+  "classification": [
+    "canon-name",
+    "canon-mechanic",
+    "descriptive-extension",
+    "speculative-fiction",
+    "engineering-analogy"
+  ],
+  "repositories": [
+    {
+      "repository": "bboroski/SAMBU",
+      "role": "term schema, bilingual ontology, stable IDs, deterministic import and validation",
+      "implementation_status": "design-and-seed"
+    },
+    {
+      "repository": "bboroski/ToolNG",
+      "role": "read-only evidence provenance, observation coverage, anomaly classification and local report integrity",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/ReaperCripple",
+      "role": "manufacturing genealogy, process traceability, calibration and fixture evidence",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/Kloz",
+      "role": "fixed-width resource and capability descriptors, explicit units and bounded memory contracts",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/CO",
+      "role": "bounded lifecycle phases, explicit outcomes and rollback",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/SaintSI",
+      "role": "heartbeat freshness, timebase provenance, fault observations and integrity boundaries",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/Klipot",
+      "role": "catalog projection, cross-repository mappings, bilingual search and maturity display",
+      "implementation_status": "registry-seed"
+    },
+    {
+      "repository": "bboroski/NUN",
+      "role": "capability identity, least privilege, isolation, dependency validation and audit trail",
+      "implementation_status": "design"
+    },
+    {
+      "repository": "bboroski/NUNLauncher",
+      "role": "boot image provenance, digest/signature policy, ABI and memory-map validation",
+      "implementation_status": "specification"
+    }
+  ],
+  "guardrails": [
+    "Reaper and Mass Effect mechanisms are fictional; do not expose them as real scientific or hardware capabilities.",
+    "Do not label descriptive or speculative phrases as canonical without source evidence.",
+    "Engineering analogies must be labeled and implemented only within the owning repository boundary.",
+    "A checksum is not authentication; a host test is not target qualification.",
+    "Unknown, not found, failed and passed are distinct evidence states."
+  ]
+}
