@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-knob control plane for the seven-repository SAMBU Mesh workspace."""
+"""One-knob control plane for the nine-repository SAMBU Mesh workspace."""
 from __future__ import annotations
 
 import argparse
@@ -12,7 +12,7 @@ import webbrowser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPOSITORIES = ("Kloz", "CO", "SaintSI", "ReaperCripple", "SAMBU", "ToolNG")
+REPOSITORIES = ("SAMBU", "ToolNG", "ReaperCripple", "Kloz", "CO", "SaintSI", "NUN", "NUNLauncher")
 ASSETS = ("assets/nun-mesh-overview.svg", "assets/portal-ui-preview.svg")
 
 
@@ -53,7 +53,7 @@ def workspace_check() -> None:
     missing = [name for name in required if not (workspace / name).is_dir()]
     if missing:
         print("Cross-repository run skipped; missing sibling checkouts: " + ", ".join(missing))
-        print("Local Klipot validation is complete. Place all seven repositories side by side to enable mesh mode.")
+        print("Local Klipot validation is complete. Place all nine repositories side by side to enable mesh mode.")
         return
     for name in REPOSITORIES:
         entry = workspace / name / "one.py"
@@ -63,7 +63,7 @@ def workspace_check() -> None:
     validator = ROOT / "tests" / "validate_mesh.py"
     if validator.is_file():
         run("Validate manifests, cross-repository diagrams and shared contracts", [sys.executable, str(validator)], workspace)
-    print("\nAll seven repository checks completed.")
+    print("\nAll nine repository checks completed.")
 
 
 def check() -> None:
