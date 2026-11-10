@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#151914"><meta name="description" content="Klipot — abstract ecosystem topology and integration control plane"><title>Klipot — Mesh Constellation</title><link rel="stylesheet" href="./styles.css"><script src="./app.js" defer></script></head><body>
+<main class="app">
+<header class="statusbar"><a class="brand" href="#"><span class="brand-mark">K<span>•</span></span><span><b>KLIPOT</b><small>ECOSYSTEM CONTROL PLANE</small></span></a><div class="system-line"><i></i><span>LOCAL PORTAL</span><b>·</b><span>9 REPOSITORIES</span><b>·</b><span>CONTRACTS / V1</span></div><div class="status-actions"><time id="clock">09:41</time><span class="separator"></span><span class="mesh-state"><i></i> MESH INDEXED</span></div></header>
+<section class="hero">
+<div class="hero-copy"><div class="eyebrow"><span></span> ABSTRACT SYSTEM / REPOSITORY MESH</div><h1>Many tools.<br><em>One constellation.</em></h1><p>Independent engineering projects connected by explicit contracts, shared vocabulary and inspectable boundaries.</p><div class="hero-meta"><span>01 / 09 NODES SELECTED</span><span>NO MONOLITHIC RUNTIME</span></div></div>
+<div class="controls"><label class="search"><span>⌕</span><input id="search" type="search" placeholder="Find a repository…"></label><div class="filters" role="group" aria-label="Repository filters"><button class="filter active" data-filter="all">All</button><button class="filter" data-filter="language">Language</button><button class="filter" data-filter="system">System</button><button class="filter" data-filter="operations">Operations</button></div></div>
+</section>
+<div class="mesh-layout">
+<section class="mesh-stage"><div class="stage-head"><div><small>TOPOLOGY / 09 MODULES</small><h2>Repository constellation</h2></div><span class="map-legend"><i></i> SHARED CONTRACT EDGE <b>—</b> MODULE NODE</span></div>
+<div class="constellation" id="constellation">
+<svg viewBox="0 0 1000 680" preserveAspectRatio="none" aria-hidden="true" class="connections">
+<path d="M500 340 Q280 100 170 120"/><path d="M500 340 Q500 75 495 90"/><path d="M500 340 Q770 110 820 150"/><path d="M500 340 Q100 340 110 350"/><path d="M500 340 Q340 540 335 555"/><path d="M500 340 Q690 530 720 550"/><path d="M500 340 Q190 620 155 620"/><path d="M500 340 Q810 640 850 620"/>
+<circle cx="500" cy="340" r="120"/><circle cx="500" cy="340" r="168" class="orbit orbit-dashed"/>
+</svg>
+<button class="repo-node node-sambu" data-repo="SAMBU" data-domain="language"><span class="node-pin"></span><small>LANGUAGE / IDE</small><b>SAMBU</b><em>Scientific modeling</em><span class="node-state">ALPHA</span></button>
+<button class="repo-node node-toolng" data-repo="ToolNG" data-domain="operations"><span class="node-pin"></span><small>WINDOWS / EVIDENCE</small><b>ToolNG</b><em>Device diagnostics</em><span class="node-state">DESKTOP</span></button>
+<button class="repo-node node-reaper" data-repo="ReaperCripple" data-domain="operations"><span class="node-pin"></span><small>EMBEDDED / FACTORY</small><b>ReaperCripple</b><em>Firmware manufacturing</em><span class="node-state">HOST TESTED</span></button>
+<button class="repo-node node-kloz" data-repo="Kloz" data-domain="system"><span class="node-pin"></span><small>BARE METAL / ABI</small><b>Kloz</b><em>Platform substrate</em><span class="node-state">HOST TESTED</span></button>
+<button class="repo-node node-co" data-repo="CO" data-domain="system"><span class="node-pin"></span><small>RUNTIME / LIFECYCLE</small><b>CO</b><em>Component lifecycle</em><span class="node-state">HOST TESTED</span></button>
+<button class="repo-node node-saintsi" data-repo="SaintSI" data-domain="system"><span class="node-pin"></span><small>ASSURANCE / SIGNAL</small><b>SaintSI</b><em>Heartbeat observer</em><span class="node-state">HOST TESTED</span></button>
+<button class="repo-node node-nun" data-repo="NUN" data-domain="system"><span class="node-pin"></span><small>OS / KERNEL SPEC</small><b>NUN</b><em>Kernel foundation</em><span class="node-state">SPECIFICATION</span></button>
+<button class="repo-node node-launcher" data-repo="NUNLauncher" data-domain="system"><span class="node-pin"></span><small>MOBILE / BOOT SPEC</small><b>NUNLauncher</b><em>Mobile &amp; bootstrap</em><span class="node-state">SPECIFICATION</span></button>
+<div class="core-node" data-core="true"><span class="core-ring"></span><div class="core-mark">K</div><b>KLIPOT</b><small>CONTROL PLANE</small><em>contracts · catalog · labs</em></div>
+<div class="stage-coordinate">MESH / VIEW 001 · SYNTHETIC TOPOLOGY</div>
+</div>
+<div class="stage-foot"><span><i></i> SELECT A NODE TO INSPECT ITS CONTRACT</span><span>LINKS SHOW RELATIONSHIPS, NOT RUNTIME DEPENDENCIES</span></div>
+</section>
+<aside class="inspector" id="inspector"><div class="inspector-top"><small>NODE INSPECTOR / 01</small><span class="inspector-tag">SELECTED</span></div><div class="selected-mark" id="selected-mark">K</div><div class="selected-domain" id="selected-domain">CONTROL PLANE</div><h2 id="selected-name">Klipot</h2><p id="selected-description">Catalog, contract registry and operator portal for the independent engineering modules.</p><div class="inspector-divider"></div><div class="detail"><small>RESPONSIBILITY</small><b id="selected-role">Integration, registry and browser labs</b></div><div class="detail"><small>MATURITY</small><b id="selected-state">Static portal</b></div><div class="detail"><small>INTEGRATION RULE</small><b id="selected-contract">Versioned adapters; explicit boundaries</b></div><div class="inspector-actions"><a id="repo-link" href="https://github.com/bboroski/Klipot" target="_blank" rel="noreferrer">Open repository ↗</a><button id="contract-button">Inspect contract</button></div><div class="inspector-note"><i></i><span>Topology is a documentation view. It does not imply a shared process, privileged coupling or automatic runtime execution.</span></div></aside>
+</div>
+<footer class="bottombar"><div class="bottom-brand">KLIPOT <span> / MESH CONTROL</span></div><nav><button class="active" data-tab="map">Constellation</button><button data-tab="contracts">Contracts</button><button data-tab="labs">Browser labs</button><button data-tab="catalog">Catalog</button></nav><div class="bottom-status"><span>LOCAL PREVIEW</span><i></i> V1</div></footer>
+<dialog id="modal"><button class="close" id="close">×</button><small>KLIPOT / CONTRACT NOTE</small><h2 id="modal-title">Contract</h2><p id="modal-copy"></p><button id="done">Close note</button></dialog><div class="toast" id="toast" role="status" aria-live="polite"></div></main>
+</body></html>
