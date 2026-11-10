@@ -1,8 +1,8 @@
-# EICP — Ecosystem Integration & Control Plane
+# Klipot — Ecosystem Integration & Control Plane
 
 **A module catalog, contract registry, and operator portal for independent engineering components.**
 
-EICP connects documentation, capability registries, versioned integration contracts, and browser labs. It helps users explore architecture and responsibility boundaries without collapsing distinct runtime components into an indistinguishable monolith.
+Klipot connects documentation, capability registries, versioned integration contracts, and browser labs. It helps users explore architecture and responsibility boundaries without collapsing distinct runtime components into an indistinguishable monolith.
 
 [Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Repository](https://github.com/bboroski/Klipot) · [Public portal](https://bboroski.github.io/Klipot/)
 
@@ -41,7 +41,7 @@ The portal is published through the GitHub Pages workflow at <code>.github/workf
 
 ## Verification and boundaries
 
-A host test validates portable software invariants only. Target compiler, linker map, board revision, fixtures, measurement provenance, and hardware-in-the-loop checks are separate evidence gates. EICP displays these boundaries; it does not waive them.
+A host test validates portable software invariants only. Target compiler, linker map, board revision, fixtures, measurement provenance, and hardware-in-the-loop checks are separate evidence gates. Klipot displays these boundaries; it does not waive them.
 
 - [Shared integration protocol](docs/INTEGRATION_PROTOCOL.md)
 - [Module registry](registry/ecosystem.json)
@@ -49,7 +49,7 @@ A host test validates portable software invariants only. Target compiler, linker
 
 ## Technical identity
 
-**EICP** is the canonical portal and control-plane name. The current GitHub path and public Pages URL remain stable addresses.
+**Klipot** is the canonical portal and control-plane name. The current GitHub path and public Pages URL remain stable addresses.
 
 ## License
 
