@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0a1220"><meta name="description" content="NUN Mesh — a connected engineering workspace for seven focused repositories.">
+<meta name="theme-color" content="#0D0D0D"><meta name="description" content="NUN Mesh — a connected engineering workspace for seven focused repositories.">
 <title>Klipot · NUN Mesh</title>
 <style>
 :root{color-scheme:dark;--bg:#091321;--surface:#101f31;--surface2:#15283e;--stroke:#28425e;--ink:#edf5ff;--muted:#9bb0c8;--mint:#78e0c7;--blue:#7aa9ff;--gold:#f0c36a;--red:#ff7e85;--green:#7bd7a7;--radius:18px;font:15px/1.5 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
@@ -11,11 +11,48 @@
 @media(max-width:700px){.app{display:block}.rail{position:sticky;height:auto;padding:10px 12px;z-index:10;border-right:0;border-bottom:1px solid var(--stroke)}.brand{padding:2px}.sigil{width:34px;height:34px}.brand strong{font-size:12px}.nav{display:flex;overflow:auto;gap:5px}.nav button{white-space:nowrap;padding:8px 10px;font-size:12px}.nav .ico{display:none}.rail-note{display:none}.content{padding:19px 14px 35px}.topbar{margin-bottom:18px}.grid,.labs-grid,.protocol{grid-template-columns:1fr}.flow{grid-template-columns:repeat(2,1fr)}.node:nth-child(2):after{display:none}.project p{min-height:0}.footer{display:block}.footer span{display:block;margin-top:5px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
 </style>
+
+<link rel="stylesheet" href="../assets/duck-ui/duck-ui.css">
+<style id="duck-portal-theme">
+:root{--bg:#0D0D0D;--surface:#171717;--surface2:#1D1D1D;--stroke:#303030;--ink:#F2F2F2;--muted:#A3A3A3;--mint:#FFD600;--blue:#BFA100;--gold:#FFD600;--red:#FF6262;--green:#56C477;--radius:14px}
+body{background:radial-gradient(900px 520px at 74% -12%,#FFD60012 0%,transparent 62%),#0D0D0D;color:#F2F2F2}
+.rail{background:rgba(13,13,13,.96);border-right-color:#303030;backdrop-filter:blur(18px)}
+.brand{gap:12px}.sigil{background:#FFD600;color:#0D0D0D;border:1px solid #BFA100;box-shadow:0 8px 24px #FFD60020}
+.sigil img{display:block;width:36px;height:36px;border-radius:10px}
+.brand strong{letter-spacing:.09em}.brand small{color:#A3A3A3}
+.nav button{min-height:44px;border-radius:10px;border-color:transparent;color:#A3A3A3;transition:background .18s,border-color .18s,color .18s,transform .12s}
+.nav button:hover{background:#242424;border-color:#303030;color:#F2F2F2;transform:translateX(2px)}
+.nav button[aria-current=page]{background:#332B00;border-color:#6C5B00;color:#FFD600}
+.rail-note{background:#171717;border-color:#303030;box-shadow:0 8px 24px #0005}.rail-note b{color:#FFD600}
+.content{color:#F2F2F2}.crumb{color:#A3A3A3}.status{color:#A3A3A3}.dot{background:#56C477;box-shadow:0 0 12px #56C47755}
+.hero-copy,.hero-visual,.panel,.project,.lab{background:linear-gradient(155deg,#1D1D1D,#141414);border-color:#303030;box-shadow:0 16px 44px #0006}
+.hero-copy{background:radial-gradient(600px 250px at 96% 0%,#FFD6000D,transparent 68%),linear-gradient(155deg,#1D1D1D,#141414)}
+.eyebrow{color:#FFD600}.hero h1 span{color:#FFD600}.lead{color:#C4C4C4}
+.btn{min-height:42px;background:#171717;border-color:#484848;color:#F2F2F2;border-radius:10px}
+.btn:hover{background:#242424;border-color:#6C5B00;box-shadow:0 8px 25px #0006;transform:translateY(-2px)}
+.btn:active{transform:translateY(1px) scale(.99)}
+.btn.primary{color:#0D0D0D;background:#FFD600;border:1px solid #FFD600;font-weight:800}
+.btn.primary:hover{background:#FFE34D;border-color:#FFE34D;filter:none}
+.metric{background:#141414;border-color:#303030}.metric small{color:#A3A3A3}
+.section-head p,.project p,.panel p,.lab .sub{color:#A3A3A3}
+.node{background:#171717;border-color:#303030}.node:after{color:#FFD600}
+.tag{border-color:#484848;color:#C4C4C4;background:#141414}.tag.mint{border-color:#6C5B00;color:#FFD600}
+.field{background:#141414;border-color:#303030;color:#F2F2F2;min-height:42px}
+.readout{background:#0D0D0D;border-color:#303030;color:#C4C4C4}
+.readout .ok{color:#56C477}.readout .warn{color:#FFD600}.readout .bad{color:#FF6262}
+.progress{background:#303030}.progress span{background:#FFD600}
+.note{border-left-color:#FFD600;background:#282200;color:#F0DF8A}
+.toast{background:#1D1D1D;border-color:#6C5B00;border-left:4px solid #FFD600;color:#F2F2F2;box-shadow:0 16px 44px #0009}
+.footer{border-top-color:#303030;color:#A3A3A3}
+button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #FFD600;outline-offset:3px}
+@media(prefers-reduced-motion:reduce){.view{animation:none!important}*{scroll-behavior:auto!important;transition-duration:.01ms!important}}
+</style>
+
 </head>
 <body>
 <div class="app">
 <aside class="rail">
-  <div class="brand"><div class="sigil">K</div><div><strong>KLIPOT</strong><small>NUN MESH CONTROL</small></div></div>
+  <div class="brand"><div class="sigil"><img src="../assets/duck-ui/duck-mark.svg" alt="" aria-hidden="true"></div><div><strong>KLIPOT</strong><small>NUN MESH CONTROL</small></div></div>
   <nav class="nav" aria-label="Primary navigation">
     <button data-view="overview" aria-current="page"><span class="ico">⌂</span>Overview</button>
     <button data-view="projects"><span class="ico">◫</span>Projects</button>
