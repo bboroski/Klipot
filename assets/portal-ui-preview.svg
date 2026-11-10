@@ -21,7 +21,7 @@
   <rect x="48" y="115" width="650" height="310" rx="20" fill="#1A1A1A" stroke="#262626"/>
   <text x="83" y="156" fill="#FFD600" font-size="11" font-weight="800" letter-spacing="3">SYSTEMS PORTAL · PROJECT MESH</text>
   <text x="83" y="224" fill="#E6E6E6" font-size="54" font-weight="900" letter-spacing="-2">One control plane.</text>
-  <text x="83" y="286" fill="#FFD600" font-size="54" font-weight="900" letter-spacing="-2">Seven independent cores.</text>
+  <text x="83" y="286" fill="#FFD600" font-size="54" font-weight="900" letter-spacing="-2">Nine repository projects.</text>
   <text x="83" y="330" fill="#E6E6E6" font-size="16">Discover projects, follow explicit interfaces, inspect</text>
   <text x="83" y="355" fill="#E6E6E6" font-size="16">integration rules and test API concepts in safe labs.</text>
   <rect x="83" y="375" width="194" height="36" rx="9" fill="url(#yellow)"/><text x="180" y="398" text-anchor="middle" fill="#0D0D0D" font-size="11" font-weight="900">Explore project mesh →</text>
@@ -37,7 +37,7 @@
   </g>
   <circle cx="1037" cy="274" r="68" fill="#141414" stroke="#FFD600" stroke-width="3"/>
   <text x="1037" y="270" text-anchor="middle" fill="#E6E6E6" font-size="21" font-weight="900">KLIPOT</text><text x="1037" y="290" text-anchor="middle" fill="#FFD600" font-size="8" letter-spacing="2">CONTROL PLANE</text>
-  <g fill="#E6E6E6" font-size="12" font-weight="800" text-anchor="middle"><text x="819" y="198">KLOZ</text><text x="1037" y="187">CO</text><text x="1255" y="198">SAINTSI</text><text x="819" y="359">REAPER</text><text x="1037" y="380">SAMBU</text><text x="1255" y="359">TOOLNG</text></g>
+  <g fill="#E6E6E6" font-size="12" font-weight="800" text-anchor="middle"><text x="819" y="198">KLOZ</text><text x="1037" y="187">CO</text><text x="1255" y="198">SAINTSI</text><text x="819" y="359">REAPERCRRIPPLE</text><text x="1037" y="380">SAMBU</text><text x="1255" y="359">TOOLNG</text></g>
   <g fill="#FFD600" font-size="8" text-anchor="middle"><text x="819" y="211">PLATFORM</text><text x="1037" y="200">LIFECYCLE</text><text x="1255" y="211">ASSURANCE</text><text x="819" y="372">HARDWARE</text><text x="1037" y="393">TOOLCHAIN</text><text x="1255" y="372">DIAGNOSTICS</text></g>
 </g>
 <g font-family="Arial">
@@ -55,5 +55,5 @@
   <g fill="#E6E6E6" font-size="15" font-weight="800"><text x="73" y="704">Project registry</text><text x="399" y="704">Contract map</text><text x="725" y="704">Browser workbench</text><text x="1051" y="704">Evidence discipline</text></g>
   <g fill="#999999" font-size="11"><text x="73" y="733">Find each repository by role</text><text x="73" y="750">and capability.</text><text x="399" y="733">See boundaries, versions and</text><text x="399" y="750">optional adapters.</text><text x="725" y="733">Exercise memory and lifecycle</text><text x="725" y="750">concepts safely.</text><text x="1051" y="733">Separate simulations from real</text><text x="1051" y="750">hardware evidence.</text></g>
 </g>
-<text x="48" y="827" font-family="Arial" fill="#999999" font-size="10" letter-spacing="1.5">KLIPOT · BLACK / YELLOW EDITION · SEVEN REPOSITORIES · EXPLICIT CONTRACTS</text>
+<text x="48" y="827" font-family="Arial" fill="#999999" font-size="10" letter-spacing="1.5">KLIPOT · BLACK / YELLOW EDITION · NINE REPOSITORIES · EXPLICIT CONTRACTS</text>
 </svg>
