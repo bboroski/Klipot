@@ -77,3 +77,10 @@ MIT. See [LICENSE](LICENSE).
 - **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
 - `python one.py check` validates the portal, manifests, schemas and JavaScript without opening a browser.
 - When all nine repositories are checked out as sibling directories, mesh mode also runs `one.py check` in every module and validates cross-repository contracts. The default run opens the portal after checks.
+
+## Academic biology glossary
+
+- [500 academic terms EN–RU](data/biology/academic_terms_500.tsv)
+- [Data contract and usage boundaries](docs/BIOLOGY_DOMAIN_PACK.md)
+
+An offline reference pack for education and metadata; it does not control systems, devices or diagnostics.
