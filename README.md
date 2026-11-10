@@ -1,9 +1,9 @@
-# Klipot — NUN Mesh Control Plane
+# Klipot — SAMBU Ecosystem Control Plane
 
 **Klipot is the discovery, integration and operator-facing control plane for seven independent engineering repositories.** It connects their contracts, documentation, tools and evidence without collapsing their distinct runtime responsibilities.
 
 <p align="center">
-  <img src="assets/nun-mesh-overview.svg" width="100%" alt="NUN Mesh architecture: Klipot linked to Kloz, CO, SaintSI, ReaperCripple, SAMBU and ToolNG">
+  <img src="assets/nun-mesh-overview.svg" width="100%" alt="SAMBU Ecosystem architecture: Klipot linked to Kloz, CO, SaintSI, ReaperCripple, SAMBU and ToolNG">
 </p>
 
 <p align="center">
@@ -71,3 +71,12 @@ The GitHub Actions workflow in .github/workflows/pages.yml validates the portal 
 ## Validation boundaries
 
 A host test validates portable software invariants only. A target compiler, linker map, startup path, board revision, calibrated fixture, measurement provenance and hardware-in-the-loop result are separate evidence gates. Klipot displays these boundaries; it does not waive them.
+
+
+## SAMBU Ecosystem module
+
+Klipot remains the static registry portal and operator-facing workbench. Its registry is a projection of SAMBU's canonical registry; browser labs remain simulations and are not firmware dependencies.
+
+- **Module manifest:** [`sambu.module.json`](sambu.module.json)
+- **Canonical architecture:** [SAMBU Ecosystem Architecture](https://github.com/bboroski/SAMBU/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md)
+- **Shared integration protocol:** [Klipot protocol](https://github.com/bboroski/Klipot/blob/main/docs/INTEGRATION_PROTOCOL.md)
