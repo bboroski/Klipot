@@ -3,13 +3,18 @@ name: Deploy Klipot portal
 on:
   push:
     branches: [main]
-    paths: ["index.html", "web/**", "assets/**", ".github/workflows/pages.yml"]
+    paths:
+      - "index.html"
+      - "assets/**"
+      - "favicon.svg"
+      - ".github/workflows/pages.yml"
   workflow_dispatch:
 
 permissions:
   contents: read
   pages: write
   id-token: write
+
 concurrency:
   group: pages
   cancel-in-progress: true
@@ -19,17 +24,45 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate portal assets and controls
+      - name: Validate portal files and key interactions
         run: |
           test -s index.html
-          test -s assets/nun-mesh-overview.svg
+          test -s assets/sambu-ecosystem-overview.svg
+          test -s assets/portal-ui-preview.svg
+          test -s assets/klipot-mark.svg
           python - <<'PY'
+          import re
           import xml.etree.ElementTree as ET
-          ET.parse("assets/nun-mesh-overview.svg")
-          html = open("index.html", encoding="utf-8").read()
-          for marker in ("project-grid", "arena-alloc", "co-start", "health-heartbeat", "gate-validate"):
-              assert marker in html, f"missing UI control: {marker}"
+          from pathlib import Path
+
+          for path in (
+              "assets/sambu-ecosystem-overview.svg",
+              "assets/portal-ui-preview.svg",
+              "assets/klipot-mark.svg",
+          ):
+              ET.parse(path)
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          for marker in (
+              'id="project-grid"',
+              'id="arena-alloc"',
+              'id="co-start"',
+              'id="health-heartbeat"',
+              'id="gate-validate"',
+              'data-copy="git clone https://github.com/bboroski/Klipot.git"',
+              'class="feature-grid"',
+          ):
+              assert marker in html, f"missing portal marker: {marker}"
+
+          script = re.findall(r"<script>(.*?)</script>", html, re.S)
+          assert script, "missing inline application script"
+          Path("/tmp/klipot-inline.js").write_text(script[-1], encoding="utf-8")
           PY
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate inline JavaScript syntax
+        run: node --check /tmp/klipot-inline.js
       - uses: actions/upload-pages-artifact@v3
         with:
           path: .
