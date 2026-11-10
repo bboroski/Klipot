@@ -80,3 +80,10 @@ Klipot remains the static registry portal and operator-facing workbench. Its reg
 - **Module manifest:** [`sambu.module.json`](sambu.module.json)
 - **Canonical architecture:** [SAMBU Ecosystem Architecture](https://github.com/bboroski/SAMBU/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md)
 - **Shared integration protocol:** [Klipot protocol](https://github.com/bboroski/Klipot/blob/main/docs/INTEGRATION_PROTOCOL.md)
+
+
+## Integration verification
+
+The [cross-repository contract workflow](.github/workflows/mesh-contracts.yml) checks the optional C header adapters against the current default branches of Kloz, CO, SaintSI and ReaperCripple. It also validates the seven manifests, localized README diagrams and portal JavaScript syntax. It is a compile/metadata check, not a hardware qualification test.
+
+[ Kloz manifest ](ecosystem/manifest.json) · [ Mesh protocol ](docs/INTEGRATION_PROTOCOL.md) · [ Registry ](registry/ecosystem.json)
