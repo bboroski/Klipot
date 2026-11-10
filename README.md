@@ -102,3 +102,10 @@ The black-and-yellow portal includes responsive navigation, animated view transi
 - **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
 - The default run validates the portal, checks all sibling repositories when the seven checkouts sit side by side, validates the shared mesh contracts, then opens the portal.
 - **Verify only:** run `python one.py check`. The browser labs remain simulations; real target validation stays with each hardware module.
+
+
+---
+
+## Duck UI system
+
+This repository follows the shared black/graphite and signal-yellow visual contract for its applicable user-facing tools. See [Duck UI System](docs/DUCK_UI_SYSTEM.md), the canonical [design tokens](design/duck-ui.tokens.json), and the scalable [duck mark](assets/duck-ui/duck-mark.svg). UI previews are explicitly distinguished from real runtime screenshots; embedded cores remain presentation-agnostic.
