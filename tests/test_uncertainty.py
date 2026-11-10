@@ -31,6 +31,23 @@ class UncertaintyPlannerTests(unittest.TestCase):
         self.assertEqual(plan["actions"][0]["next_step"], "run-probe")
         self.assertEqual(plan["counts"]["open"], 1)
 
+    def test_implemented_feature_becomes_acceptance_check(self):
+        self.registry["items"][0]["implementation_status"] = "implemented"
+        plan = build_resolution_plan(self.registry)
+        self.assertEqual(
+            plan["actions"][0]["next_step"], "run-acceptance-checks"
+        )
+
+    def test_verified_feature_requires_evidence(self):
+        self.registry["items"][0]["implementation_status"] = "verified"
+        with self.assertRaises(UncertaintyError):
+            validate_registry(self.registry)
+        self.registry["items"][0]["evidence"] = ["ci/run/123"]
+        plan = build_resolution_plan(self.registry)
+        self.assertEqual(
+            plan["actions"][0]["next_step"], "request-owner-closure"
+        )
+
     def test_order_is_deterministic(self):
         self.registry["items"].append({
             "id": "a11y",
