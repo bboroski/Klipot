@@ -1,47 +1,57 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="760" viewBox="0 0 1440 760" role="img" aria-labelledby="title desc">
-<title id="title">SAMBU Ecosystem — central platform and six specialized modules</title>
-<desc id="desc">SAMBU is the central engineering platform. Kloz, CO, SaintSI, ReaperCripple, ToolNG and Klipot connect as independently buildable modules through explicit contracts and adapters.</desc>
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="820" viewBox="0 0 1440 820" role="img" aria-labelledby="title desc">
+<title id="title">Klipot modular systems map</title>
+<desc id="desc">Klipot central control plane connects six independently owned engineering repositories through explicit versioned contracts.</desc>
 <defs>
-  <linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1424"/><stop offset="1" stop-color="#13243b"/></linearGradient>
-  <linearGradient id="hub" x2="1"><stop stop-color="#75e0cb"/><stop offset="1" stop-color="#77a9ff"/></linearGradient>
-  <linearGradient id="card" x2="1" y2="1"><stop stop-color="#19334d"/><stop offset="1" stop-color="#11243a"/></linearGradient>
-  <filter id="glow"><feGaussianBlur stdDeviation="12" result="blur"/><feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#11130e"/><stop offset="1" stop-color="#080907"/></linearGradient>
+  <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#ffe96a"/><stop offset="1" stop-color="#e0bd00"/></linearGradient>
+  <linearGradient id="card" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#202219"/><stop offset="1" stop-color="#14160f"/></linearGradient>
+  <filter id="glow" x="-80%" y="-80%" width="260%" height="260%"><feGaussianBlur stdDeviation="15" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#d7d18a" stroke-opacity=".07" stroke-width="1"/></pattern>
 </defs>
-<rect width="1440" height="760" rx="36" fill="url(#bg)"/>
-<g fill="none" stroke="#5b7897" stroke-width="2" opacity=".75">
-  <path d="M720 380L270 185M720 380L720 140M720 380L1170 185M720 380L270 570M720 380L720 620M720 380L1170 570"/>
-</g>
-<g fill="url(#card)" stroke="#416486" stroke-width="2">
-  <rect x="94" y="108" width="352" height="150" rx="22"/>
-  <rect x="544" y="60" width="352" height="150" rx="22"/>
-  <rect x="994" y="108" width="352" height="150" rx="22"/>
-  <rect x="94" y="492" width="352" height="150" rx="22"/>
-  <rect x="544" y="542" width="352" height="150" rx="22"/>
-  <rect x="994" y="492" width="352" height="150" rx="22"/>
-</g>
-<g font-family="Inter,Segoe UI,Arial,sans-serif" fill="#eff6ff">
-  <g font-size="27" font-weight="750">
-    <text x="128" y="160">Kloz</text>
-    <text x="578" y="112">CO</text>
-    <text x="1028" y="160">SaintSI</text>
-    <text x="128" y="544">ReaperCripple</text>
-    <text x="578" y="594">Klipot</text>
-    <text x="1028" y="544">ToolNG</text>
+<rect width="1440" height="820" rx="32" fill="url(#canvas)"/>
+<rect width="1440" height="820" rx="32" fill="url(#grid)"/>
+<g font-family="Inter,Segoe UI,Arial,sans-serif">
+  <text x="72" y="68" fill="#f5d400" font-size="12" font-weight="800" letter-spacing="4">KLIPOT / SYSTEM MAP</text>
+  <text x="72" y="98" fill="#d3d4c8" font-size="18">Independent cores. Explicit boundaries. One operator-facing control plane.</text>
+  <g fill="none" stroke="#f5d400" stroke-opacity=".62" stroke-width="2">
+    <path d="M720 410L276 220"/><path d="M720 410L720 230"/><path d="M720 410L1164 220"/>
+    <path d="M720 410L276 610"/><path d="M720 410L720 640"/><path d="M720 410L1164 610"/>
   </g>
-  <g font-size="16" fill="#afc5dc">
-    <text x="128" y="194">Platform ABI · memory · board boundary</text>
-    <text x="578" y="146">Lifecycle · bounded execution</text>
-    <text x="1028" y="194">Heartbeat · runtime assurance</text>
-    <text x="128" y="578">BSP · calibration · fixtures · MES</text>
-    <text x="578" y="628">Registry · contracts · operator portal</text>
-    <text x="1028" y="578">Windows diagnostics · local evidence</text>
+  <g fill="none" stroke="#f5d400" stroke-opacity=".25" stroke-width="1" stroke-dasharray="5 8">
+    <circle cx="720" cy="410" r="245"/><circle cx="720" cy="410" r="285"/>
   </g>
-  <text x="720" y="264" text-anchor="middle" font-size="15" fill="#9bb5d0" letter-spacing="4">CENTRAL ENGINEERING PLATFORM</text>
-  <circle cx="720" cy="390" r="132" fill="#1b3450" stroke="url(#hub)" stroke-width="5" filter="url(#glow)"/>
-  <circle cx="720" cy="390" r="106" fill="#142940" stroke="#6fd7c4" stroke-opacity=".3" stroke-width="2"/>
-  <text x="720" y="376" text-anchor="middle" font-size="43" font-weight="850" letter-spacing="2">SAMBU</text>
-  <text x="720" y="414" text-anchor="middle" font-size="16" fill="#b7d7ef">Language · policy · architecture</text>
-  <text x="720" y="444" text-anchor="middle" font-size="14" fill="#87a7c6">Tooling · contracts · module registry</text>
-  <text x="720" y="728" text-anchor="middle" font-size="14" fill="#7892ae">One platform · six specialized modules · explicit adapters · independent builds</text>
+  <g>
+    <rect x="82" y="135" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+    <rect x="526" y="112" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+    <rect x="970" y="135" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+    <rect x="82" y="526" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+    <rect x="526" y="572" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+    <rect x="970" y="526" width="388" height="156" rx="20" fill="url(#card)" stroke="#706317" stroke-width="1.5"/>
+  </g>
+  <g fill="#f5d400">
+    <circle cx="112" cy="166" r="6"/><circle cx="556" cy="143" r="6"/><circle cx="1000" cy="166" r="6"/>
+    <circle cx="112" cy="557" r="6"/><circle cx="556" cy="603" r="6"/><circle cx="1000" cy="557" r="6"/>
+  </g>
+  <g fill="#f6f5ec" font-size="27" font-weight="800">
+    <text x="136" y="176">Kloz</text><text x="580" y="153">CO</text><text x="1024" y="176">SaintSI</text>
+    <text x="136" y="567">ReaperCripple</text><text x="580" y="613">SAMBU</text><text x="1024" y="567">ToolNG</text>
+  </g>
+  <g fill="#b4b5a8" font-size="15">
+    <text x="112" y="213">Platform ABI · bounded memory</text><text x="556" y="190">Deterministic lifecycle · bounded poll</text><text x="1000" y="213">Heartbeat · runtime assurance</text>
+    <text x="112" y="604">BSP · calibration · factory · MES</text><text x="556" y="650">Language · IDE · workflows · Studio</text><text x="1000" y="604">Windows diagnostics · local evidence</text>
+  </g>
+  <g fill="#f5d400" font-size="10" font-weight="800" letter-spacing="1.4">
+    <text x="112" y="255">PLATFORM SUBSTRATE</text><text x="556" y="232">LIFECYCLE RUNTIME</text><text x="1000" y="255">ASSURANCE LAYER</text>
+    <text x="112" y="646">HARDWARE INTEGRATION</text><text x="556" y="692">DEVELOPER TOOLCHAIN</text><text x="1000" y="646">OPERATOR TOOLING</text>
+  </g>
+  <g filter="url(#glow)">
+    <circle cx="720" cy="410" r="132" fill="#15170f" stroke="url(#accent)" stroke-width="5"/>
+  </g>
+  <circle cx="720" cy="410" r="108" fill="#10120c" stroke="#f5d400" stroke-opacity=".32" stroke-width="1.5"/>
+  <path d="M666 344L720 314L774 344V406L720 437L666 406Z" fill="#f5d400" opacity=".12" stroke="#f5d400" stroke-width="1.5"/>
+  <text x="720" y="389" fill="#f8f7ed" text-anchor="middle" font-size="35" font-weight="900" letter-spacing="2">KLIPOT</text>
+  <text x="720" y="419" fill="#f5d400" text-anchor="middle" font-size="12" font-weight="800" letter-spacing="3">CONTROL PLANE</text>
+  <text x="720" y="508" fill="#c1c2b5" text-anchor="middle" font-size="13">Registry · contracts · discovery · browser labs</text>
+  <text x="720" y="773" fill="#888b7d" text-anchor="middle" font-size="11" letter-spacing="1.5">NO HIDDEN GLOBALS · NO FORCED RUNTIME COUPLING · OWNERSHIP STAYS LOCAL</text>
 </g>
 </svg>
