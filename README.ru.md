@@ -1,87 +1,89 @@
-# Klipot — Ecosystem Integration & Control Plane
+<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Duck mark" width="104" /></p>
+<h1 align="center">Klipot</h1>
+<p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
+<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/LICENSE-MIT-FFD600?style=for-the-badge&labelColor=111111" /></p>
+<p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<hr />
 
-**Каталог модулей, реестр контрактов и операторский портал для независимых инженерных компонентов.**
+**Единая карта инженерной экосистемы: модули, контракты, документация и операторский портал — без принудительного слияния независимых runtime в монолит.**
 
-Klipot связывает документацию, реестры возможностей, версионированные интеграционные контракты и browser-labs. Он помогает изучать архитектуру и границы ответственности, не превращая отдельные runtime-компоненты в неразличимый монолит.
+## Позиционирование
 
-[Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Репозиторий](https://github.com/bboroski/Klipot) · [Публичный портал](https://bboroski.github.io/Klipot/)
-<p align="center"><img src="assets/nun-mesh-overview.svg" alt="Nine-repository integration map" width="100%"></p>
-
-## Девять репозиториев
-
-| Репозиторий | Ответственность | Текущее состояние |
-|---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Язык, IDE, Studio и workflow-инструменты | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Нативная диагностика Windows и локальные отчёты доказательств | Desktop application |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калибровка и производственная инженерия | Host-tested; target validation required |
-| [Kloz](https://github.com/bboroski/Kloz) | C11 platform ABI, память фиксированной ёмкости и сервисы CPU/платы | Host-tested core |
-| [CO](https://github.com/bboroski/CO) | Детерминированный runtime жизненного цикла компонентов | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-наблюдение и проверка случайного повреждения | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Каталог репозиториев, контракты и портал интеграции | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Documentation scaffold; реализации ядра нет |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и передачи управления ядру | Documentation scaffold; реализации загрузчика нет |
-
-NUN и NUNLauncher пока не являются загружаемой ОС или загрузчиком. Их README описывают предполагаемые границы и не выдают отсутствующие реализации за готовые функции.
+Klipot помогает командам видеть связи между компонентами, понимать зоны ответственности и находить описанные интеграционные контракты. Это каталог и control plane для прозрачной координации, а не скрытый монолит.
 
 ## Возможности портала
 
-- каталог модулей с фильтрами по доменам и поиском;
-- ссылки на исходный код, GUI-документацию и инструкции запуска;
-- копируемые команды clone;
-- machine-readable registry и версионированный integration protocol;
-- интерактивные browser-labs для демонстрации allocation, lifecycle, heartbeat и capability-gate концепций;
-- CI-проверка метаданных, контрактов и синтаксиса статического портала.
+- Каталог модулей с фильтрами по доменам и поиском.
+- Ссылки на исходный код, документацию GUI и инструкции запуска.
+- Копирование clone-команд.
+- Machine-readable registry и versioned integration protocol.
+- Browser-labs для демонстрации allocation, lifecycle, heartbeat и capability-gate.
+- CI-проверки метаданных, контрактов, схем и синтаксиса статического портала.
 
-**Browser-labs являются симуляциями.** Они не исполняют C-код, не читают телеметрию физического оборудования, не управляют производственными fixtures и не доказывают реальное состояние устройства.
+**Важно:** browser-labs — симуляции. Они не исполняют C-код, не читают телеметрию реального оборудования, не управляют производственными fixtures и не подтверждают физическое состояние устройства.
+
+## Девять проектов экосистемы
+
+| Репозиторий | Роль | Текущая зрелость |
+|---|---|---|
+| [SAMBU](https://github.com/bboroski/SAMBU) | Язык, IDE, моделирование и workflow | Experimental alpha |
+| [ToolNG](https://github.com/bboroski/ToolNG) | Диагностика Windows и локальные доказательства | Windows desktop utility |
+| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калибровка и производство | Host-tested; target validation required |
+| [Kloz](https://github.com/bboroski/Kloz) | Переносной C11 substrate и platform ABI | Host-tested core |
+| [CO](https://github.com/bboroski/CO) | Детерминированный жизненный цикл компонентов | Host-tested core |
+| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-мониторинг и CRC | Host-tested core |
+| [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракты и портал | Static portal |
+| [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и handoff | Documentation scaffold |
+
+NUN и NUNLauncher пока не являются загружаемой ОС или загрузчиком: соответствующих реализаций в этих репозиториях нет.
 
 ## Локальный запуск
 
-Откройте <code>index.html</code> в современном браузере. Внешний framework или JavaScript-пакет не требуется.
+Откройте <code>index.html</code> в современном браузере или запустите локальный сервер:
 
 ~~~bash
 python -m http.server 8080
 ~~~
 
-Затем откройте <code>http://localhost:8080</code>.
+Затем откройте <code>http://localhost:8080</code>. Внешний JavaScript framework или пакет не требуется.
 
-## Публикация
+## Публикация и проверки
 
-Портал публикуется через GitHub Pages workflow в <code>.github/workflows/pages.yml</code>. В настройках репозитория один раз выберите **Settings → Pages → GitHub Actions**. Последующие изменения основной ветки обрабатываются workflow автоматически.
+Портал использует workflow GitHub Pages в <code>.github/workflows/pages.yml</code>. В настройках репозитория необходимо выбрать **Settings → Pages → GitHub Actions**.
 
-## Архитектурные правила
+~~~bash
+python one.py
+python one.py check
+~~~
 
-1. **Владение доменом:** каждый модуль владеет своим кодом, API, тестами и релизными решениями.
-2. **Явная связь:** интеграции используют версионированные интерфейсы, а не скрытое глобальное состояние.
-3. **Доказательства прежде статуса:** observed, not found, unknown, failed и passed различаются.
-4. **Ограниченное исполнение:** capacity, ownership, timeout и cleanup документируются явно.
-5. **Честная зрелость:** adapter-ready контракт не называется готовой production-интеграцией.
+Команда проверки валидирует портал, manifests, схемы и JavaScript без открытия браузера.
 
-## Проверка и границы
+## Управление экосистемой
 
-Host-тест проверяет только переносимые программные инварианты. Target compiler, linker map, ревизия платы, fixtures, происхождение измерений и hardware-in-the-loop — отдельные evidence gates. Klipot показывает эти границы, но не отменяет их.
+1. **Владение доменом:** каждый модуль отвечает за свой код, API, тесты и релиз.
+2. **Явные связи:** интеграции используют версионируемые интерфейсы, а не скрытые глобальные переменные.
+3. **Доказательства важнее статуса:** observed, not found, unknown, failed и passed различаются.
+4. **Ограниченное выполнение:** capacity, ownership, timeout и cleanup документируются явно.
+5. **Честная зрелость:** adapter-ready контракт не называется завершённой production-интеграцией.
 
+## Критерии готовности
+
+Host-тест доказывает только переносимые программные инварианты. Проверка целевого компилятора, linker map, board revision, fixtures, происхождения измерений и hardware-in-the-loop — отдельные evidence gates.
+
+Документация:
 - [Общий протокол интеграции](docs/INTEGRATION_PROTOCOL.md)
 - [Реестр модулей](registry/ecosystem.json)
 - [Руководство по UI портала](docs/PORTAL_UI.md)
 
 ## Техническая идентичность
 
-**Klipot** — каноническое имя портала и control plane. Текущий GitHub-путь и публичный Pages URL сохранены как стабильные адреса.
+**Klipot** — каноническое имя портала и control plane. GitHub-путь и публичный Pages URL являются стабильными адресами проекта.
+
+## Экосистема
+
+[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher).
 
 ## Лицензия
 
-MIT. См. [LICENSE](LICENSE).
-
-
-## Запуск одной командой
-
-- **Windows:** дважды щёлкните `one.cmd`; на любой ОС используйте `python one.py`.
-- `python one.py check` проверяет портал, манифесты, схемы и JavaScript без открытия браузера.
-- Если все девять репозиториев находятся в соседних каталогах, mesh-режим дополнительно запускает `one.py check` каждого модуля и проверяет межрепозиторные контракты. Обычный запуск после проверок открывает портал.
-
-## Академический биологический словарь
-
-- [500 академических терминов EN–RU](data/biology/academic_terms_500.tsv)
-- [Контракт данных и границы использования](docs/BIOLOGY_DOMAIN_PACK.md)
-
-Автономный справочный набор для обучения и метаданных; он не управляет системами, устройствами или диагностикой.
+MIT — см. [LICENSE](LICENSE).
