@@ -89,6 +89,18 @@ Host-тест доводить лише переносні програмні і
 Проєктна документація раніше заявляла MIT, але окремого файлу LICENSE у репозиторії немає. Підтвердіть ліцензію та додайте її повний текст перед розповсюдженням.
 
 
+
+## NUN Mesh
+
+Klipot's NUN Mesh tracks the specification-level boot contract between [NUN](https://github.com/bboroski/NUN) and [NUNLauncher](https://github.com/bboroski/NUNLauncher).
+
+| Component | Provides | Requires | Status |
+|---|---|---|---|
+| NUN | `kernel.architecture.specification.v1`, `kernel.image.contract.specification.v1` | — | Documentation-only specification |
+| NUNLauncher | `kernel.bootstrap.specification.v1` | `kernel.image.contract.specification.v1` | Documentation-only specification |
+
+The dependency planner verifies declared capability closure. It does not build or load a kernel image, certify an architecture, or turn the current specifications into a bootable operating system.
+
 ## Reaper-inspired engineering integration
 
 - [Project-specific architecture mapping](docs/REAPER_DOMAIN_INTEGRATION.md)
