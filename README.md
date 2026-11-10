@@ -94,6 +94,8 @@ Host-тест доводить лише переносні програмні і
 
 Klipot's NUN Mesh tracks the specification-level boot contract between [NUN](https://github.com/bboroski/NUN) and [NUNLauncher](https://github.com/bboroski/NUNLauncher).
 
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh overview diagram" width="100%" /></p>
+
 | Component | Provides | Requires | Status |
 |---|---|---|---|
 | NUN | `kernel.architecture.specification.v1`, `kernel.image.contract.specification.v1` | — | Documentation-only specification |
