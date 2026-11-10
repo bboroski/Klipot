@@ -74,7 +74,7 @@ def evaluate_consensus(
         seen.add(reviewer)
 
         decision = raw.get("decision")
-        if decision not in {"approve", "reject", "abstain"}:
+        if not isinstance(decision, str) or decision not in {"approve", "reject", "abstain"}:
             raise ConsensusError(f"votes[{index}].decision must be approve, reject, or abstain")
 
         references = raw.get("evidence_refs", [])
