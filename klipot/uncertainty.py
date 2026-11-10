@@ -11,14 +11,11 @@ from typing import Any
 
 SCHEMA_VERSION = "klipot.uncertainty.v1"
 RESOLUTION_MODES = {
-    "probe",
-    "explicit-config",
-    "human-gate",
-    "fail-closed",
-    "staged-implementation",
-    "feature-flag",
+    "probe", "explicit-config", "human-gate", "fail-closed",
+    "staged-implementation", "feature-flag",
 }
 STATUSES = {"open", "resolved", "blocked"}
+IMPLEMENTATION_STATES = {"planned", "implemented", "verified"}
 NEXT_STEPS = {
     "probe": "run-probe",
     "explicit-config": "request-explicit-configuration",
@@ -67,12 +64,16 @@ def validate_registry(document: Any) -> list[dict[str, Any]]:
             _required_text(item, key, item_id)
         mode = _required_text(item, "resolution_mode", item_id)
         if mode not in RESOLUTION_MODES:
-            raise UncertaintyError(
-                f"{item_id}: unsupported resolution_mode '{mode}'"
-            )
+            raise UncertaintyError(f"{item_id}: unsupported resolution_mode '{mode}'")
         status = item.get("status", "open")
         if status not in STATUSES:
             raise UncertaintyError(f"{item_id}: status must be one of {sorted(STATUSES)}")
+        implementation = item.get("implementation_status", "planned")
+        if implementation not in IMPLEMENTATION_STATES:
+            raise UncertaintyError(
+                f"{item_id}: implementation_status must be one of "
+                f"{sorted(IMPLEMENTATION_STATES)}"
+            )
         verification = item.get("verification")
         if not isinstance(verification, list) or not verification or any(
             not isinstance(value, str) or not value.strip() for value in verification
@@ -89,7 +90,12 @@ def validate_registry(document: Any) -> list[dict[str, Any]]:
             raise UncertaintyError(
                 f"{item_id}: resolved items require at least one evidence reference"
             )
+        if implementation == "verified" and not evidence:
+            raise UncertaintyError(
+                f"{item_id}: verified implementations require evidence references"
+            )
         item["status"] = status
+        item["implementation_status"] = implementation
         item["verification"] = list(verification)
         item["evidence"] = list(evidence)
         normalized.append(item)
@@ -102,14 +108,24 @@ def build_resolution_plan(document: Any) -> dict[str, Any]:
     actions: list[dict[str, Any]] = []
     for item in items:
         status = item["status"]
+        implementation = item["implementation_status"]
         mode = item["resolution_mode"]
+        if status == "resolved":
+            next_step = "none"
+        elif implementation == "implemented":
+            next_step = "run-acceptance-checks"
+        elif implementation == "verified":
+            next_step = "request-owner-closure"
+        else:
+            next_step = NEXT_STEPS[mode]
         actions.append({
             "id": item["id"],
             "domain": item["domain"],
             "feature": item["feature"],
             "status": status,
+            "implementation_status": implementation,
             "resolution_mode": mode,
-            "next_step": "none" if status == "resolved" else NEXT_STEPS[mode],
+            "next_step": next_step,
             "unknown_behavior": item["unknown_behavior"],
             "verification": item["verification"],
             "evidence": item["evidence"],
@@ -118,10 +134,17 @@ def build_resolution_plan(document: Any) -> dict[str, Any]:
         status: sum(1 for item in items if item["status"] == status)
         for status in sorted(STATUSES)
     }
+    implementation_counts = {
+        state: sum(
+            1 for item in items if item["implementation_status"] == state
+        )
+        for state in sorted(IMPLEMENTATION_STATES)
+    }
     return {
         "schema_version": "klipot.resolution-plan.v1",
         "repository": document["repository"],
         "total": len(items),
         "counts": counts,
+        "implementation_counts": implementation_counts,
         "actions": actions,
     }
