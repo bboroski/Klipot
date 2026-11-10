@@ -174,6 +174,42 @@
       "url": "https://github.com/bboroski/NUNLauncher",
       "ecosystem": "NUN",
       "module_id": "nunlauncher-bootstrap"
+    },
+    {
+      "id": "fragile-baby",
+      "repository": "bboroski/Fragile-Baby",
+      "role": "elbrus-platform-support-workstream",
+      "maturity": "architecture-proposal-toolchain-and-target-evidence-required",
+      "provides": [
+        "elbrus-support-roadmap",
+        "architecture-validation-matrix"
+      ],
+      "consumes": [
+        "exact-elbrus-cpu-specification",
+        "vendor-toolchain",
+        "emulator-or-hardware-evidence"
+      ],
+      "url": "https://github.com/bboroski/Fragile-Baby",
+      "ecosystem": "SAMBU",
+      "module_id": "fragile-baby-elbrus-support"
+    },
+    {
+      "id": "luci",
+      "repository": "bboroski/Luci",
+      "role": "programming-workspace-design-scaffold",
+      "maturity": "documentation-only-runtime-and-threat-model-not-yet-defined",
+      "provides": [
+        "workspace-boundary-design",
+        "developer-tooling-integration-notes"
+      ],
+      "consumes": [
+        "runtime-definition",
+        "supported-platform-matrix",
+        "threat-model"
+      ],
+      "url": "https://github.com/bboroski/Luci",
+      "ecosystem": "SAMBU",
+      "module_id": "luci-developer-workspace"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
