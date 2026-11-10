@@ -22,7 +22,7 @@ Klipot допомагає командам бачити, як пов'язані 
 
 **Важливо:** browser-labs є симуляціями. Вони не виконують C-код, не читають телеметрію реального обладнання, не керують виробничими fixtures і не доводять фізичний стан пристрою.
 
-## Дев'ять проєктів екосистеми
+## Дев'ять зареєстрованих модулів
 
 | Репозиторій | Роль | Поточна зрілість |
 |---|---|---|
@@ -37,6 +37,15 @@ Klipot допомагає командам бачити, як пов'язані 
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Documentation scaffold |
 
 NUN і NUNLauncher наразі не є завантажуваною ОС або завантажувачем: у цих репозиторіях ще немає відповідних реалізацій.
+
+## Інкубаційні репозиторії (поки не активні модулі)
+
+| Репозиторій | Поточний стан |
+|---|---|
+| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Placeholder; продуктова роль ще не визначена |
+| [Luci](https://github.com/bboroski/Luci) | Мінімальний scaffold; призначення та runtime ще не визначені |
+
+Ці два репозиторії присутні в інвентарі, але не публікують capabilities і не допускаються до інтеграційного плану до проходження promotion gate.
 
 ## Локальний запуск
 
@@ -82,7 +91,7 @@ Host-тест доводить лише переносні програмні і
 
 ## Екосистема
 
-[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher).
+[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci).
 
 ## Ліцензія
 
