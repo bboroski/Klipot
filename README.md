@@ -87,3 +87,7 @@ Host-тест доводить лише переносні програмні і
 ## Ліцензія
 
 MIT — див. [LICENSE](LICENSE).
+
+## Reaper cycle capability
+
+[Capability registry contract](docs/REAPER_CAPABILITY_REGISTRY.md) — versioned admission, provenance, quarantine, dependency validation, and rollback boundaries.
