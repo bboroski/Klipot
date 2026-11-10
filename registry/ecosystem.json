@@ -214,6 +214,30 @@
       "reference_only": true,
       "clinical_decision_support": false,
       "hardware_control": false
+    },
+    "closed_domain_metric_v1": {
+      "version": 1,
+      "code": "CDM-1",
+      "canonical_specification": "https://github.com/bboroski/SAMBU/blob/main/docs/CLOSED_DOMAIN_METRIC.md",
+      "canonical_schema": "https://github.com/bboroski/SAMBU/blob/main/data/physics/closed_domain_metric.schema.json",
+      "example": "https://github.com/bboroski/SAMBU/blob/main/data/physics/closed_domain_metric.example.json",
+      "validator": "https://github.com/bboroski/SAMBU/blob/main/tools/validate_closed_domain.py",
+      "integrations": {
+        "ToolNG": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "ReaperCripple": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Kloz": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "CO": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "SaintSI": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Klipot": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "NUN": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "NUNLauncher": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Fragile-Baby": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Luci": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md"
+      },
+      "maturity": "experimental-data-contract",
+      "physical_theory_status": "unverified-hypothesis",
+      "metadata_only": true,
+      "proves_geometric_mass_generation": false
     }
   }
 }
