@@ -6,6 +6,22 @@ Klipot связывает документацию, реестры возмож�
 
 [Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Репозиторий](https://github.com/bboroski/Klipot) · [Публичный портал](https://bboroski.github.io/Klipot/)
 
+## Девять репозиториев
+
+| Репозиторий | Ответственность | Текущее состояние |
+|---|---|---|
+| [SAMBU](https://github.com/bboroski/SAMBU) | Язык, IDE, Studio и workflow-инструменты | Experimental alpha |
+| [ToolNG](https://github.com/bboroski/ToolNG) | Нативная диагностика Windows и локальные отчёты доказательств | Desktop application |
+| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калибровка и производственная инженерия | Host-tested; target validation required |
+| [Kloz](https://github.com/bboroski/Kloz) | C11 platform ABI, память фиксированной ёмкости и сервисы CPU/платы | Host-tested core |
+| [CO](https://github.com/bboroski/CO) | Детерминированный runtime жизненного цикла компонентов | Host-tested core |
+| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-наблюдение и проверка случайного повреждения | Host-tested core |
+| [Klipot](https://github.com/bboroski/Klipot) | Каталог репозиториев, контракты и портал интеграции | Static portal |
+| [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Documentation scaffold; реализации ядра нет |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и передачи управления ядру | Documentation scaffold; реализации загрузчика нет |
+
+NUN и NUNLauncher пока не являются загружаемой ОС или загрузчиком. Их README описывают предполагаемые границы и не выдают отсутствующие реализации за готовые функции.
+
 ## Возможности портала
 
 - каталог модулей с фильтрами по доменам и поиском;
