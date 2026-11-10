@@ -98,3 +98,10 @@ Host-тест доводить лише переносні програмні і
 ## Abstract mesh UI preview
 
 Open `ui/index.html` for the Klipot constellation view of the nine repositories. The shared product grammar and the nine individual palette/layout mappings are documented in [Abstract UI Grammar](docs/ABSTRACT_UI_GRAMMAR.md). The constellation's links are conceptual catalog relationships, not proof of runtime dependencies.
+
+
+## NUN Mesh
+
+The cross-repository mesh connects versioned capabilities through explicit dependency contracts. The diagram is an architecture overview, not evidence of live runtime or hardware state.
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh repository integration overview" width="100%" /></p>
