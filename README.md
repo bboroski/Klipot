@@ -87,3 +87,8 @@ Host-тест доводить лише переносні програмні і
 ## Ліцензія
 
 MIT — див. [LICENSE](LICENSE).
+
+
+## Verified AI-assisted engineering
+
+This repository's model-assisted review boundary and acceptance rules are documented in [AI-generated metadata policy](docs/AI_GENERATED_METADATA_POLICY.md). AI output remains advisory until independently validated.
