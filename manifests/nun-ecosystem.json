@@ -1,8 +1,8 @@
 {
   "schema_version": "nun.ecosystem.v1",
   "system": {
-    "id": "nun-ecosystem",
-    "name": "NUN Ecosystem",
+    "id": "nun",
+    "name": "NUN",
     "contract_version": "1.0.0",
     "description": "Independent repositories coordinated by versioned contracts and explicit adapters."
   },
@@ -12,7 +12,11 @@
       "repo": "bboroski/Kloz",
       "role": "machine-near C11 foundation",
       "depends_on": [],
-      "provides": ["platform.contract.v1", "platform.clock.monotonic.v1", "resource.budget.fixed.v1"],
+      "provides": [
+        "platform.contract.v1",
+        "platform.clock.monotonic.v1",
+        "resource.budget.fixed.v1"
+      ],
       "requires": [],
       "integration_status": "implemented"
     },
@@ -20,27 +24,52 @@
       "id": "co",
       "repo": "bboroski/CO",
       "role": "deterministic lifecycle control",
-      "depends_on": ["kloz"],
-      "provides": ["lifecycle.control.v1"],
-      "requires": ["platform.contract.v1"],
+      "depends_on": [
+        "kloz"
+      ],
+      "provides": [
+        "lifecycle.control.v1"
+      ],
+      "requires": [
+        "platform.contract.v1"
+      ],
       "integration_status": "contract-defined"
     },
     {
       "id": "saintsi",
       "repo": "bboroski/SaintSI",
       "role": "health and integrity observations",
-      "depends_on": ["kloz"],
-      "provides": ["health.monitor.v1", "integrity.crc32.v1"],
-      "requires": ["platform.clock.monotonic.v1"],
+      "depends_on": [
+        "kloz"
+      ],
+      "provides": [
+        "health.monitor.v1",
+        "integrity.crc32.v1"
+      ],
+      "requires": [
+        "platform.clock.monotonic.v1"
+      ],
       "integration_status": "contract-defined"
     },
     {
       "id": "reapercripple",
       "repo": "bboroski/ReaperCripple",
       "role": "embedded manufacturing and lifecycle engineering",
-      "depends_on": ["kloz", "co", "saintsi"],
-      "provides": ["embedded.manufacturing.v1", "bsp.supervision.v1"],
-      "requires": ["platform.contract.v1", "resource.budget.fixed.v1", "lifecycle.control.v1", "health.monitor.v1"],
+      "depends_on": [
+        "kloz",
+        "co",
+        "saintsi"
+      ],
+      "provides": [
+        "embedded.manufacturing.v1",
+        "bsp.supervision.v1"
+      ],
+      "requires": [
+        "platform.contract.v1",
+        "resource.budget.fixed.v1",
+        "lifecycle.control.v1",
+        "health.monitor.v1"
+      ],
       "integration_status": "adapter-validation-required"
     },
     {
@@ -48,7 +77,10 @@
       "repo": "bboroski/SAMBU",
       "role": "language, DSL and declarative policy authoring",
       "depends_on": [],
-      "provides": ["policy.schema.v1", "workflow.authoring.v1"],
+      "provides": [
+        "policy.schema.v1",
+        "workflow.authoring.v1"
+      ],
       "requires": [],
       "integration_status": "policy-contract-proposed"
     },
@@ -56,19 +88,59 @@
       "id": "toolng",
       "repo": "bboroski/ToolNG",
       "role": "local Windows diagnostics",
-      "depends_on": ["sambu"],
-      "provides": ["local.diagnostics.evidence.v1"],
-      "requires": ["policy.schema.v1"],
+      "depends_on": [
+        "sambu"
+      ],
+      "provides": [
+        "local.diagnostics.evidence.v1"
+      ],
+      "requires": [
+        "policy.schema.v1"
+      ],
       "integration_status": "portable-policy-adaptation"
     },
     {
       "id": "klipot",
       "repo": "bboroski/Klipot",
       "role": "ecosystem integration control plane",
-      "depends_on": ["reapercripple", "toolng"],
-      "provides": ["ecosystem.orchestration.plan.v1"],
-      "requires": ["embedded.manufacturing.v1", "local.diagnostics.evidence.v1"],
+      "depends_on": [
+        "reapercripple",
+        "toolng"
+      ],
+      "provides": [
+        "ecosystem.orchestration.plan.v1"
+      ],
+      "requires": [
+        "embedded.manufacturing.v1",
+        "local.diagnostics.evidence.v1"
+      ],
       "integration_status": "manifest-planner-v0.1"
+    },
+    {
+      "id": "nun",
+      "repo": "bboroski/NUN",
+      "role": "minimal operating-system kernel specification",
+      "depends_on": [],
+      "provides": [
+        "kernel.architecture.specification.v1"
+      ],
+      "requires": [],
+      "integration_status": "documentation-only-scaffold"
+    },
+    {
+      "id": "nunlauncher",
+      "repo": "bboroski/NUNLauncher",
+      "role": "kernel bootstrap and handoff specification",
+      "depends_on": [
+        "nun"
+      ],
+      "provides": [
+        "kernel.bootstrap.specification.v1"
+      ],
+      "requires": [
+        "kernel.image.contract.specification.v1"
+      ],
+      "integration_status": "documentation-only-scaffold"
     }
   ]
 }
