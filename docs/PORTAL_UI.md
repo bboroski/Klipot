@@ -1,40 +1,51 @@
 # Klipot portal UI and interaction design
 
-## Application surface
+## Product surface
 
-The portal is a dependency-free HTML/CSS/JavaScript application. It is intentionally the single graphical front door for the mesh: embedded libraries receive focused API-concept sandboxes, while SAMBU and ToolNG retain their existing desktop applications.
+Klipot is the operator-facing entry point for the modular engineering mesh. The portal is a dependency-free HTML/CSS/JavaScript application published from the repository root with GitHub Pages.
 
-## Interaction contract
+The interface is deliberately split into four real views:
 
-- **Navigation:** overview, project directory, interactive labs and integration protocol are real client-side views.
-- **Project directory:** text search and domain filters update repository cards immediately.
-- **Repository actions:** external links open the project; clone controls copy the HTTPS clone URL and show a fallback when clipboard access is unavailable.
-- **Kloz lab:** validates positive allocation sizes, power-of-two alignment, padding and fixed capacity.
-- **CO lab:** demonstrates guarded lifecycle transitions, bounded poll steps, failure retention and explicit stop.
-- **SaintSI lab:** advances a 32-bit tick counter, refreshes a heartbeat and reports stale state without taking an actuator action.
-- **ReaperCripple lab:** validates a capability set before showing the boot gate as eligible.
+- **Overview:** product positioning, capability summary and ecosystem map.
+- **Projects:** searchable and filterable seven-repository directory with direct source links, GUI guides and copyable clone URLs.
+- **Interactive labs:** browser-side API concept demonstrations for Kloz, CO, SaintSI and ReaperCripple.
+- **Mesh protocol:** integration boundaries, evidence vocabulary, version and safety rules.
 
-Every lab is marked as a browser simulation. None calls the C libraries, probes a board, queries Windows, scans a device or records manufacturing evidence.
+The quick-start action copies the Klipot clone command. All actions are native links or buttons; there are no inert decorative controls.
 
 ## Visual system
 
+The visual language is strict black / graphite / signal yellow:
+
 | Token | Use |
 |---|---|
-| Deep navy / graphite | Canvas and navigation surfaces |
-| Elevated blue-grey | Cards, panels and focus regions |
-| Mint | Primary actions, active route and positive state |
-| Soft blue | Secondary emphasis and information |
-| Amber | Review or blocked-by-policy status |
-| Red | Validation rejection or failed operation |
+| Near-black | Page canvas, navigation and deepest surfaces |
+| Graphite | Cards, panels and elevated surfaces |
+| Signal yellow | Brand mark, primary actions, active navigation, focus and key system lines |
+| Warm grey | Supporting copy and secondary labels |
+| Green / amber / red | Lab outcomes only: accepted, review or rejected |
 
-Buttons have visible hover and pressed feedback. Cards lift slightly on hover. View transitions use a short opacity/vertical entrance. Focus-visible outlines are retained for keyboard navigation. Status updates use polite live regions. The layout collapses to a compact top navigation on mobile and two responsive grids at intermediate widths.
+The page uses a responsive top navigation, layered hero, system-map illustration, metric strip, capability cards, project cards, labs and protocol panels. Hover and pressed states are visible. Cards lift subtly; view transitions are short and can be reduced by the operating-system preference.
 
-The application honors prefers-reduced-motion by minimizing animations and transitions. Inputs have labels, nav has an accessible name, and interactive actions are native buttons or links.
+## Interaction contract
+
+- **Navigation:** Overview, Projects, Interactive labs and Mesh protocol switch real client-side views and preserve the selected route in the URL hash.
+- **Project directory:** text search and domain filters update repository cards immediately.
+- **Repository actions:** project links open the source; clone controls copy the HTTPS URL.
+- **Quick start:** copies `git clone https://github.com/bboroski/Klipot.git`.
+- **Kloz lab:** validates positive allocation sizes, power-of-two alignment, padding and fixed capacity.
+- **CO lab:** demonstrates guarded lifecycle transitions, bounded poll steps, failure retention and explicit stop.
+- **SaintSI lab:** advances a 32-bit tick counter, refreshes a heartbeat and reports stale state without taking an actuator action.
+- **ReaperCripple lab:** validates a declared capability set before showing a bootstrap gate as eligible.
+
+## Accessibility and safety
+
+The portal uses semantic sections, labelled inputs, keyboard-visible focus, native buttons and links, and polite live regions for lab output. The layout adapts to narrow screens. Reduced-motion preferences are respected.
+
+Every lab is a browser simulation. None executes the C libraries, probes a board, queries Windows, scans a device or records manufacturing evidence. A passing browser demo is not host-test evidence or hardware qualification.
 
 ## Deployment
 
-GitHub Actions validates the portal asset and control markers, then publishes the repository root using GitHub Pages. A repository administrator must enable Settings → Pages → GitHub Actions before the first deployment. Until that setting is enabled and a deployment succeeds, the authoritative copy is the source at index.html.
+The workflow at `.github/workflows/pages.yml` validates the page, key interaction markers, SVG assets and inline JavaScript syntax, then deploys the repository root using GitHub Pages.
 
-## Future GUI work
-
-Do not force a generic desktop GUI into a low-level static library. Kloz, CO and SaintSI are better served by tests, host simulators and board adapters. ReaperCripple's future factory UI must be bound to real fixture/recipe evidence. SAMBU Duck Studio and ToolNG should evolve within their native Tkinter and Win32 design systems.
+The repository must have **Settings → Pages → Build and deployment → GitHub Actions** selected for the first deployment. After that setting is active, pushes to `main` that change the portal or its assets trigger deployment automatically.
