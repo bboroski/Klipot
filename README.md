@@ -87,3 +87,9 @@ Host-тест доводить лише переносні програмні і
 ## Ліцензія
 
 Проєктна документація раніше заявляла MIT, але окремого файлу LICENSE у репозиторії немає. Підтвердіть ліцензію та додайте її повний текст перед розповсюдженням.
+
+
+## Reaper-inspired engineering integration
+
+- [Project-specific architecture mapping](docs/REAPER_DOMAIN_INTEGRATION.md)
+- [Canonical 50-pattern catalogue in SAMBU](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
