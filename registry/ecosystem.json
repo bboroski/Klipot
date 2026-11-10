@@ -7,44 +7,16 @@
     "canonical_architecture": "https://github.com/bboroski/SAMBU/blob/main/docs/ECOSYSTEM_ARCHITECTURE.md",
     "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
     "manifest_schema": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/module.schema.json",
-    "major_version": 1
+    "major_version": 1,
+    "uncertainty_registry": {
+      "version": 1,
+      "schema": "https://github.com/bboroski/Klipot/blob/main/schemas/uncertainty-registry.schema.json",
+      "local_path": "ecosystem/uncertainty.json",
+      "semantics": "unknown-is-not-passed",
+      "workspace_planner": "klipot.uncertainty.build_workspace_plan"
+    }
   },
   "projects": [
-    {
-      "id": "klipot",
-      "repository": "bboroski/Klipot",
-      "role": "control-plane",
-      "maturity": "portal-and-cross-repository-contract-check",
-      "provides": [
-        "registry",
-        "project-navigation",
-        "contract-catalog",
-        "browser-labs"
-      ],
-      "consumes": [],
-      "url": "https://github.com/bboroski/Klipot",
-      "module_manifest": "sambu.module.json",
-      "ecosystem": "SAMBU",
-      "module_id": "klipot-control-plane"
-    },
-    {
-      "id": "kloz",
-      "repository": "bboroski/Kloz",
-      "role": "platform-substrate",
-      "maturity": "host-tested-core",
-      "provides": [
-        "fixed-capacity-memory",
-        "versioned-platform-ops",
-        "stable-status-abi"
-      ],
-      "consumes": [
-        "board-cpu-port"
-      ],
-      "url": "https://github.com/bboroski/Kloz",
-      "module_manifest": "sambu.module.json",
-      "ecosystem": "SAMBU",
-      "module_id": "kloz-platform"
-    },
     {
       "id": "co",
       "repository": "bboroski/CO",
@@ -65,23 +37,101 @@
       "module_id": "co-lifecycle"
     },
     {
-      "id": "saintsi",
-      "repository": "bboroski/SaintSI",
-      "role": "runtime-assurance",
-      "maturity": "host-tested-core",
+      "id": "fragile-baby",
+      "repository": "bboroski/Fragile-Baby",
+      "role": "elbrus-e2k-target-qualification",
+      "maturity": "host-tested-qualification-contract-target-unqualified",
       "provides": [
-        "bounded-heartbeats",
-        "rollover-safe-health-check",
-        "crc32-corruption-check"
+        "elbrus-target-profile",
+        "elbrus-toolchain-abi-hardware-gates"
       ],
-      "consumes": [
-        "caller-timebase",
-        "optional-kloz-clock"
+      "consumes": [],
+      "url": "https://github.com/bboroski/Fragile-Baby",
+      "ecosystem": "SAMBU",
+      "module_id": "fragile-baby-elbrus"
+    },
+    {
+      "id": "klipot",
+      "repository": "bboroski/Klipot",
+      "role": "control-plane",
+      "maturity": "portal-workspace-uncertainty-planner",
+      "provides": [
+        "registry",
+        "project-navigation",
+        "contract-catalog",
+        "browser-labs",
+        "uncertainty-registry",
+        "workspace-uncertainty-plan"
       ],
-      "url": "https://github.com/bboroski/SaintSI",
+      "consumes": [],
+      "url": "https://github.com/bboroski/Klipot",
       "module_manifest": "sambu.module.json",
       "ecosystem": "SAMBU",
-      "module_id": "saintsi-assurance"
+      "module_id": "klipot-control-plane"
+    },
+    {
+      "id": "kloz",
+      "repository": "bboroski/Kloz",
+      "role": "platform-substrate",
+      "maturity": "host-tested-core",
+      "provides": [
+        "fixed-capacity-memory",
+        "versioned-platform-ops",
+        "stable-status-abi",
+        "four-state-platform-capability-query"
+      ],
+      "consumes": [
+        "board-cpu-port"
+      ],
+      "url": "https://github.com/bboroski/Kloz",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "kloz-platform"
+    },
+    {
+      "id": "luci",
+      "repository": "bboroski/Luci",
+      "role": "offline-repository-audit-and-feature-resolution",
+      "maturity": "early-python-implementation",
+      "provides": [
+        "offline-workspace-audit",
+        "evidence-gap-feature-actions"
+      ],
+      "consumes": [],
+      "url": "https://github.com/bboroski/Luci",
+      "ecosystem": "SAMBU",
+      "module_id": "luci-workbench"
+    },
+    {
+      "id": "nun",
+      "repository": "bboroski/NUN",
+      "role": "minimal-kernel-specification-and-boot-metadata-contract",
+      "maturity": "host-tested-boot-metadata-contract-kernel-not-bootable",
+      "provides": [
+        "kernel-architecture-documentation",
+        "kernel-boot-information-validation"
+      ],
+      "consumes": [],
+      "url": "https://github.com/bboroski/NUN",
+      "ecosystem": "NUN",
+      "module_id": "nun-kernel"
+    },
+    {
+      "id": "nunlauncher",
+      "repository": "bboroski/NUNLauncher",
+      "role": "kernel-image-and-handoff-metadata-validation",
+      "maturity": "host-tested-metadata-contract-no-cpu-transfer",
+      "provides": [
+        "kernel-bootstrap-documentation",
+        "kernel-image-metadata-validation",
+        "kernel-handoff-metadata-validation"
+      ],
+      "consumes": [
+        "NUN kernel specification"
+      ],
+      "url": "https://github.com/bboroski/NUNLauncher",
+      "ecosystem": "NUN",
+      "module_id": "nunlauncher-bootstrap"
     },
     {
       "id": "reapercripple",
@@ -104,6 +154,26 @@
       "module_manifest": "sambu.module.json",
       "ecosystem": "SAMBU",
       "module_id": "reapercripple-hardware"
+    },
+    {
+      "id": "saintsi",
+      "repository": "bboroski/SaintSI",
+      "role": "runtime-assurance",
+      "maturity": "host-tested-core",
+      "provides": [
+        "bounded-heartbeats",
+        "rollover-safe-health-check",
+        "crc32-corruption-check",
+        "unknown-empty-health-coverage"
+      ],
+      "consumes": [
+        "caller-timebase",
+        "optional-kloz-clock"
+      ],
+      "url": "https://github.com/bboroski/SaintSI",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "saintsi-assurance"
     },
     {
       "id": "sambu",
@@ -146,34 +216,6 @@
       "module_manifest": "sambu.module.json",
       "ecosystem": "SAMBU",
       "module_id": "toolng-diagnostics"
-    },
-    {
-      "id": "nun",
-      "repository": "bboroski/NUN",
-      "role": "minimal-operating-system-kernel-specification",
-      "maturity": "documentation-scaffold-no-kernel-implementation",
-      "provides": [
-        "kernel-architecture-documentation"
-      ],
-      "consumes": [],
-      "url": "https://github.com/bboroski/NUN",
-      "ecosystem": "NUN",
-      "module_id": "nun-kernel"
-    },
-    {
-      "id": "nunlauncher",
-      "repository": "bboroski/NUNLauncher",
-      "role": "kernel-bootstrap-and-handoff-specification",
-      "maturity": "documentation-scaffold-no-loader-implementation",
-      "provides": [
-        "kernel-bootstrap-documentation"
-      ],
-      "consumes": [
-        "NUN kernel specification"
-      ],
-      "url": "https://github.com/bboroski/NUNLauncher",
-      "ecosystem": "NUN",
-      "module_id": "nunlauncher-bootstrap"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
