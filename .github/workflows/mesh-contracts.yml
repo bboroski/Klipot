@@ -5,6 +5,9 @@ on:
     paths:
       - "contracts/**"
       - "tests/**"
+      - "assets/**"
+      - "ecosystem/**"
+      - "README*"
       - ".github/workflows/mesh-contracts.yml"
   push:
     branches: [main]
@@ -57,6 +60,10 @@ jobs:
         with:
           repository: bboroski/ToolNG
           path: ToolNG
+      - name: Set up Node for portal syntax validation
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
       - name: Compile the optional cross-project headers
         run: |
           cc -std=c11 -Wall -Wextra -pedantic -fsyntax-only \
