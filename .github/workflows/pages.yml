@@ -23,7 +23,9 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
       - name: Validate portal files and key interactions
         run: |
           test -s index.html
@@ -63,7 +65,7 @@ jobs:
           node-version: 22
       - name: Validate inline JavaScript syntax
         run: node --check /tmp/klipot-inline.js
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v4
         with:
           path: .
   deploy:
