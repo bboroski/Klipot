@@ -89,3 +89,8 @@ MIT. Див. [LICENSE](LICENSE).
 ## Abstract mesh UI preview
 
 A second, abstract constellation view is available in `ui/`. It translates the hand-drawn layout into a status rail, a spatial map of the nine repositories, explicit relationship paths, a contextual contract inspector and a lower navigation bar. It complements rather than replaces the main public portal. Open `ui/index.html` in a modern browser.
+
+
+## Shared abstract UI grammar
+
+The nine product-specific interfaces follow a shared spatial grammar while retaining separate purpose and colour systems: [Abstract UI Grammar](docs/ABSTRACT_UI_GRAMMAR.md). The grammar defines the status rail, open work field, inspectable nodes, contextual detail boundary and lower action rail. It also records evidence and hardware-safety boundaries for each product.
