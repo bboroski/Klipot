@@ -6,6 +6,22 @@ Klipot connects documentation, capability registries, versioned integration cont
 
 [Українська](README.md) · [English](README.en.md) · [Русский](README.ru.md) · [Repository](https://github.com/bboroski/Klipot) · [Public portal](https://bboroski.github.io/Klipot/)
 
+## The nine repositories
+
+| Repository | Responsibility | Current state |
+|---|---|---|
+| [SAMBU](https://github.com/bboroski/SAMBU) | Language, IDE, Studio, and workflow tooling | Experimental alpha |
+| [ToolNG](https://github.com/bboroski/ToolNG) | Native Windows diagnostics and local evidence reports | Desktop application |
+| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, calibration, and manufacturing engineering | Host-tested; target validation required |
+| [Kloz](https://github.com/bboroski/Kloz) | C11 platform ABI, bounded memory, and CPU/board services | Host-tested core |
+| [CO](https://github.com/bboroski/CO) | Deterministic component lifecycle runtime | Host-tested core |
+| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat supervision and accidental-corruption checks | Host-tested core |
+| [Klipot](https://github.com/bboroski/Klipot) | Repository catalog, contracts, and integration portal | Static portal |
+| [NUN](https://github.com/bboroski/NUN) | Minimal operating-system kernel specification | Documentation scaffold; no kernel implementation |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Kernel bootstrap and handoff specification | Documentation scaffold; no loader implementation |
+
+NUN and NUNLauncher are not yet a bootable OS or a bootloader. Their READMEs describe proposed boundaries and do not claim missing implementations as completed features.
+
 ## Portal capabilities
 
 - module directory with domain filters and search;
@@ -60,4 +76,4 @@ MIT. See [LICENSE](LICENSE).
 
 - **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
 - `python one.py check` validates the portal, manifests, schemas and JavaScript without opening a browser.
-- When all seven repositories are checked out as sibling directories, mesh mode also runs `one.py check` in every module and validates cross-repository contracts. The default run opens the portal after checks.
+- When all nine repositories are checked out as sibling directories, mesh mode also runs `one.py check` in every module and validates cross-repository contracts. The default run opens the portal after checks.
