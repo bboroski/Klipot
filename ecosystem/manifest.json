@@ -9,7 +9,9 @@
     "integration-protocol",
     "versioned-c-envelope-reference",
     "interactive-browser-labs",
-    "cross-repository-header-smoke-check"
+    "cross-repository-header-smoke-check",
+    "uncertainty-registry",
+    "workspace-uncertainty-plan"
   ],
   "consumes": [
     "repository-manifests",
