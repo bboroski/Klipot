@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""One-knob control plane for the seven-repository SAMBU Mesh workspace."""
+"""One-knob control plane for the nine-repository SAMBU Mesh workspace."""
 from __future__ import annotations
 
 import argparse
@@ -12,7 +12,8 @@ import webbrowser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
-REPOSITORIES = ("Kloz", "CO", "SaintSI", "ReaperCripple", "SAMBU", "ToolNG")
+REPOSITORIES = ("Kloz", "CO", "SaintSI", "ReaperCripple", "SAMBU", "ToolNG", "NUN", "NUNLauncher")
+SPECIFICATION_ONLY = {"NUN", "NUNLauncher"}
 ASSETS = ("assets/nun-mesh-overview.svg", "assets/portal-ui-preview.svg")
 
 
@@ -53,17 +54,29 @@ def workspace_check() -> None:
     missing = [name for name in required if not (workspace / name).is_dir()]
     if missing:
         print("Cross-repository run skipped; missing sibling checkouts: " + ", ".join(missing))
-        print("Local Klipot validation is complete. Place all seven repositories side by side to enable mesh mode.")
+        print("Local Klipot validation is complete. Place all nine repositories side by side to enable full mesh mode.")
         return
     for name in REPOSITORIES:
-        entry = workspace / name / "one.py"
+        project = workspace / name
+        if name in SPECIFICATION_ONLY:
+            manifest_path = project / "sambu.module.json"
+            update_path = project / "ecosystem" / "update-policy.json"
+            if not manifest_path.is_file() or not update_path.is_file():
+                raise RuntimeError(f"{name} is missing its module or update-policy manifest.")
+            manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+            policy = json.loads(update_path.read_text(encoding="utf-8"))
+            if manifest.get("maturity") != "specification-only" or policy.get("autonomy", {}).get("status") != "specification-only":
+                raise RuntimeError(f"{name} must remain explicitly marked specification-only until implementation and evidence exist.")
+            print(f"Verified specification-only contract: {name}")
+            continue
+        entry = project / "one.py"
         if not entry.is_file():
             raise RuntimeError(f"{name} is missing its one-knob entrypoint.")
-        run(f"Verify repository {name}", [sys.executable, str(entry), "check"], workspace / name)
+        run(f"Verify repository {name}", [sys.executable, str(entry), "check"], project)
     validator = ROOT / "tests" / "validate_mesh.py"
     if validator.is_file():
-        run("Validate manifests, cross-repository diagrams and shared contracts", [sys.executable, str(validator)], workspace)
-    print("\nAll seven repository checks completed.")
+        run("Validate all nine manifests, update policies and cross-repository contracts", [sys.executable, str(validator)], workspace)
+    print("\nAll nine repository checks completed.")
 
 
 def check() -> None:
