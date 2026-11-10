@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/bboroski/Klipot/blob/main/schemas/component.schema.json",
+  "title": "NUN Component Declaration v1",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "repo", "role", "depends_on", "provides", "requires"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1, "pattern": "^[a-z][a-z0-9-]*$"},
+    "repo": {"type": "string", "pattern": "^[^/]+/[^/]+$"},
+    "role": {"type": "string", "minLength": 1},
+    "depends_on": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "provides": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "requires": {"type": "array", "uniqueItems": true, "items": {"type": "string", "minLength": 1}},
+    "integration_status": {"type": "string", "minLength": 1}
+  }
+}

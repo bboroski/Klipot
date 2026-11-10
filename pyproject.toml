@@ -1,0 +1,16 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "klipot"
+version = "0.1.0"
+description = "Deterministic integration planner for the NUN software ecosystem"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+klipot = "klipot.cli:main"
+
+[tool.setuptools]
+packages = ["klipot"]
