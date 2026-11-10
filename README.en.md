@@ -54,3 +54,10 @@ A host test validates portable software invariants only. Target compiler, linker
 ## License
 
 MIT. See [LICENSE](LICENSE).
+
+
+## One-knob launch
+
+- **Windows:** double-click `one.cmd`; on any OS use `python one.py`.
+- `python one.py check` validates the portal, manifests, schemas and JavaScript without opening a browser.
+- When all seven repositories are checked out as sibling directories, mesh mode also runs `one.py check` in every module and validates cross-repository contracts. The default run opens the portal after checks.
