@@ -4,22 +4,9 @@
     "id": "nun",
     "name": "NUN",
     "contract_version": "1.0.0",
-    "description": "Independent repositories coordinated by versioned contracts and explicit adapters."
+    "description": "Eleven independent repositories coordinated through versioned contracts, explicit capability declarations, and evidence-gated uncertainty resolution."
   },
   "components": [
-    {
-      "id": "kloz",
-      "repo": "bboroski/Kloz",
-      "role": "machine-near C11 foundation",
-      "depends_on": [],
-      "provides": [
-        "platform.contract.v1",
-        "platform.clock.monotonic.v1",
-        "resource.budget.fixed.v1"
-      ],
-      "requires": [],
-      "integration_status": "implemented"
-    },
     {
       "id": "co",
       "repo": "bboroski/CO",
@@ -36,20 +23,89 @@
       "integration_status": "contract-defined"
     },
     {
-      "id": "saintsi",
-      "repo": "bboroski/SaintSI",
-      "role": "health and integrity observations",
+      "id": "fragile-baby",
+      "repo": "bboroski/Fragile-Baby",
+      "role": "Elbrus E2K target qualification gates",
+      "depends_on": [],
+      "provides": [
+        "elbrus.target.profile.v1",
+        "elbrus.qualification.gates.v1"
+      ],
+      "requires": [],
+      "integration_status": "host-qualification-contract-target-unqualified"
+    },
+    {
+      "id": "klipot",
+      "repo": "bboroski/Klipot",
+      "role": "ecosystem integration control plane",
       "depends_on": [
-        "kloz"
+        "reapercripple",
+        "toolng"
       ],
       "provides": [
-        "health.monitor.v1",
-        "integrity.crc32.v1"
+        "ecosystem.orchestration.plan.v1",
+        "uncertainty.workspace-plan.v1"
       ],
       "requires": [
-        "platform.clock.monotonic.v1"
+        "embedded.manufacturing.v1",
+        "local.diagnostics.evidence.v1"
       ],
-      "integration_status": "contract-defined"
+      "integration_status": "manifest-planner-v0.1"
+    },
+    {
+      "id": "kloz",
+      "repo": "bboroski/Kloz",
+      "role": "machine-near C11 foundation",
+      "depends_on": [],
+      "provides": [
+        "platform.contract.v1",
+        "platform.clock.monotonic.v1",
+        "resource.budget.fixed.v1",
+        "platform.capability.query.four-state.v1"
+      ],
+      "requires": [],
+      "integration_status": "implemented"
+    },
+    {
+      "id": "luci",
+      "repo": "bboroski/Luci",
+      "role": "offline repository evidence and feature-gap audit",
+      "depends_on": [],
+      "provides": [
+        "workspace.evidence.audit.v1",
+        "workspace.feature.gap.plan.v1"
+      ],
+      "requires": [],
+      "integration_status": "early-python-implementation"
+    },
+    {
+      "id": "nun",
+      "repo": "bboroski/NUN",
+      "role": "minimal operating-system kernel specification",
+      "depends_on": [],
+      "provides": [
+        "kernel.architecture.specification.v1",
+        "kernel.boot-info.validation.host.v1"
+      ],
+      "requires": [],
+      "integration_status": "host-contract-implemented-kernel-not-bootable"
+    },
+    {
+      "id": "nunlauncher",
+      "repo": "bboroski/NUNLauncher",
+      "role": "kernel bootstrap and handoff specification",
+      "depends_on": [
+        "nun"
+      ],
+      "provides": [
+        "kernel.bootstrap.specification.v1",
+        "kernel.image.validation.host.v1",
+        "kernel.handoff.metadata.host.v1"
+      ],
+      "requires": [
+        "kernel.architecture.specification.v1"
+      ],
+      "integration_status": "host-contract-implemented-no-cpu-transfer"
     },
     {
       "id": "reapercripple",
@@ -71,6 +127,23 @@
         "health.monitor.v1"
       ],
       "integration_status": "adapter-validation-required"
+    },
+    {
+      "id": "saintsi",
+      "repo": "bboroski/SaintSI",
+      "role": "health and integrity observations",
+      "depends_on": [
+        "kloz"
+      ],
+      "provides": [
+        "health.monitor.v1",
+        "integrity.crc32.v1",
+        "health.coverage.unknown.v1"
+      ],
+      "requires": [
+        "platform.clock.monotonic.v1"
+      ],
+      "integration_status": "contract-defined"
     },
     {
       "id": "sambu",
@@ -98,49 +171,6 @@
         "policy.schema.v1"
       ],
       "integration_status": "portable-policy-adaptation"
-    },
-    {
-      "id": "klipot",
-      "repo": "bboroski/Klipot",
-      "role": "ecosystem integration control plane",
-      "depends_on": [
-        "reapercripple",
-        "toolng"
-      ],
-      "provides": [
-        "ecosystem.orchestration.plan.v1"
-      ],
-      "requires": [
-        "embedded.manufacturing.v1",
-        "local.diagnostics.evidence.v1"
-      ],
-      "integration_status": "manifest-planner-v0.1"
-    },
-    {
-      "id": "nun",
-      "repo": "bboroski/NUN",
-      "role": "minimal operating-system kernel specification",
-      "depends_on": [],
-      "provides": [
-        "kernel.architecture.specification.v1"
-      ],
-      "requires": [],
-      "integration_status": "documentation-only-scaffold"
-    },
-    {
-      "id": "nunlauncher",
-      "repo": "bboroski/NUNLauncher",
-      "role": "kernel bootstrap and handoff specification",
-      "depends_on": [
-        "nun"
-      ],
-      "provides": [
-        "kernel.bootstrap.specification.v1"
-      ],
-      "requires": [
-        "kernel.image.contract.specification.v1"
-      ],
-      "integration_status": "documentation-only-scaffold"
     }
   ]
 }
