@@ -1,0 +1,23 @@
+{
+  "project_id": "klipot",
+  "schema_version": 1,
+  "contract_major": 1,
+  "role": "mesh-control-plane",
+  "maturity": "interactive-static-portal",
+  "provides": [
+    "repository-registry",
+    "integration-protocol",
+    "versioned-c-envelope-reference",
+    "interactive-browser-labs",
+    "cross-repository-header-smoke-check"
+  ],
+  "consumes": [
+    "repository-manifests",
+    "public-repository-metadata"
+  ],
+  "safety": [
+    "Portal simulations are not hardware evidence",
+    "No firmware runtime dependency",
+    "Curated metadata is not live CI status"
+  ]
+}
