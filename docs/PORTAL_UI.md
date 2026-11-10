@@ -15,7 +15,7 @@ The quick-start action copies the Klipot clone command. All actions are native l
 
 ## Visual system
 
-The live portal has been normalized to the shared Duck palette. CSS variables in `index.html` map to the machine-readable `design/duck-ui.tokens.json` values: canvas `#0D0D0D`, elevated surfaces `#1A1A1A` / `#141414`, signal yellow `#FFD600`, secondary accent `#BFA100`, selected state `#332B00`, text `#E6E6E6`, muted text `#999999`, borders `#262626`, success `#4CAF50` and error `#FF4444`. The visual language is strict black / graphite / signal yellow:
+The live portal has been normalized to the Amber–Obsidian v2 palette. CSS variables in `index.html` map to the machine-readable `design/duck-ui.tokens.json` values: canvas `#0B0B0D`, elevated surfaces `#1C1C1E` / `#141416`, signal amber `#FF9F0A`, secondary accent `#D97706`, selected state `#3A2408`, text `#F5F3EE`, muted text `#A6A3AB`, borders `#34343A`, success `#64C787` and error `#F16D65`. The visual language is strict obsidian / graphite / signal amber:
 
 | Token | Use |
 |---|---|
@@ -49,3 +49,8 @@ Every lab is a browser simulation. None executes the C libraries, probes a board
 The workflow at `.github/workflows/pages.yml` validates the page, key interaction markers, SVG assets and inline JavaScript syntax, then deploys the repository root using GitHub Pages.
 
 The repository must have **Settings → Pages → Build and deployment → GitHub Actions** selected for the first deployment. After that setting is active, pushes to `main` that change the portal or its assets trigger deployment automatically.
+
+
+## Amber–Obsidian v2 update
+
+The live portal CSS now uses obsidian canvas `#0B0B0D`, graphite surfaces `#1C1C1E` / `#141416`, amber action/focus `#FF9F0A`, and explicit warning/unknown states. Interactive targets were raised to a 36 px minimum for compact controls; pressed states include an inset response, and numeric readouts use tabular figures. The full reusable token and accessibility contract is in [INTERFACE_DESIGN.md](INTERFACE_DESIGN.md).
