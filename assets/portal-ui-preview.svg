@@ -37,7 +37,7 @@
   </g>
   <circle cx="1037" cy="274" r="68" fill="#141414" stroke="#FFD600" stroke-width="3"/>
   <text x="1037" y="270" text-anchor="middle" fill="#E6E6E6" font-size="21" font-weight="900">KLIPOT</text><text x="1037" y="290" text-anchor="middle" fill="#FFD600" font-size="8" letter-spacing="2">CONTROL PLANE</text>
-  <g fill="#E6E6E6" font-size="12" font-weight="800" text-anchor="middle"><text x="819" y="198">KLOZ</text><text x="1037" y="187">CO</text><text x="1255" y="198">SAINTSI</text><text x="819" y="359">REAPERCRRIPPLE</text><text x="1037" y="380">SAMBU</text><text x="1255" y="359">TOOLNG</text></g>
+  <g fill="#E6E6E6" font-size="12" font-weight="800" text-anchor="middle"><text x="819" y="198">KLOZ</text><text x="1037" y="187">CO</text><text x="1255" y="198">SAINTSI</text><text x="819" y="359">REAPERCRIPPLE</text><text x="1037" y="380">SAMBU</text><text x="1255" y="359">TOOLNG</text></g>
   <g fill="#FFD600" font-size="8" text-anchor="middle"><text x="819" y="211">PLATFORM</text><text x="1037" y="200">LIFECYCLE</text><text x="1255" y="211">ASSURANCE</text><text x="819" y="372">HARDWARE</text><text x="1037" y="393">TOOLCHAIN</text><text x="1255" y="372">DIAGNOSTICS</text></g>
 </g>
 <g font-family="Arial">
