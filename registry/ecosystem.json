@@ -149,5 +149,14 @@
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
-  "manifest_schema": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/module.schema.json"
+  "manifest_schema": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/module.schema.json",
+  "shared_contracts": {
+    "multilingual_text_signal_v1": {
+      "version": 1,
+      "canonical_schema": "https://github.com/bboroski/SAMBU/blob/main/schemas/text-signal-envelope.schema.json",
+      "specification": "https://github.com/bboroski/SAMBU/blob/main/docs/MULTILINGUAL_SIGNAL_PIPELINE.md",
+      "metadata_only": true,
+      "raw_text_embedded": false
+    }
+  }
 }
