@@ -26,6 +26,7 @@ SAMBU is the umbrella engineering platform for seven independently buildable rep
 3. **Policy/workflow:** SAMBU describes bounded, reviewable actions. A host adapter separately reports whether an action was available, attempted, completed or rejected.
 4. **Evidence:** ToolNG and ReaperCripple reports preserve provenance, sequence, timebase, status and quality/coverage. Unknown, not checked, not found, failed and passed are distinct states.
 5. **Presentation:** Klipot offers navigation and educational simulations. A browser simulation is never evidence of a real firmware run.
+6. **Multilingual signal metadata:** the canonical SAMBU Text Signal Contract v1 separates Unicode script profiles, caller-supplied language hints, representation kinds, translation state, and human semantic review. The envelope is metadata-only and does not carry raw or translated text. See [contract specification](https://github.com/bboroski/SAMBU/blob/main/docs/MULTILINGUAL_SIGNAL_PIPELINE.md) and [JSON Schema](https://github.com/bboroski/SAMBU/blob/main/schemas/text-signal-envelope.schema.json).
 
 ## Integration status
 
