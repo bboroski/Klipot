@@ -3,6 +3,7 @@ import unittest
 from klipot.uncertainty import (
     UncertaintyError,
     build_resolution_plan,
+    build_workspace_plan,
     validate_registry,
 )
 
@@ -80,6 +81,33 @@ class UncertaintyPlannerTests(unittest.TestCase):
         del self.registry["items"][0]["unknown_behavior"]
         with self.assertRaises(UncertaintyError):
             validate_registry(self.registry)
+
+    def test_workspace_aggregates_and_tags_repository(self):
+        second = dict(self.registry)
+        second["repository"] = "org/another"
+        plan = build_workspace_plan([self.registry, second])
+        self.assertEqual(plan["repository_count"], 2)
+        self.assertEqual(plan["total"], 2)
+        self.assertEqual(plan["counts"]["open"], 2)
+        self.assertEqual(plan["actions"][0]["repository"], "org/another")
+        self.assertEqual(plan["actions"][1]["repository"], "org/example")
+
+    def test_workspace_rejects_duplicate_repository_and_global_id(self):
+        second = dict(self.registry)
+        second["repository"] = "org/another"
+        with self.assertRaises(UncertaintyError):
+            build_workspace_plan([self.registry, self.registry])
+        second["items"] = [dict(self.registry["items"][0])]
+        with self.assertRaises(UncertaintyError):
+            build_workspace_plan([self.registry, second])
+
+    def test_workspace_order_does_not_depend_on_input_order(self):
+        second = dict(self.registry)
+        second["repository"] = "org/another"
+        self.assertEqual(
+            build_workspace_plan([self.registry, second]),
+            build_workspace_plan([second, self.registry]),
+        )
 
 
 if __name__ == "__main__":
