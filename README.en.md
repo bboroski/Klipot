@@ -17,12 +17,13 @@ Klipot helps teams understand how components relate, who owns each responsibilit
 - Links to source code, GUI documentation, and run instructions.
 - Copyable clone commands.
 - Machine-readable registry and versioned integration protocol.
+- Per-repository uncertainty registers, a deterministic workspace planner, and evidence-gated implementation states.
 - Browser labs demonstrating allocation, lifecycle, heartbeat, and capability-gate concepts.
 - CI checks for metadata, contracts, schemas, and static-portal syntax.
 
 **Important:** browser labs are simulations. They do not execute C code, read live hardware telemetry, control manufacturing fixtures, or prove physical device state.
 
-## The nine ecosystem projects
+## The eleven ecosystem projects
 
 | Repository | Role | Current maturity |
 |---|---|---|
@@ -34,9 +35,11 @@ Klipot helps teams understand how components relate, who owns each responsibilit
 | [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat monitoring and CRC | Host-tested core |
 | [Klipot](https://github.com/bboroski/Klipot) | Catalog, contracts, and portal | Static portal |
 | [NUN](https://github.com/bboroski/NUN) | Minimal OS-kernel specification | Documentation scaffold |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Bootstrap and handoff specification | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Image and handoff metadata validation | Host contract; no CPU transfer |
+| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Elbrus E2K toolchain/ABI/target qualification | Host qualification contract; target pending |
+| [Luci](https://github.com/bboroski/Luci) | Offline repository audit and feature planning | Early Python implementation |
 
-NUN and NUNLauncher are not yet a bootable OS or loader: the corresponding implementations are not present in those repositories.
+NUN validates boot metadata on the host but is not a bootable OS. NUNLauncher validates image and handoff structures but does not yet transfer CPU control or act as a complete bootloader. Fragile-Baby does not claim verified E2K hardware support until target evidence is supplied.
 
 ## Run locally
 
