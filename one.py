@@ -11,7 +11,7 @@ import sys
 import webbrowser
 from pathlib import Path
 
-from klipot.uncertainty import build_resolution_plan
+from klipot.uncertainty import build_resolution_plan, build_workspace_plan
 
 ROOT = Path(__file__).resolve().parent
 REPOSITORIES = (
@@ -32,6 +32,7 @@ def local_check() -> None:
         "ecosystem/manifest.json",
         "registry/ecosystem.json",
         "registry/uncertainties.json",
+        "ecosystem/uncertainty.json",
     ):
         path = ROOT / relative
         json.loads(path.read_text(encoding="utf-8"))
@@ -41,13 +42,18 @@ def local_check() -> None:
         (ROOT / "registry" / "uncertainties.json").read_text(encoding="utf-8")
     )
     plan = build_resolution_plan(registry)
+    local_registry = json.loads(
+        (ROOT / "ecosystem" / "uncertainty.json").read_text(encoding="utf-8")
+    )
+    local_plan = build_resolution_plan(local_registry)
     print(
-        "uncertainty registry: "
+        "central uncertainty registry: "
         f"{plan['total']} items "
         f"({plan['counts']['open']} open, "
         f"{plan['counts']['resolved']} resolved, "
         f"{plan['counts']['blocked']} blocked)"
     )
+    print(f"Klipot local uncertainty items: {local_plan['total']}")
 
     for relative in ASSETS:
         if not (ROOT / relative).is_file():
@@ -74,13 +80,18 @@ def local_check() -> None:
                     [node, "--check", str(path)],
                     ROOT,
                 )
-    print("Klipot portal assets, contracts, and uncertainty registry are valid.")
+    run(
+        "Run Klipot unit tests",
+        [sys.executable, "-m", "unittest", "discover", "-s", "tests", "-v"],
+        ROOT,
+    )
+    print("Klipot portal assets, contracts, uncertainty registry and tests are valid.")
 
 
 def workspace_check() -> None:
     workspace = ROOT.parent
-    required = (ROOT.name, *REPOSITORIES)
-    missing = [name for name in required if not (workspace / name).is_dir()]
+    repositories = (ROOT.name, *REPOSITORIES)
+    missing = [name for name in repositories if not (workspace / name).is_dir()]
     if missing:
         print(
             "Cross-repository run skipped; missing sibling checkouts: "
@@ -88,6 +99,32 @@ def workspace_check() -> None:
         )
         print("Local Klipot validation is complete.")
         return
+
+    registry_documents = []
+    for name in repositories:
+        repository_root = ROOT if name == ROOT.name else workspace / name
+        registry_path = repository_root / "ecosystem" / "uncertainty.json"
+        if not registry_path.is_file():
+            raise RuntimeError(f"{name} has no ecosystem/uncertainty.json registry.")
+        registry_documents.append(
+            json.loads(registry_path.read_text(encoding="utf-8"))
+        )
+
+    workspace_plan = build_workspace_plan(registry_documents)
+    print(
+        "\nWorkspace uncertainty plan: "
+        f"{workspace_plan['repository_count']} repositories, "
+        f"{workspace_plan['total']} items; "
+        f"{workspace_plan['counts']['open']} open, "
+        f"{workspace_plan['counts']['resolved']} resolved, "
+        f"{workspace_plan['counts']['blocked']} blocked."
+    )
+    print(
+        "Implementation states: "
+        f"{workspace_plan['implementation_counts']['planned']} planned, "
+        f"{workspace_plan['implementation_counts']['implemented']} implemented, "
+        f"{workspace_plan['implementation_counts']['verified']} verified."
+    )
 
     for name in REPOSITORIES:
         entry = workspace / name / "one.py"
