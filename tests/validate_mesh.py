@@ -18,6 +18,7 @@ EXPECTED = {
     "SAMBU": "sambu",
     "ToolNG": "toolng",
 }
+REGISTRY_ONLY = set(EXPECTED.values()) | {"nun", "nunlauncher", "fragile-baby", "luci"}
 
 
 def readme_paths(repo: str) -> tuple[str, ...]:
@@ -49,7 +50,15 @@ def main() -> None:
 
     registry = json.loads((ROOT / "Klipot" / "registry" / "ecosystem.json").read_text(encoding="utf-8"))
     registry_ids = {item["id"] for item in registry["projects"]}
-    assert registry_ids == set(EXPECTED.values()), registry_ids
+    assert registry_ids == REGISTRY_ONLY, registry_ids
+    incubating = {item["id"]: item for item in registry["projects"] if item["id"] in {"fragile-baby", "luci"}}
+    assert set(incubating) == {"fragile-baby", "luci"}
+    for project_id, item in incubating.items():
+        assert item["role"] == "incubation-placeholder", project_id
+        assert item["maturity"] == "incubating-unscoped", project_id
+        assert item["integration_eligible"] is False, project_id
+        assert item["provides"] == [] and item["consumes"] == [], project_id
+        assert item["promotion_gate"] == "docs/ENGINEERING_PROMOTION_GATE.md", project_id
 
     signal_schema_path = ROOT / "SAMBU" / "schemas" / "text-signal-envelope.schema.json"
     signal_fixture_path = ROOT / "SAMBU" / "examples" / "multilingual_signal_envelope.sample.json"
