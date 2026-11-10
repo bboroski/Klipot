@@ -29,7 +29,9 @@ impl Arm for PrefixArm {
     fn execute(&self, inputs: &[Artifact], _context: &ArmContext)
         -> Result<Vec<Artifact>, ArmError> {
         inputs.iter().map(|input| {
-            let mut data = Vec::with_capacity(self.prefix.len() + input.data.len());
+            let capacity = self.prefix.len().checked_add(input.data.len())
+                .ok_or_else(|| ArmError::new("prefix output length overflow"))?;
+            let mut data = Vec::with_capacity(capacity);
             data.extend_from_slice(&self.prefix);
             data.extend_from_slice(&input.data);
             Ok(Artifact::new(input.media_type.clone(), data))

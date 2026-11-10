@@ -55,10 +55,10 @@ pub fn encode_bundle(items: &[Artifact]) -> Result<Artifact, ProtocolError> {
 
 pub fn decode_bundle(data: &[u8]) -> Result<Vec<Artifact>, ProtocolError> {
     let mut cursor = Cursor::new(data);
-    if cursor.take(4)? != BUNDLE_MAGIC {
+    if cursor.take(4)? != BUNDLE_MAGIC.as_slice() {
         return Err(ProtocolError::BadMagic);
     }
-    let count = cursor.u32()? as usize;
+    let count = usize::try_from(cursor.u32()?).map_err(|_| ProtocolError::LengthOverflow)?;
     if count > MAX_BUNDLE_ITEMS {
         return Err(ProtocolError::TooManyItems);
     }

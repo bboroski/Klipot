@@ -1,4 +1,4 @@
-use crate::{Arm, ArmContext, ArmError, ArmManifest, Artifact, GraphError, Workflow};
+use crate::{Arm, ArmContext, ArmError, ArmManifest, Artifact, GraphError, Workflow, ARM_API_VERSION};
 use std::collections::{BTreeMap, BTreeSet};
 use std::fmt;
 use std::sync::atomic::{AtomicBool, Ordering};
@@ -84,6 +84,12 @@ impl Engine {
             });
         }
         let order = workflow.execution_order()?;
+        for index in &order {
+            let node = &workflow.nodes[*index];
+            if !self.arms.contains_key(&node.arm) {
+                return Err(EngineError::UnknownArm(node.arm.clone()));
+            }
+        }
         if initial.is_empty() { return Err(EngineError::NoInputArtifacts); }
 
         let mut total_bytes = 0usize;
@@ -161,10 +167,11 @@ impl Engine {
             .flat_map(|node| node.needs.iter().map(String::as_str)).collect();
         let mut final_outputs = Vec::new();
         for node in &workflow.nodes {
-            if !depended_on.contains(node.id.as_str()) {
-                if let Some(outputs) = outputs_by_node.get(&node.id) {
+            match outputs_by_node.get(&node.id) {
+                Some(outputs) if !depended_on.contains(node.id.as_str()) => {
                     final_outputs.extend(outputs.iter().cloned());
                 }
+                _ => {}
             }
         }
 
@@ -178,7 +185,7 @@ impl Engine {
 fn validate_manifest(manifest: &ArmManifest) -> Result<(), EngineError> {
     let valid_id = !manifest.id.is_empty() && manifest.id.len() <= 128
         && manifest.id.chars().all(|ch| ch.is_ascii_alphanumeric() || "-_.".contains(ch));
-    if !valid_id || manifest.version.is_empty() || manifest.api_version == 0 {
+    if !valid_id || manifest.version.is_empty() || manifest.api_version != ARM_API_VERSION {
         return Err(EngineError::InvalidManifest(manifest.id.clone()));
     }
     Ok(())
