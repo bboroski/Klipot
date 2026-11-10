@@ -17,12 +17,13 @@ Klipot допомагає командам бачити, як пов'язані 
 - Посилання на вихідний код, GUI-документацію та інструкції запуску.
 - Копіювання clone-команд.
 - Machine-readable registry та versioned integration protocol.
+- Локальні реєстри невизначеностей для кожного репозиторію, детермінований workspace planner та evidence-gated стани реалізації.
 - Browser-labs для демонстрації allocation, lifecycle, heartbeat і capability-gate концепцій.
 - CI-перевірку метаданих, контрактів, схем і синтаксису статичного порталу.
 
 **Важливо:** browser-labs є симуляціями. Вони не виконують C-код, не читають телеметрію реального обладнання, не керують виробничими fixtures і не доводять фізичний стан пристрою.
 
-## Дев'ять проєктів екосистеми
+## Одинадцять проєктів екосистеми
 
 | Репозиторій | Роль | Поточна зрілість |
 |---|---|---|
@@ -34,9 +35,11 @@ Klipot допомагає командам бачити, як пов'язані 
 | [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-нагляд і CRC | Host-tested core |
 | [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракти та портал | Static portal |
 | [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Documentation scaffold |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Documentation scaffold |
+| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Перевірка образу та handoff-метаданих | Host contract; no CPU transfer |
+| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Кваліфікація toolchain/ABI/платформ Elbrus E2K | Host qualification contract; target pending |
+| [Luci](https://github.com/bboroski/Luci) | Офлайн-аудит репозиторіїв та план функцій | Early Python implementation |
 
-NUN і NUNLauncher наразі не є завантажуваною ОС або завантажувачем: у цих репозиторіях ще немає відповідних реалізацій.
+NUN містить host-перевірку boot-метаданих, але не є завантажуваною ОС. NUNLauncher перевіряє образ і handoff-структуру на host, але поки не передає керування CPU. Fragile-Baby не заявляє перевірену підтримку E2K hardware до отримання target evidence.
 
 ## Локальний запуск
 
