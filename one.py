@@ -22,7 +22,7 @@ def run(label: str, command: list[str], cwd: Path) -> None:
 
 
 def local_check() -> None:
-    for relative in ("sambu.module.json", "ecosystem/manifest.json", "registry/ecosystem.json"):
+    for relative in ("sambu.module.json", "ecosystem/manifest.json", "registry/ecosystem.json", "registry/reaper-domain.json"):
         path = ROOT / relative
         json.loads(path.read_text(encoding="utf-8"))
         print(f"valid JSON: {relative}")
