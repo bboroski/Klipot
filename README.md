@@ -35,6 +35,8 @@ Klipot допомагає командам бачити, як пов'язані 
 | [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракти та портал | Static portal |
 | [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Documentation scaffold |
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Documentation scaffold |
+| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Робочий напрям підтримки архітектури Ельбрус | Proposal; toolchain і target evidence потрібні |
+| [Luci](https://github.com/bboroski/Luci) | Каркас програмістського workspace/tooling | Documentation scaffold; runtime contract не визначений |
 
 NUN і NUNLauncher наразі не є завантажуваною ОС або завантажувачем: у цих репозиторіях ще немає відповідних реалізацій.
 
