@@ -8,8 +8,8 @@
 
 <p align="center">
   <a href="https://github.com/bboroski/Klipot/actions/workflows/pages.yml"><img src="https://github.com/bboroski/Klipot/actions/workflows/pages.yml/badge.svg" alt="Portal deployment"></a>
-  <img src="https://img.shields.io/badge/contracts-major%20v1-76d9c4" alt="Contract major version 1">
-  <img src="https://img.shields.io/badge/portal-static%20%2B%20interactive-789fff" alt="Static and interactive portal">
+  <img src="https://img.shields.io/badge/contracts-major%20v1-FFD600?labelColor=0D0D0D" alt="Contract major version 1">
+  <img src="https://img.shields.io/badge/portal-static%20%2B%20interactive-FFD600?labelColor=0D0D0D" alt="Static and interactive portal">
 </p>
 
 ## Open the portal
