@@ -3,6 +3,7 @@
 <p align="center"><strong>Ecosystem Integration &amp; Control Plane</strong></p>
 <p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/LICENSE-NOT%20DECLARED-FFD600?style=for-the-badge&labelColor=111111"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<p align="center"><sub><a href="design/DUCK_UI_SYSTEM.md">Duck Black / Yellow UI standard</a> · <a href="assets/duck-ui/duck-ui-preview.svg">Vector UI preview</a></sub></p>
 
 ---
 
@@ -14,7 +15,7 @@
 - Links to source code, GUI documentation, and run instructions.
 - Clone-command copy actions.
 - Machine-readable registry and versioned integration protocol.
-- Browser labs demonstrating allocation, lifecycle, heartbeat, and capability-gate concepts.
+- Browser labs demonstrating allocation, lifecycle, heartbeat, and capability-gate models.
 - CI checks for metadata, contracts, schemas, and static portal syntax.
 
 **Simulation boundary:** browser labs do not execute C code, read hardware telemetry, control fixtures, or prove physical device state.
@@ -33,11 +34,11 @@
 | [NUN](https://github.com/bboroski/NUN) | Minimal OS kernel specification | Specification only |
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Bootstrap and handoff specification | Specification only |
 | [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Elbrus/E2K architecture workstream | Proposal; target evidence pending |
-| [Luci](https://github.com/bboroski/Luci) | Developer workspace/tooling direction | Product/runtime contract pending |
+| [Luci](https://github.com/bboroski/Luci) | Python CLI, 13 domains, registry, and policy validation | Experimental foundation |
 
 ## Run locally
 
-Open <code>index.html</code> in a browser or start a local server:
+Open <code>index.html</code> or start a local server:
 
 ~~~bash
 python -m http.server 8080
@@ -47,14 +48,14 @@ Then visit <code>http://localhost:8080</code>. No external framework or JavaScri
 
 ## Publishing and checks
 
-Publishing workflow: <code>.github/workflows/pages.yml</code>. For GitHub Pages, select **Settings → Pages → GitHub Actions**.
+Workflow: <code>.github/workflows/pages.yml</code>. For GitHub Pages, select **Settings → Pages → GitHub Actions**.
 
 ~~~bash
 python one.py
 python one.py check
 ~~~
 
-The checks cover the portal, manifests, schemas, and JavaScript; they do not validate every external repository.
+Checks cover the portal, manifests, schemas, and JavaScript; they do not validate every external repository.
 
 ## Ecosystem governance
 
@@ -72,4 +73,4 @@ No <code>LICENSE</code> file is present; no license is declared. Define the term
 
 ---
 
-**Built with love for systems thinking, open engineering, and people.**
+**Built with love for systems thinking, engineering, and people.**
