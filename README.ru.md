@@ -1,5 +1,6 @@
 <p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Klipot mark" width="92"></p>
 <h1 align="center">Klipot</h1>
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh ecosystem overview" width="100%"></p>
 <p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
 <p align="center"><strong>Статический портал · HTML + JavaScript</strong></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
@@ -63,6 +64,8 @@ Browser labs используют локальные модели и synthetic d
 
 ## Дизайн и документация
 Общее направление интерфейсов — **Duck Black / Yellow**: тёмные поверхности, жёлтые акценты для действий и состояний, читаемая типографика, доступный контраст, клавиатурная навигация и поддержка reduced motion. Подробности — в [design/DUCK_UI_SYSTEM.md](design/DUCK_UI_SYSTEM.md), если файл присутствует.
+
+Цветовые токены: #FFD600 (жёлтый) и #111111 (чёрный).
 
 ## Лицензия
 Лицензия не объявлена; файл LICENSE отсутствует.
