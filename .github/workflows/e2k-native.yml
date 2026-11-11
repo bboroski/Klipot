@@ -1,0 +1,19 @@
+name: Klipot E2K native platform qualification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  e2k-native:
+    runs-on: [self-hosted, linux, e2k]
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify native E2K host and Python
+        run: |
+          test "$(uname -m)" = "e2k"
+          python3 --version
+      - name: Run platform and registry tests
+        run: python3 -m unittest discover -s tests -v

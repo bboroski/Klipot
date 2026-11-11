@@ -1,0 +1,43 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "E2K Linux userspace target profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["profile_version", "architecture", "vendor_architecture", "elf", "linux", "compiler", "cpu_isa_profiles", "boot", "emulation", "qualification"],
+  "properties": {
+    "profile_version": {"const": 1},
+    "architecture": {"const": "e2k"},
+    "vendor_architecture": {"const": "MCST Elbrus"},
+    "elf": {
+      "type": "object",
+      "required": ["class_bits", "endianness", "e_machine", "machine_name"],
+      "properties": {
+        "class_bits": {"const": 64},
+        "endianness": {"const": "little"},
+        "e_machine": {"const": 175},
+        "machine_name": {"const": "EM_MCST_ELBRUS"}
+      }
+    },
+    "linux": {"type": "object", "required": ["uname_machine", "execution_abi"], "properties": {
+      "uname_machine": {"const": "e2k"},
+      "execution_abi": {"type": "string", "minLength": 1}
+    }},
+    "compiler": {"type": "object", "required": ["family", "minimum_reference_version", "cross_compile_host", "license_or_distribution_access_may_be_required"], "properties": {
+      "family": {"const": "LCC"},
+      "minimum_reference_version": {"type": "string"},
+      "cross_compile_host": {"const": "x86_64-linux"},
+      "license_or_distribution_access_may_be_required": {"type": "boolean"}
+    }},
+    "cpu_isa_profiles": {"type": "object"},
+    "boot": {"type": "object", "required": ["supported_path", "generic_limine", "bare_metal_kernel_abi"], "properties": {
+      "supported_path": {"type": "string"},
+      "generic_limine": {"const": false},
+      "bare_metal_kernel_abi": {"type": "string"}
+    }},
+    "emulation": {"type": "object", "required": ["qemu_e2k", "full_system_emulation"], "properties": {
+      "qemu_e2k": {"type": "string"},
+      "full_system_emulation": {"type": "string"}
+    }},
+    "qualification": {"type": "object"}
+  }
+}

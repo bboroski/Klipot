@@ -251,6 +251,22 @@
       "clinical_decision_support": false,
       "hardware_control": false
     },
+    "e2k_platform_profile_v1": {
+      "version": 1,
+      "canonical_profile": "platforms/e2k/target.json",
+      "canonical_schema": "schemas/e2k-platform.schema.json",
+      "elf_machine": 175,
+      "architecture": "e2k",
+      "linux_machine": "e2k",
+      "compiler_family": "MCST LCC",
+      "deployment": "MCST PNS -> Elbrus Linux -> native E2K userspace",
+      "generic_limine": false,
+      "qemu_scope": "user-mode Linux application emulation only",
+      "qemu_user_manual_isa_profiles": ["elbrus-v2", "elbrus-v3", "elbrus-v4", "elbrus-v5", "elbrus-v6"],
+      "v7_emulation": "not-qualified",
+      "native_execution_evidence_required": true,
+      "hardware_qualification": "pending native E2K runner or physical device"
+    },
     "closed_domain_metric_v1": {
       "version": 1,
       "code": "CDM-1",
