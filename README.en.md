@@ -34,7 +34,15 @@
 | [NUN](https://github.com/bboroski/NUN) | Minimal OS kernel specification | Specification only |
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Bootstrap and handoff specification | Specification only |
 | [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Elbrus/E2K architecture workstream | Proposal; target evidence pending |
-| [Luci](https://github.com/bboroski/Luci) | Python CLI, 13 domains, registry, and policy validation | Experimental foundation |
+| [Luci](https://github.com/bboroski/Luci) | Documentation scaffold for design tokens and integration boundaries | Scope pending |
+
+## NUN Mesh
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — seven connected engineering repositories coordinated through versioned contracts" width="100%"></p>
+
+**NUN Mesh** is the seven-repository contract core: Kloz, CO, SaintSI, ReaperCripple, SAMBU, ToolNG, and Klipot. Four additional catalog tracks — NUN, NUNLauncher, Fragile-Baby, and Luci — retain distinct maturity boundaries: specifications, architecture proposals, or documentation scaffolds. They are not represented as verified runtimes or hardware support.
+
+Each component retains ownership of its code and lifecycle. Integrations use versioned contracts, explicit adapters, and verifiable evidence.
 
 ## Run locally
 
