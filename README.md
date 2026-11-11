@@ -30,6 +30,8 @@ Browser-labs використовують локальну модель і synth
 - Зовнішні інтеграції мають бути явними, версіонованими, ізольованими й перевірюваними.
 
 ## NUN Mesh та пов'язані репозиторії
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — репозиторії та зв'язки через версіоновані контракти" width="100%"></p>
 [SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci)
 
 Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
@@ -42,3 +44,8 @@ Browser-labs використовують локальну модель і synth
 
 ---
 **Створено з любов'ю до інженерії, системності та людей.**
+
+
+## GUI, визуальная система и PR
+
+Стандарт портала, состояний интерфейса и честного отображения симуляций: [GUI Design Standard](docs/gui/GUI_DESIGN_STANDARD.md). Сохраняются существующие Duck-токены и визуальные ресурсы: [Duck UI system](design/DUCK_UI_SYSTEM.md). Шаблон изменений: [.github/PULL_REQUEST_TEMPLATE.md](.github/PULL_REQUEST_TEMPLATE.md). Показатели статуса в макетах являются условными; реальные данные должны иметь источник и временную метку.
