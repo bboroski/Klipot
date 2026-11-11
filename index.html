@@ -3,11 +3,12 @@
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#0D0D0D">
-<meta name="description" content="Klipot is the black-and-yellow control portal for a modular engineering ecosystem: nine repositories, shared contracts and interactive browser labs.">
+<meta name="description" content="Klipot is the black-and-yellow control portal for a modular engineering ecosystem: eleven repositories, shared contracts and interactive browser labs.">
 <meta name="color-scheme" content="dark">
+<link rel="stylesheet" href="assets/duck-ui/duck-ui.css">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Klipot — Ecosystem Integration & Control Plane">
-<meta property="og:description" content="One control plane. Nine repository projects. Explore the repository mesh, contracts and interactive labs.">
+<meta property="og:description" content="One control plane. Eleven repository projects. Explore the repository mesh, contracts and interactive labs.">
 <meta property="og:image" content="https://bboroski.github.io/Klipot/assets/portal-ui-preview.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/klipot-mark.svg">
@@ -122,6 +123,31 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 @media(max-width:700px){.rail{padding:9px 12px;gap:9px;justify-content:space-between}.brand{margin:0}.sigil{width:35px;height:35px}.brand strong{font-size:12px}.brand small{font-size:8px}.nav{width:100%;justify-content:flex-start;overflow:auto;gap:4px;padding-bottom:2px}.nav button{white-space:nowrap;padding:8px 10px;font-size:11px}.nav .ico{display:none}.content{padding:17px 13px 34px}.topbar{margin-bottom:15px}.status{font-size:9px}.crumb{font-size:9px}.hero h1{font-size:clamp(39px,12vw,58px)}.hero-copy{padding:25px 20px}.lead{font-size:14px}.hero-visual{min-height:180px}.metrics{gap:7px}.metric{padding:12px}.metric strong{font-size:23px}.grid,.labs-grid,.protocol{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr;gap:8px}.feature-card{padding:14px}.flow{grid-template-columns:repeat(2,1fr)}.node:nth-child(2):after{display:none}.project p{min-height:0}.footer{display:block}.footer span{display:block;margin-top:5px}}
 @media(max-width:420px){.feature-grid{grid-template-columns:1fr}.actions .btn{flex:1 1 auto}.status{display:none}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}}
+
+.workspace-demo{padding:18px;margin:16px 0 30px;background:linear-gradient(145deg,#171717,#111);border:1px solid #303030;border-radius:14px}
+.workspace-controls{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+.workspace-controls label{display:grid;gap:6px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.04em}
+.workspace-controls .field{min-width:155px}
+.workspace-samples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.workspace-sample{min-width:0;min-height:155px;padding:16px;border:1px solid #303030;border-radius:12px;background:#171717;transition:transform .18s,border-color .18s,box-shadow .18s}
+.workspace-sample:hover{transform:translateY(-2px);border-color:#6C5B00}
+.workspace-sample h3{font-size:16px;margin:13px 0 6px}
+.workspace-sample p{font-size:12px;color:#A3A3A3;margin:0}
+.workspace-sample.duck-glass{background:rgb(29 29 29 / 76%);border-color:#6C5B00;backdrop-filter:blur(18px) saturate(135%)}
+.workspace-sample.duck-metal{background:linear-gradient(145deg,#303030,#111 55%,#242424);border-color:#484848;box-shadow:inset 0 1px #ffffff17,0 10px 28px #0006}
+.workspace-sample.duck-paper{background:linear-gradient(135deg,#eee8d7,#e4dcc7);border-color:#b8ae96;color:#1c1a13}
+.workspace-sample.duck-paper p{color:#343025}
+.workspace-caption{margin:12px 0 0;color:var(--muted);font-size:11px}
+.workspace-demo[data-density=calm] .workspace-samples{gap:22px}
+.workspace-demo[data-density=calm] .workspace-sample{min-height:180px;padding:21px}
+.workspace-demo[data-density=compact] .workspace-samples{gap:7px}
+.workspace-demo[data-density=compact] .workspace-sample{min-height:125px;padding:11px}
+.workspace-demo[data-cycle=dawn]{background:linear-gradient(145deg,#171b22,#111 74%)}
+.workspace-demo[data-cycle=dusk]{background:linear-gradient(145deg,#241a15,#111 74%)}
+.workspace-demo[data-cycle=night]{background:linear-gradient(145deg,#111426,#0c0d16 74%)}
+@media(max-width:760px){.workspace-samples{grid-template-columns:1fr}.workspace-controls label,.workspace-controls .field{width:100%}}
+@media(prefers-reduced-motion:reduce){.workspace-sample{transition:none;transform:none}}
+
 </style>
 </head>
 <body>
@@ -148,20 +174,36 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <button class="btn" data-go="labs">Launch interactive labs</button>
 <button class="btn" data-copy="git clone https://github.com/bboroski/Klipot.git">Copy quick-start command</button>
 </div>
-</div><div class="hero-visual"><img src="assets/sambu-ecosystem-overview.svg" alt="Engineering ecosystem map covering nine repositories coordinated through Klipot"></div></div>
+</div><div class="hero-visual"><img src="assets/sambu-ecosystem-overview.svg" alt="Engineering ecosystem map covering eleven repositories coordinated through Klipot"></div></div>
   <div class="metrics">
-<div class="metric"><strong>09</strong><small>independent repositories</small></div>
+<div class="metric"><strong>11</strong><small>independent repositories</small></div>
 <div class="metric"><strong>04</strong><small>interactive browser labs</small></div>
 <div class="metric"><strong>01</strong><small>shared contract family · v1</small></div>
 <div class="metric"><strong>0</strong><small>front-end package dependencies</small></div>
 </div>
-<div class="section-head"><div><h2>One portal. Four practical capabilities.</h2><p>Useful entry points for builders, integrators and operators.</p></div></div>
+<div class="section-head"><div><h2>One portal. Five practical capabilities.</h2><p>Useful entry points for builders, integrators and operators.</p></div></div>
 <div class="feature-grid">
 <article class="feature-card"><div class="feature-icon">⌘</div><h3>Project registry</h3><p>Find every repository by role, domain or capability. Open source and copy clone commands in one click.</p></article>
 <article class="feature-card"><div class="feature-icon">⇄</div><h3>Contract map</h3><p>Understand the boundary between cores, optional adapters, version rules and ownership.</p></article>
 <article class="feature-card"><div class="feature-icon">▣</div><h3>Browser workbench</h3><p>Exercise memory, lifecycle, heartbeat and capability-gate concepts with deterministic demos.</p></article>
 <article class="feature-card"><div class="feature-icon">✓</div><h3>Evidence discipline</h3><p>Keep simulated states, host checks and real hardware qualification clearly separated.</p></article>
+<article class="feature-card"><div class="feature-icon">◈</div><h3>Adaptive workspace</h3><p>Preview contextual materials, density and circadian scenes with accessible static fallbacks.</p></article>
 </div>
+
+<div class="section-head"><div><h2>Adaptive workspace preview</h2><p>Live preference controls for the portal. This preview demonstrates interface behavior, not native OS capabilities.</p></div></div>
+<section class="workspace-demo panel" id="workspace-demo" data-cycle="day" data-density="comfortable" aria-label="Adaptive workspace preview">
+  <div class="workspace-controls">
+    <label>Density<select class="field" id="workspace-density"><option value="comfortable">Comfortable</option><option value="calm">Calm</option><option value="compact">Compact</option></select></label>
+    <label>Daily scene<select class="field" id="workspace-cycle"><option value="dawn">Dawn</option><option value="day" selected>Day</option><option value="dusk">Dusk</option><option value="night">Night</option></select></label>
+    <label>Surface material<select class="field" id="workspace-material"><option value="duck-glass">Live glass</option><option value="duck-metal">Brushed metal</option><option value="duck-paper">Reading paper</option></select></label>
+  </div>
+  <div class="workspace-samples">
+    <article class="workspace-sample duck-glass" id="material-sample"><span class="tag mint">SURFACE</span><h3>Context surface</h3><p>Material effects have an opaque fallback and never replace contrast or semantic labels.</p></article>
+    <article class="workspace-sample duck-paper"><span class="tag">READING</span><h3>Long-form reading</h3><p class="duck-reading">Adaptive measure, readable leading and explicit contrast keep content comfortable.</p></article>
+    <article class="workspace-sample duck-metal"><span class="tag">WINDOW STATE</span><h3>Safe workspace memory</h3><p>Remember geometry and focus only with opt-in checkpoints. Never restore secrets or privileges.</p></article>
+  </div>
+  <p class="workspace-caption">Local preview only · no camera, location, biometric or background tracking is used.</p>
+</section>
   <div class="section-head"><div><h2>How the layers connect</h2><p>Platform → lifecycle → assurance → production → developer tools → operating-system track.</p></div></div>
   <div class="flow"><div class="node"><strong>01 · Kloz</strong><small>Platform ABI and bounded memory</small></div><div class="node"><strong>02 · CO</strong><small>Deterministic lifecycle control</small></div><div class="node"><strong>03 · SaintSI</strong><small>Health observations and integrity</small></div><div class="node"><strong>04 · ReaperCripple</strong><small>BSP, manufacturing and MES</small></div></div>
   <div class="section-head"><div><h2>Developer and operator layer</h2><p>Author workflows with SAMBU; inspect Windows device evidence with ToolNG; discover the module mesh in Klipot.</p></div></div>
@@ -170,7 +212,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="flow"><div class="node"><strong>NUN</strong><small>Minimal kernel specification · documentation scaffold</small></div><div class="node"><strong>NUNLauncher</strong><small>Kernel bootstrap specification · documentation scaffold</small></div></div>
 </section>
 <section class="view" id="view-projects" hidden>
-  <div class="section-head"><div><div class="eyebrow">Repository directory</div><h2>Nine repositories</h2><p>Filter by domain, inspect the role, then jump straight into the source.</p></div></div>
+  <div class="section-head"><div><div class="eyebrow">Repository directory</div><h2>Eleven repositories</h2><p>Filter by domain, inspect the role, then jump straight into the source.</p></div></div>
   <div class="toolbar"><input class="field" id="search" type="search" placeholder="Search repositories…" aria-label="Search repositories"><select class="field" id="filter" aria-label="Filter repositories"><option value="all">All domains</option><option value="embedded">Embedded core</option><option value="hardware">Hardware / manufacturing</option><option value="developer">Developer tools</option><option value="control">Control plane</option><option value="system">Operating system / bootstrap</option></select></div>
   <div class="grid" id="project-grid" style="margin-top:14px"></div><div class="note">Repository maturity labels are curated snapshots, not live CI results. Follow each repository's own build and hardware-validation instructions.</div>
 </section>
@@ -188,27 +230,41 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="protocol" style="margin-top:18px"><article class="panel"><h3>Machine-near contract</h3><ul><li>Kloz defines status, memory and versioned platform operations.</li><li>CO owns lifecycle state and callback sequencing.</li><li>SaintSI observes progress with a caller-owned timebase.</li><li>ReaperCripple composes board services, bootstrap, fixture and manufacturing policy.</li></ul></article><article class="panel"><h3>Developer and desktop contract</h3><ul><li>SAMBU describes bounded workflows and supplies the language/tooling layer.</li><li>ToolNG embeds a portable policy/workflow core, not the Python runtime.</li><li>Klipot indexes capabilities, documentation and compatibility boundaries.</li><li>Browser labs are illustrative simulations, not device evidence.</li></ul></article><article class="panel"><h3>Evidence vocabulary</h3><ul><li><b>Observed</b> — the check ran and produced a measured result.</li><li><b>Not found</b> — the check ran, but the target was absent.</li><li><b>Unknown</b> — access or coverage was insufficient.</li><li><b>Failed</b> — a completed operation returned an error.</li><li><b>Passed</b> — all declared requirements were measured and satisfied.</li></ul></article><article class="panel"><h3>Version and safety rules</h3><ul><li>Use fixed-width C fields and explicit size/version markers.</li><li>Never serialize native structs by copying memory.</li><li>Convert clock units explicitly and bound wrap intervals.</li><li>Never infer pinouts or operating limits from generic profiles.</li><li>Host tests do not replace target and hardware-in-the-loop validation.</li></ul></article></div>
   <div class="actions"><a class="btn primary" href="https://github.com/bboroski/Klipot/blob/main/docs/INTEGRATION_PROTOCOL.md" target="_blank" rel="noopener">Open full protocol ↗</a><a class="btn" href="https://github.com/bboroski/Klipot/blob/main/contracts/mesh-envelope.h" target="_blank" rel="noopener">C ABI reference ↗</a><a class="btn" href="https://github.com/bboroski/Klipot/blob/main/registry/ecosystem.json" target="_blank" rel="noopener">Machine-readable registry ↗</a></div>
 </section>
-<footer class="footer"><span>Klipot · ENGINEERING ECOSYSTEM CONTROL PLANE</span><span>BLACK / YELLOW EDITION · NINE REPOSITORIES · EXPLICIT CONTRACTS · NO FABRICATED HARDWARE STATUS</span></footer>
+<footer class="footer"><span>Klipot · ENGINEERING ECOSYSTEM CONTROL PLANE</span><span>BLACK / YELLOW EDITION · ELEVEN REPOSITORIES · EXPLICIT CONTRACTS · NO FABRICATED HARDWARE STATUS</span></footer>
 </main></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const projects=[
-{id:"klipot",name:"Klipot",domain:"control",role:"Control plane & ecosystem portal",desc:"Repository registry, versioned contracts, system map and interactive API-concept labs.",maturity:"Portal bootstrap",accent:"mint",url:"https://github.com/bboroski/Klipot",clone:"https://github.com/bboroski/Klipot.git"},
-{id:"kloz",name:"Kloz",domain:"embedded",role:"Machine-near platform substrate",desc:"C11 status ABI, caller-owned arena memory and versioned CPU/board operations.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/Kloz",clone:"https://github.com/bboroski/Kloz.git"},
-{id:"co",name:"CO",domain:"embedded",role:"Deterministic lifecycle runtime",desc:"Allocation-free start, one-step polling, failure retention and reverse cleanup policy.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/CO",clone:"https://github.com/bboroski/CO.git"},
-{id:"saintsi",name:"SaintSI",domain:"embedded",role:"Runtime assurance & integrity",desc:"Bounded heartbeat registry, rollover-safe checks and non-cryptographic CRC-32.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/SaintSI",clone:"https://github.com/bboroski/SaintSI.git"},
-{id:"reapercripple",name:"ReaperCripple",domain:"hardware",role:"Hardware & manufacturing engineering",desc:"BSP adapters, staged bootstrap, pinout governance, calibration, fixtures and MES event bridges.",maturity:"Target validation required",accent:"gold",url:"https://github.com/bboroski/ReaperCripple",clone:"https://github.com/bboroski/ReaperCripple.git"},
-{id:"sambu",name:"SAMBU",domain:"developer",role:"Language, IDE & workflow toolkit",desc:"Experimental language with Tkinter IDE, Duck Studio, domain modules and deterministic workflow descriptions.",maturity:"Experimental alpha",accent:"blue",url:"https://github.com/bboroski/SAMBU",clone:"https://github.com/bboroski/SAMBU.git",guide:"https://github.com/bboroski/SAMBU/blob/main/docs/DUCK_STUDIO.md"},
-{id:"toolng",name:"ToolNG",domain:"developer",role:"Native Windows diagnostics",desc:"C17/Win32 Apple USB observation, evidence-aware readiness, local reports and safe guidance.",maturity:"Native desktop",accent:"blue",url:"https://github.com/bboroski/ToolNG",clone:"https://github.com/bboroski/ToolNG.git",guide:"https://github.com/bboroski/ToolNG/blob/main/docs/GUI_DESIGN.md"}
-,
-{id:"nun",name:"NUN",domain:"system",role:"Minimal operating-system kernel specification",desc:"Documentation scaffold defining the planned kernel boundary. No kernel source, bootable image, build system or hardware support is present yet.",maturity:"Documentation scaffold",accent:"gold",url:"https://github.com/bboroski/NUN",clone:"https://github.com/bboroski/NUN.git"},
-{id:"nunlauncher",name:"NUNLauncher",domain:"system",role:"Kernel bootstrap and handoff specification",desc:"Documentation scaffold for a future loader-to-kernel contract. No bootloader, launcher implementation or bootable artifact is present yet.",maturity:"Documentation scaffold",accent:"gold",url:"https://github.com/bboroski/NUNLauncher",clone:"https://github.com/bboroski/NUNLauncher.git"}];
+{id:"klipot",name:"Klipot",domain:"control",role:"Ecosystem portal & integration control plane",desc:"Repository registry, versioned contracts, project graph and interactive browser labs.",maturity:"Static portal",accent:"mint",url:"https://github.com/bboroski/Klipot",clone:"https://github.com/bboroski/Klipot.git",guide:"https://github.com/bboroski/Klipot/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"kloz",name:"Kloz",domain:"embedded",role:"Portable bare-metal substrate",desc:"C11 status ABI, caller-owned arena memory and versioned platform operations.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/Kloz",clone:"https://github.com/bboroski/Kloz.git",guide:"https://github.com/bboroski/Kloz/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"co",name:"CO",domain:"embedded",role:"Deterministic component lifecycle runtime",desc:"Allocation-free lifecycle transitions, one-step polling, error retention and cleanup guards.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/CO",clone:"https://github.com/bboroski/CO.git",guide:"https://github.com/bboroski/CO/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"saintsi",name:"SaintSI",domain:"embedded",role:"Runtime integrity observer",desc:"Bounded heartbeat registry, rollover-safe checks and CRC-32 integrity observations.",maturity:"Host-tested core",accent:"mint",url:"https://github.com/bboroski/SaintSI",clone:"https://github.com/bboroski/SaintSI.git",guide:"https://github.com/bboroski/SaintSI/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"reapercripple",name:"ReaperCripple",domain:"hardware",role:"Embedded firmware and manufacturing fabric",desc:"Board support, staged bootstrap, calibration, fixtures and manufacturing event bridges.",maturity:"Target validation required",accent:"gold",url:"https://github.com/bboroski/ReaperCripple",clone:"https://github.com/bboroski/ReaperCripple.git",guide:"https://github.com/bboroski/ReaperCripple/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"sambu",name:"SAMBU",domain:"developer",role:"Scientific modeling, language and workflow environment",desc:"Experimental language, Tkinter IDE, Duck Studio, scientific models and deterministic workflows.",maturity:"Experimental alpha",accent:"blue",url:"https://github.com/bboroski/SAMBU",clone:"https://github.com/bboroski/SAMBU.git",guide:"https://github.com/bboroski/SAMBU/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"toolng",name:"ToolNG",domain:"developer",role:"Windows device evidence probe",desc:"C17/Win32 device observation, evidence-aware readiness, local reports and safe guidance.",maturity:"Windows desktop utility",accent:"blue",url:"https://github.com/bboroski/ToolNG",clone:"https://github.com/bboroski/ToolNG.git",guide:"https://github.com/bboroski/ToolNG/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"nun",name:"NUN",domain:"system",role:"Minimal kernel substrate specification",desc:"Kernel architecture, memory, execution and hardware-boundary contracts; no bootable core yet.",maturity:"Specification only",accent:"gold",url:"https://github.com/bboroski/NUN",clone:"https://github.com/bboroski/NUN.git",guide:"https://github.com/bboroski/NUN/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"nunlauncher",name:"NUNLauncher",domain:"system",role:"Kernel bootstrap supervisor specification",desc:"Image validation, memory-map checks, capability gates and versioned handoff contract.",maturity:"Specification only",accent:"gold",url:"https://github.com/bboroski/NUNLauncher",clone:"https://github.com/bboroski/NUNLauncher.git",guide:"https://github.com/bboroski/NUNLauncher/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"fragile-baby",name:"Fragile-Baby",domain:"hardware",role:"Elbrus architecture and toolchain qualification",desc:"Compiler/linker profiles, ABI and memory-map evidence with target-gated support claims.",maturity:"Proposal · target evidence required",accent:"gold",url:"https://github.com/bboroski/Fragile-Baby",clone:"https://github.com/bboroski/Fragile-Baby.git",guide:"https://github.com/bboroski/Fragile-Baby/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"},
+{id:"luci",name:"Luci",domain:"developer",role:"Documentation and UI contract scaffold",desc:"Shared design tokens and integration boundaries; product/runtime scope awaits maintainer definition.",maturity:"Scope pending",accent:"gold",url:"https://github.com/bboroski/Luci",clone:"https://github.com/bboroski/Luci.git",guide:"https://github.com/bboroski/Luci/blob/main/docs/ADAPTIVE_WORKSPACE_INTEGRATION.md"}
+];
+
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
 function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),2200)}
 function go(name){$$(".view").forEach(v=>{v.hidden=v.id!=="view-"+name});$$(".nav button").forEach(b=>{if(b.dataset.view===name)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});$("#crumb").textContent="ENGINEERING ECOSYSTEM / "+name.toUpperCase();location.hash=name}
-function projectMarkup(p){let guide=p.guide?'<a class="btn small" href="'+p.guide+'" target="_blank" rel="noopener">GUI guide ↗</a>':"";return '<article class="project"><div class="project-top"><span class="tag '+(p.accent==="mint"?"mint":"")+'">'+p.domain+'</span><span class="tag">'+p.maturity+'</span></div><h3>'+p.name+'</h3><p><b>'+p.role+'</b><br>'+p.desc+'</p><div class="project-actions"><a class="btn small primary" href="'+p.url+'" target="_blank" rel="noopener">Open repository ↗</a><button class="btn small" data-copy="'+p.clone+'">Copy clone URL</button>'+guide+'</div></article>'}
+function projectMarkup(p){let guide=p.guide?'<a class="btn small" href="'+p.guide+'" target="_blank" rel="noopener">Integration spec ↗</a>':"";return '<article class="project"><div class="project-top"><span class="tag '+(p.accent==="mint"?"mint":"")+'">'+p.domain+'</span><span class="tag">'+p.maturity+'</span></div><h3>'+p.name+'</h3><p><b>'+p.role+'</b><br>'+p.desc+'</p><div class="project-actions"><a class="btn small primary" href="'+p.url+'" target="_blank" rel="noopener">Open repository ↗</a><button class="btn small" data-copy="'+p.clone+'">Copy clone URL</button>'+guide+'</div></article>'}
 function renderProjects(){const q=$("#search").value.toLowerCase(),f=$("#filter").value;const list=projects.filter(p=>(f==="all"||p.domain===f)&&[p.name,p.role,p.desc,p.maturity].join(" ").toLowerCase().includes(q));$("#project-grid").innerHTML=list.map(projectMarkup).join("")||'<div class="panel">No repositories match that filter.</div>'}
 $$(".nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));$$("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
-$("#search").addEventListener("input",renderProjects);$("#filter").addEventListener("change",renderProjects);document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast(b.dataset.copy.startsWith("git clone")?"Quick-start command copied":"Clone URL copied")}catch{toast("Clipboard unavailable: "+b.dataset.copy)}});renderProjects();
+$("#search").addEventListener("input",renderProjects);$("#filter").addEventListener("change",renderProjects);document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast(b.dataset.copy.startsWith("git clone")?"Quick-start command copied":"Clone URL copied")}catch{toast("Clipboard unavailable: "+b.dataset.copy)}});
+const workspaceDemo=$("#workspace-demo");
+if(workspaceDemo){
+  $("#workspace-density").addEventListener("change",e=>workspaceDemo.dataset.density=e.target.value);
+  $("#workspace-cycle").addEventListener("change",e=>workspaceDemo.dataset.cycle=e.target.value);
+  $("#workspace-material").addEventListener("change",e=>{
+    const sample=$("#material-sample");
+    sample.classList.remove("duck-glass","duck-metal","duck-paper");
+    sample.classList.add(e.target.value);
+  });
+}
+renderProjects();
 let arena={used:0};$("#arena-alloc").onclick=()=>{const n=Number($("#arena-size").value),a=Number($("#arena-align").value);if(!Number.isInteger(n)||n<1||n>1024||!Number.isInteger(a)||a<1||(a&(a-1))!==0){$("#arena-out").innerHTML='<span class="bad">Rejected: size must be 1–1024 and alignment must be a power of two.</span>';return}const pad=(a-arena.used%a)%a;if(arena.used+pad+n>1024){$("#arena-out").innerHTML='<span class="bad">Out of capacity: request would exceed 1024 bytes.</span>';return}arena.used+=pad+n;$("#arena-bar").style.width=(arena.used/1024*100)+"%";$("#arena-out").textContent="Allocated "+n+" bytes · alignment "+a+" · padding "+pad+"\nUsed: "+arena.used+" / 1024 bytes."};$("#arena-reset").onclick=()=>{arena.used=0;$("#arena-bar").style.width="0%";$("#arena-out").textContent="Arena reset. Used: 0 / 1024 bytes."};
 let co={state:"STOPPED",cycles:0};function paintCo(msg){$("#co-out").innerHTML="State: <b>"+co.state+"</b> · cycles: "+co.cycles+(msg?"\n"+msg:"");$("#co-step").disabled=co.state!=="RUNNING";$("#co-fail").disabled=co.state!=="RUNNING";$("#co-start").disabled=co.state!=="STOPPED";$("#co-stop").disabled=co.state==="STOPPED"||co.state==="STEPPING"}$("#co-start").onclick=()=>{if(co.state!=="STOPPED")return;co.state="STARTING";paintCo("init callback accepted");co.state="RUNNING";paintCo("init completed → RUNNING")};$("#co-step").onclick=()=>{if(co.state!=="RUNNING")return;co.state="STEPPING";paintCo("one bounded poll callback");co.cycles=Math.min(0xffffffff,co.cycles+1);co.state="RUNNING";paintCo("step returned CO_OK")};$("#co-fail").onclick=()=>{if(co.state!=="RUNNING")return;co.state="STEPPING";co.cycles=Math.min(0xffffffff,co.cycles+1);co.state="FAULTED";paintCo("step returned non-zero · fault retained · no implicit retry")};$("#co-stop").onclick=()=>{if(co.state==="STOPPED"||co.state==="STEPPING")return;co.state="STOPPING";paintCo("shutdown callback");co.state="STOPPED";paintCo("cleanup completed")};paintCo("");
 let health={tick:0,last:0,timeout:20};function paintHealth(label){const age=(health.tick-health.last)>>>0,stale=age>health.timeout;$("#health-out").innerHTML="Component 0x01 · now "+(health.tick>>>0)+" · last heartbeat "+(health.last>>>0)+"\nAge: "+age+" / timeout "+health.timeout+" · <b class='"+(stale?"warn":"ok")+"'>"+(stale?"DEGRADED / STALE":"HEALTHY")+"</b>"+(label?"\n"+label:"")};$("#health-heartbeat").onclick=()=>{health.last=health.tick>>>0;paintHealth("heartbeat recorded")};$("#health-tick").onclick=()=>{const n=Math.max(1,Math.min(100,Number($("#health-advance").value)||1));health.tick=(health.tick+n)>>>0;paintHealth("monotonic tick advanced")};$("#health-check").onclick=()=>paintHealth("check observes state; it does not reset or feed a watchdog");paintHealth("");
