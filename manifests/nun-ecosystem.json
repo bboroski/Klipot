@@ -122,7 +122,9 @@
       "role": "minimal operating-system kernel specification",
       "depends_on": [],
       "provides": [
-        "kernel.architecture.specification.v1"
+        "kernel.architecture.specification.v1",
+        "kernel.image.contract.specification.v1",
+        "platform.e2k.linux.userspace.v1"
       ],
       "requires": [],
       "integration_status": "documentation-only-scaffold"
@@ -135,12 +137,14 @@
         "nun"
       ],
       "provides": [
-        "kernel.bootstrap.specification.v1"
+        "kernel.bootstrap.specification.v1",
+        "kernel.image.preflight.e2k.v1"
       ],
       "requires": [
-        "kernel.image.contract.specification.v1"
+        "kernel.image.contract.specification.v1",
+        "platform.e2k.linux.userspace.v1"
       ],
-      "integration_status": "documentation-only-scaffold"
+      "integration_status": "x86_64-boot-prototype-plus-e2k-linux-userspace-runtime"
     }
   ]
 }
