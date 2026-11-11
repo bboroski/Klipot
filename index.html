@@ -118,6 +118,12 @@ a{color:inherit;text-decoration:none}
 .toast{position:fixed;right:22px;bottom:22px;padding:12px 16px;border:1px solid #A69B00;border-radius:10px;background:#11171C;box-shadow:0 14px 40px #0009;color:var(--ink);opacity:0;transform:translateY(12px);pointer-events:none;transition:.22s;z-index:50;font-size:12px}
 .toast.show{opacity:1;transform:none}
 .footer{margin-top:40px;padding-top:18px;border-top:1px solid var(--stroke);display:flex;justify-content:space-between;gap:12px;color:var(--muted);font-size:10px;letter-spacing:.04em}
+.workspace-preferences{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:12px 0 4px;padding:12px 14px;border:1px solid var(--stroke);border-radius:12px;background:#101010;font-size:11px;color:var(--muted)}
+.workspace-preferences label{display:flex;align-items:center;gap:7px}
+.workspace-preferences input{accent-color:var(--accent)}
+.workspace-preferences #workspace-status{flex:1 1 230px}
+.project-actions .favorite{border-color:#6C5B00;color:var(--accent)}
+.project-actions .favorite[aria-pressed=true]{background:#FCEE0A16}
 button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(max-width:1100px){.rail{flex-wrap:wrap;justify-content:center}.brand{margin-right:auto}.rail-note{display:none}.grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero{grid-template-columns:1fr}.hero-visual{max-height:340px}.hero-visual img{max-height:300px;object-fit:contain}.metrics{grid-template-columns:repeat(2,1fr)}.feature-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:700px){.rail{padding:9px 12px;gap:9px;justify-content:space-between}.brand{margin:0}.sigil{width:35px;height:35px}.brand strong{font-size:12px}.brand small{font-size:8px}.nav{width:100%;justify-content:flex-start;overflow:auto;gap:4px;padding-bottom:2px}.nav button{white-space:nowrap;padding:8px 10px;font-size:11px}.nav .ico{display:none}.content{padding:17px 13px 34px}.topbar{margin-bottom:15px}.status{font-size:9px}.crumb{font-size:9px}.hero h1{font-size:clamp(39px,12vw,58px)}.hero-copy{padding:25px 20px}.lead{font-size:14px}.hero-visual{min-height:180px}.metrics{gap:7px}.metric{padding:12px}.metric strong{font-size:23px}.grid,.labs-grid,.protocol{grid-template-columns:1fr}.feature-grid{grid-template-columns:1fr 1fr;gap:8px}.feature-card{padding:14px}.flow{grid-template-columns:repeat(2,1fr)}.node:nth-child(2):after{display:none}.project p{min-height:0}.footer{display:block}.footer span{display:block;margin-top:5px}}
@@ -215,6 +221,12 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="view" id="view-projects" hidden>
   <div class="section-head"><div><div class="eyebrow">Repository directory</div><h2>Eleven repositories</h2><p>Filter by domain, inspect the role, then jump straight into the source.</p></div></div>
   <div class="toolbar"><input class="field" id="search" type="search" placeholder="Search repositories…" aria-label="Search repositories"><select class="field" id="filter" aria-label="Filter repositories"><option value="all">All domains</option><option value="embedded">Embedded core</option><option value="hardware">Hardware / manufacturing</option><option value="developer">Developer tools</option><option value="control">Control plane</option><option value="system">Operating system / bootstrap</option></select></div>
+  <div class="workspace-preferences" aria-label="Local workspace preferences">
+    <label><input id="remember-workspace" type="checkbox"> Remember favourites on this device</label>
+    <button class="btn small" id="show-saved" type="button" aria-pressed="false">Show favourites only</button>
+    <button class="btn small" id="clear-saved" type="button">Clear favourites</button>
+    <span id="workspace-status" role="status" aria-live="polite">Session-only favourites · local storage is off</span>
+  </div>
   <div class="grid" id="project-grid" style="margin-top:14px"></div><div class="note">Repository maturity labels are curated snapshots, not live CI results. Follow each repository's own build and hardware-validation instructions.</div>
 </section>
 <section class="view" id="view-labs" hidden>
@@ -251,10 +263,55 @@ const projects=[
 const $=s=>document.querySelector(s),$$=s=>Array.from(document.querySelectorAll(s));
 function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.timer);toast.timer=setTimeout(()=>t.classList.remove("show"),2200)}
 function go(name){$$(".view").forEach(v=>{v.hidden=v.id!=="view-"+name});$$(".nav button").forEach(b=>{if(b.dataset.view===name)b.setAttribute("aria-current","page");else b.removeAttribute("aria-current")});$("#crumb").textContent="ENGINEERING ECOSYSTEM / "+name.toUpperCase();location.hash=name}
-function projectMarkup(p){let guide=p.guide?'<a class="btn small" href="'+p.guide+'" target="_blank" rel="noopener">Integration spec ↗</a>':"";return '<article class="project"><div class="project-top"><span class="tag '+(p.accent==="mint"?"mint":"")+'">'+p.domain+'</span><span class="tag">'+p.maturity+'</span></div><h3>'+p.name+'</h3><p><b>'+p.role+'</b><br>'+p.desc+'</p><div class="project-actions"><a class="btn small primary" href="'+p.url+'" target="_blank" rel="noopener">Open repository ↗</a><button class="btn small" data-copy="'+p.clone+'">Copy clone URL</button>'+guide+'</div></article>'}
-function renderProjects(){const q=$("#search").value.toLowerCase(),f=$("#filter").value;const list=projects.filter(p=>(f==="all"||p.domain===f)&&[p.name,p.role,p.desc,p.maturity].join(" ").toLowerCase().includes(q));$("#project-grid").innerHTML=list.map(projectMarkup).join("")||'<div class="panel">No repositories match that filter.</div>'}
+const workspaceStorageKey="klipot.workspace.v1";
+let workspaceRemember=false,showSavedOnly=false;
+let savedProjects=new Set();
+function workspaceStatus(message){const node=$("#workspace-status");if(node)node.textContent=message}
+function persistWorkspace(){
+  if(!workspaceRemember)return;
+  try{localStorage.setItem(workspaceStorageKey,JSON.stringify([...savedProjects].sort()));workspaceStatus("Favourites are saved only in this browser.");}
+  catch{workspaceStatus("Local storage is unavailable; favourites remain session-only.");}
+}
+function projectMarkup(p){const saved=savedProjects.has(p.id);let guide=p.guide?'<a class="btn small" href="'+p.guide+'" target="_blank" rel="noopener">Integration spec ↗</a>':"";return '<article class="project"><div class="project-top"><span class="tag '+(p.accent==="mint"?"mint":"")+'">'+p.domain+'</span><span class="tag">'+p.maturity+'</span></div><h3>'+p.name+'</h3><p><b>'+p.role+'</b><br>'+p.desc+'</p><div class="project-actions"><button class="btn small favorite" type="button" data-fav="'+p.id+'" aria-pressed="'+saved+'" aria-label="'+(saved?"Remove "+p.name+" from":"Add "+p.name+" to")+' favourites">'+(saved?"★ Saved":"☆ Save")+'</button><a class="btn small primary" href="'+p.url+'" target="_blank" rel="noopener">Open repository ↗</a><button class="btn small" data-copy="'+p.clone+'">Copy clone URL</button>'+guide+'</div></article>'}
+function renderProjects(){const q=$("#search").value.toLowerCase(),f=$("#filter").value;const list=projects.filter(p=>(f==="all"||p.domain===f)&&(!showSavedOnly||savedProjects.has(p.id))&&[p.name,p.role,p.desc,p.maturity].join(" ").toLowerCase().includes(q));$("#project-grid").innerHTML=list.map(projectMarkup).join("")||'<div class="panel">No repositories match that filter.</div>'}
 $$(".nav button").forEach(b=>b.addEventListener("click",()=>go(b.dataset.view)));$$("[data-go]").forEach(b=>b.addEventListener("click",()=>go(b.dataset.go)));
-$("#search").addEventListener("input",renderProjects);$("#filter").addEventListener("change",renderProjects);document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast(b.dataset.copy.startsWith("git clone")?"Quick-start command copied":"Clone URL copied")}catch{toast("Clipboard unavailable: "+b.dataset.copy)}});
+$("#search").addEventListener("input",renderProjects);$("#filter").addEventListener("change",renderProjects);
+$("#remember-workspace").addEventListener("change",e=>{
+  workspaceRemember=e.target.checked;
+  if(workspaceRemember){
+    try{
+      const stored=JSON.parse(localStorage.getItem(workspaceStorageKey)||"[]");
+      savedProjects=new Set(Array.isArray(stored)?stored.filter(id=>projects.some(p=>p.id===id)):[]);
+      workspaceStatus("Favourites loaded from this browser only.");
+    }catch{workspaceStatus("Could not read local preferences; using a session-only workspace.");}
+  }else{
+    savedProjects.clear();
+    try{localStorage.removeItem(workspaceStorageKey);workspaceStatus("Local preferences removed; session favourites cleared.");}
+    catch{workspaceStatus("Session favourites cleared; browser storage could not be accessed.");}
+  }
+  renderProjects();
+});
+$("#show-saved").addEventListener("click",e=>{
+  showSavedOnly=!showSavedOnly;
+  e.currentTarget.setAttribute("aria-pressed",String(showSavedOnly));
+  e.currentTarget.textContent=showSavedOnly?"Show all projects":"Show favourites only";
+  renderProjects();
+});
+$("#clear-saved").addEventListener("click",()=>{
+  savedProjects.clear();
+  if(workspaceRemember){try{localStorage.removeItem(workspaceStorageKey);}catch{}}
+  workspaceStatus("Favourites cleared.");
+  renderProjects();
+});
+document.addEventListener("click",e=>{
+  const button=e.target.closest("[data-fav]");
+  if(!button)return;
+  const id=button.dataset.fav;
+  if(savedProjects.has(id))savedProjects.delete(id);else savedProjects.add(id);
+  persistWorkspace();
+  renderProjects();
+});
+document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;try{await navigator.clipboard.writeText(b.dataset.copy);toast(b.dataset.copy.startsWith("git clone")?"Quick-start command copied":"Clone URL copied")}catch{toast("Clipboard unavailable: "+b.dataset.copy)}});
 const workspaceDemo=$("#workspace-demo");
 if(workspaceDemo){
   $("#workspace-density").addEventListener("change",e=>workspaceDemo.dataset.density=e.target.value);
