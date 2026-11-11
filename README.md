@@ -74,3 +74,18 @@ python one.py check
 ---
 
 **Створено з любов'ю до системності, інженерії та людей.**
+
+## NUN Mesh — пов'язані репозиторії
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — карта взаємодії репозиторіїв" width="100%"></p>
+
+Klipot документує межі інтеграції та залежності між незалежними компонентами. Карта є навігаційною схемою; сумісність кожного зв'язку підтверджується окремими версіонованими контрактами й тестами.
+
+- [NUN](https://github.com/bboroski/NUN) — ядро та boot-контракти
+- [NUNLauncher](https://github.com/bboroski/NUNLauncher) — Android HOME та перевірка образів
+- [Kloz](https://github.com/bboroski/Kloz) — платформний ABI й ресурси
+- [CO](https://github.com/bboroski/CO) — життєвий цикл компонентів
+- [SaintSI](https://github.com/bboroski/SaintSI) — спостереження за станом і цілісністю
+- [ReaperCripple](https://github.com/bboroski/ReaperCripple) — embedded та виробничі контракти
+- [SAMBU](https://github.com/bboroski/SAMBU) — мова й декларативні workflow
+- [ToolNG](https://github.com/bboroski/ToolNG) — діагностика Windows
