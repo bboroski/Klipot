@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0.0",
+  "repository": "bboroski/Klipot",
+  "optimization_method": "four-vector",
+  "status": "baseline_pending",
+  "implementation_status": "profile_added",
+  "product_role": "planning-semantic-control",
+  "detected_stack": "python-c",
+  "vectors": {
+    "physics": {
+      "focus": "latency-throughput-resource-cost",
+      "metrics": [
+        "plan_latency",
+        "graph_traversal_latency",
+        "policy_latency",
+        "graph_memory"
+      ],
+      "baseline": "not_measured"
+    },
+    "biology": {
+      "focus": "bounded-resource-lifecycle-and-feedback",
+      "controls": [
+        "graph_size_limit",
+        "traversal_depth_limit",
+        "cache_bound"
+      ],
+      "baseline": "not_measured"
+    },
+    "technology": {
+      "focus": "modularity-contracts-security",
+      "boundaries": [
+        "planner",
+        "semantic_graph",
+        "registry",
+        "policy"
+      ]
+    },
+    "sambo": {
+      "focus": "reuse-leverage-and-safe-deferral",
+      "strategies": [
+        "pure_result_cache",
+        "reuse_graph_algorithms"
+      ]
+    }
+  },
+  "verification": {
+    "commands": [
+      "python -m pytest"
+    ],
+    "results": "not_run_in_this_change"
+  },
+  "guardrails": [
+    "No implied live orchestration or deployment"
+  ],
+  "acceptance": [
+    "baseline recorded on a named platform",
+    "no unbounded queues caches retries or loops",
+    "errors and partial results remain explicit",
+    "public contracts remain compatible or are versioned",
+    "performance claims have before-after evidence"
+  ],
+  "updated_at": "2026-11-11"
+}
