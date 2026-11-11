@@ -36,6 +36,8 @@ Each repository retains its canonical name, code, APIs, release lifecycle and ow
 ## Design and documentation
 The shared interface direction is **Duck Black / Yellow**: dark surfaces, yellow accents for actions and state, readable typography, accessible contrast, keyboard navigation and reduced-motion support. See [design/DUCK_UI_SYSTEM.md](design/DUCK_UI_SYSTEM.md) when present.
 
+Design tokens: #FFD600 (yellow) and #111111 (black).
+
 ## License
 License not declared; no LICENSE file is present.
 
