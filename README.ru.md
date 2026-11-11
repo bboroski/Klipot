@@ -3,6 +3,7 @@
 <p align="center"><strong>Ecosystem Integration &amp; Control Plane</strong></p>
 <p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/LICENSE-NOT%20DECLARED-FFD600?style=for-the-badge&labelColor=111111"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<p align="center"><sub><a href="design/DUCK_UI_SYSTEM.md">Duck Black / Yellow UI standard</a> · <a href="assets/duck-ui/duck-ui-preview.svg">Vector UI preview</a></sub></p>
 
 ---
 
@@ -33,11 +34,11 @@
 | [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Specification only |
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и handoff | Specification only |
 | [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Архитектурное направление Elbrus/E2K | Proposal; target evidence pending |
-| [Luci](https://github.com/bboroski/Luci) | Направление developer workspace/tooling | Product/runtime contract pending |
+| [Luci](https://github.com/bboroski/Luci) | Python CLI, 13 доменов, registry и policy validation | Experimental foundation |
 
 ## Локальный запуск
 
-Откройте <code>index.html</code> в браузере или запустите локальный сервер:
+Откройте <code>index.html</code> или запустите локальный сервер:
 
 ~~~bash
 python -m http.server 8080
@@ -47,7 +48,7 @@ python -m http.server 8080
 
 ## Публикация и проверки
 
-Workflow публикации: <code>.github/workflows/pages.yml</code>. Для GitHub Pages выберите **Settings → Pages → GitHub Actions**.
+Workflow: <code>.github/workflows/pages.yml</code>. Для GitHub Pages выберите **Settings → Pages → GitHub Actions**.
 
 ~~~bash
 python one.py
@@ -72,4 +73,4 @@ python one.py check
 
 ---
 
-**Создано с любовью к системности, открытой инженерии и людям.**
+**Создано с любовью к системности, инженерии и людям.**
