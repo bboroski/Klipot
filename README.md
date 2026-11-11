@@ -58,6 +58,8 @@ Browser-labs використовують локальну модель і synth
 - [Інтерфейс порталу](docs/PORTAL_UI.md)
 
 ## NUN Mesh та пов'язані репозиторії
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — локальна діаграма контрактів між независимыми репозиториями" width="960"></p>
+
 [SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher)
 
 Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
