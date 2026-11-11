@@ -49,7 +49,10 @@ def main() -> None:
 
     registry = json.loads((ROOT / "Klipot" / "registry" / "ecosystem.json").read_text(encoding="utf-8"))
     registry_ids = {item["id"] for item in registry["projects"]}
-    assert registry_ids == set(EXPECTED.values()), registry_ids
+    assert set(EXPECTED.values()).issubset(registry_ids), registry_ids
+    assert len(registry_ids) == len(registry["projects"]), "registry contains duplicate project ids"
+    extended_catalog = {"nun", "nunlauncher", "fragile-baby", "luci"}
+    assert extended_catalog.issubset(registry_ids), registry_ids
 
     signal_schema_path = ROOT / "SAMBU" / "schemas" / "text-signal-envelope.schema.json"
     signal_fixture_path = ROOT / "SAMBU" / "examples" / "multilingual_signal_envelope.sample.json"
@@ -80,6 +83,11 @@ def main() -> None:
 
     portal = (ROOT / "Klipot" / "index.html").read_text(encoding="utf-8")
     assert 'src="assets/nun-mesh-overview.svg"' in portal
+    portal_project_ids = set(re.findall(r'\{id:"([^"]+)",name:"', portal))
+    expected_catalog = set(EXPECTED.values()) | {"nun", "nunlauncher", "fragile-baby", "luci"}
+    assert portal_project_ids == expected_catalog, portal_project_ids
+    assert 'id="workspace-density"' in portal and 'id="workspace-cycle"' in portal
+    assert 'id="workspace-material"' in portal
     script_match = re.search(r"<script>(.*?)</script>", portal, re.DOTALL)
     assert script_match, "portal has no application script"
     with tempfile.NamedTemporaryFile(mode="w", suffix=".js", encoding="utf-8") as handle:
