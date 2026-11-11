@@ -74,8 +74,8 @@ Browser-labs використовують локальну модель і synth
 **Створено з любов'ю до інженерії, системності та людей.**
 
 
-## Ecosystem Control Portal GUI
+## Графічний інтерфейс Ecosystem Control Portal
 
-The existing [interactive Klipot portal](web/index.html) remains the primary application. This update aligns its visual tokens with Duck Black / Yellow and adds a [GUI entry point](docs/gui/index.html) plus a [1600×900 vector preview](docs/gui/preview.svg). The portal provides repository discovery, integration contracts and browser labs; browser labs use synthetic local models and do not control native services or hardware.
+Основним застосунком залишається [інтерактивний портал Klipot](web/index.html). У цій гілці його палітру приведено до Duck Black / Yellow, додано [точку входу GUI](docs/gui/index.html) та [векторне прев'ю 1600 × 900](docs/gui/preview.svg). Портал забезпечує пошук репозиторіїв, перегляд інтеграційних контрактів і браузерні лабораторії; лабораторії використовують локальні синтетичні моделі та не керують native-сервісами чи обладнанням.
 
-See [portal architecture](docs/ARCHITECTURE.md), [contracts](docs/CONTRACTS.md), [integration protocol](docs/INTEGRATION_PROTOCOL.md) and [portal UI guide](docs/PORTAL_UI.md).
+Дивіться [архітектуру порталу](docs/ARCHITECTURE.md), [контракти](docs/CONTRACTS.md), [протокол інтеграції](docs/INTEGRATION_PROTOCOL.md) і [посібник UI](docs/PORTAL_UI.md).
