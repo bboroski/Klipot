@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "repository": "bboroski/Klipot",
+  "role": "ecosystem registry, contract catalogue and operator control plane",
+  "maturity": "static-portal",
+  "domains": {
+    "lucifer": {
+      "status": "implemented",
+      "evidence": [
+        "docs/INTEGRATION_PROTOCOL.md",
+        "docs/ARCHITECTURE.md"
+      ]
+    },
+    "beelzebub": {
+      "status": "partial",
+      "evidence": [
+        "tools/validate_biology_terms.py"
+      ]
+    },
+    "leviathan": {
+      "status": "implemented",
+      "evidence": [
+        "registry/ecosystem.json",
+        "docs/ARCHITECTURE.md"
+      ]
+    },
+    "asmodeus": {
+      "status": "implemented",
+      "evidence": [
+        "contracts/mesh-envelope.h",
+        "docs/CONTRACTS.md"
+      ]
+    },
+    "belphegor": {
+      "status": "implemented",
+      "evidence": [
+        "klipot/planner.py",
+        "tests/test_planner.py"
+      ]
+    },
+    "mammon": {
+      "status": "implemented",
+      "evidence": [
+        "schemas/resource-profile.schema.json"
+      ]
+    },
+    "satan": {
+      "status": "partial",
+      "evidence": [
+        "docs/INTEGRATION_PROTOCOL.md"
+      ]
+    },
+    "belial": {
+      "status": "implemented",
+      "evidence": [
+        "schemas/capability-manifest.schema.json",
+        "schemas/event-envelope.schema.json"
+      ]
+    },
+    "astaroth": {
+      "status": "implemented",
+      "evidence": [
+        "schemas/",
+        "docs/CONTRACTS.md"
+      ]
+    },
+    "baal": {
+      "status": "implemented",
+      "evidence": [
+        ".github/workflows/pages.yml",
+        "web/index.html"
+      ]
+    },
+    "adramelech": {
+      "status": "implemented",
+      "evidence": [
+        ".github/workflows/ci.yml"
+      ]
+    },
+    "ariel": {
+      "status": "implemented",
+      "evidence": [
+        "index.html",
+        "docs/PORTAL_UI.md"
+      ]
+    },
+    "pazuzu": {
+      "status": "implemented",
+      "evidence": [
+        "tests/test_planner.py",
+        "tests/validate_mesh.py"
+      ]
+    }
+  },
+  "integrations": [
+    {
+      "repository": "bboroski/SAMBU",
+      "relation": "metadata",
+      "status": "implemented"
+    },
+    {
+      "repository": "bboroski/ToolNG",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/ReaperCripple",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/Kloz",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/CO",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/SaintSI",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/NUN",
+      "relation": "metadata",
+      "status": "partial"
+    },
+    {
+      "repository": "bboroski/NUNLauncher",
+      "relation": "metadata",
+      "status": "partial"
+    }
+  ]
+}
