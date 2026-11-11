@@ -47,6 +47,26 @@ def main() -> None:
         for diagram in diagrams:
             ET.parse(diagram)
 
+    for repo in REPOS:
+        token_path = ROOT / repo / "design" / "duck-ui.tokens.json"
+        tokens = json.loads(token_path.read_text(encoding="utf-8"))
+        assert tokens["schema_version"] == "2.1.0", (repo, tokens.get("schema_version"))
+        experience = tokens.get("workspace_experience", {})
+        assert experience.get("status") == "design_contract", repo
+        for capability in ("material_surfaces", "adaptive_typography", "chromatic_context",
+                           "adaptive_density", "timeline_and_undo", "privacy_and_sandbox"):
+            assert capability in experience, (repo, capability)
+
+        stylesheet = ROOT / repo / "assets" / "duck-ui" / "duck-ui.css"
+        assert stylesheet.is_file(), f"{repo}: missing shared adaptive stylesheet"
+        css = stylesheet.read_text(encoding="utf-8")
+        for marker in (".duck-glass", ".duck-metal", ".duck-paper",
+                       "prefers-reduced-motion", "duck-density-calm"):
+            assert marker in css, (repo, marker)
+
+        integration_doc = ROOT / repo / "docs" / "ADAPTIVE_WORKSPACE_INTEGRATION.md"
+        assert integration_doc.is_file(), f"{repo}: missing adaptive workspace contract"
+
     registry = json.loads((ROOT / "Klipot" / "registry" / "ecosystem.json").read_text(encoding="utf-8"))
     registry_ids = {item["id"] for item in registry["projects"]}
     assert set(EXPECTED.values()).issubset(registry_ids), registry_ids
