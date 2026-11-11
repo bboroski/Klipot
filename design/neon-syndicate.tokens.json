@@ -1,0 +1,43 @@
+{
+  "schema_version": "1.0.0",
+  "brand": "NEON SYNDICATE",
+  "repository": "Klipot",
+  "surface": "responsive web portal",
+  "colors": {
+    "void_black": "#050505",
+    "warning_yellow": "#FCEE0A",
+    "system_red": "#FF003C",
+    "data_blue": "#00F0FF",
+    "interface_white": "#FFFFFF",
+    "carbon": "#0D1115",
+    "raised_carbon": "#11171C",
+    "muted": "#A6B2BC"
+  },
+  "typography": {
+    "headlines": [
+      "Orbitron",
+      "Rajdhani"
+    ],
+    "body": "Rajdhani",
+    "technical": [
+      "Roboto Mono",
+      "Share Tech Mono"
+    ]
+  },
+  "geometry": {
+    "cards": "chamfered",
+    "cut_px": 16,
+    "hex_pattern": true
+  },
+  "motion": {
+    "fast_ms": 120,
+    "standard_ms": 180,
+    "slow_ms": 260,
+    "reduced_motion": "disable non-essential motion"
+  },
+  "accessibility": {
+    "visible_keyboard_focus": "#00F0FF",
+    "state_labels_required": true
+  },
+  "preview_policy": "SVG is a concept preview; running portal screenshots must be actual browser captures."
+}

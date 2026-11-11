@@ -6,6 +6,14 @@
 <sub>Оновлено: 2026-11-11</sub>
 
 
+
+## NEON SYNDICATE — portal visual overview
+
+<p align="center"><img src="assets/neon-syndicate/overview.svg" alt="Klipot NEON SYNDICATE high-resolution vector portal preview" width="1200"></p>
+<p align="center"><em>Static vector design preview, not a browser screenshot. The live portal is implemented in index.html.</em></p>
+
+[Brand and interface specification](design/NEON_SYNDICATE.md) · [Design tokens](design/neon-syndicate.tokens.json)
+
 ## Навігація
 
 - [Поточні можливості](#поточні-можливості)
@@ -39,9 +47,9 @@ Browser-labs використовують локальну модель і synth
 
 ## Прев'ю порталу
 
-Статичне векторне прев'ю концепції Klipot у стилі Duck Black / Yellow. Це дизайн-макет, а не скриншот запущеного порталу.
+Статичне векторне прев'ю концепції Klipot у стилі NEON SYNDICATE. Це дизайн-макет, а не скриншот запущеного порталу.
 
-<p align="center"><img src="assets/portal-ui-preview.svg" alt="Klipot: векторне прев'ю порталу з каталогом репозиторіїв і навігацією" width="960"></p>
+<p align="center"><img src="assets/neon-syndicate/overview.svg" alt="Klipot: векторне прев'ю порталу з каталогом репозиторіїв і навігацією" width="960"></p>
 <p align="center"><em>Портал, каталог репозиторіїв і швидкі переходи до лабораторій</em></p>
 
 ## Інженерна якість
@@ -65,10 +73,14 @@ Browser-labs використовують локальну модель і synth
 Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
 
 ## Дизайн і документація
-Базовий інтерфейсний напрям екосистеми — **Duck Black / Yellow**: чорні поверхні, жовтий акцент для дій і станів, читабельна типографіка, доступний контраст, клавіатурна навігація та підтримка reduced motion. Деталі дивіться в [design/DUCK_UI_SYSTEM.md](design/DUCK_UI_SYSTEM.md), якщо файл присутній у цьому репозиторії.
+Базовий інтерфейсний напрям екосистеми — **NEON SYNDICATE**: чорні поверхні, жовтий акцент для дій і станів, читабельна типографіка, доступний контраст, клавіатурна навігація та підтримка reduced motion. Деталі дивіться в [design/NEON_SYNDICATE.md](design/NEON_SYNDICATE.md), якщо файл присутній у цьому репозиторії.
 
 ## Ліцензія
 Ліцензію не оголошено; файл LICENSE відсутній.
 
 ---
 **Створено з любов'ю до інженерії, системності та людей.**
+
+## Федерація Hellduck
+
+Цей репозиторій входить до федерації [Hellduck](https://github.com/bboroski/Hellduck) — спільного каталогу проєктів, контрактних зв’язків і станів інтеграції. Вихідний код, API, тести та цикл випуску залишаються відповідальністю цього репозиторію; Hellduck індексує зв’язки й не завантажує та не виконує код учасників.
