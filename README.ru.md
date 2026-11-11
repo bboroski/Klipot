@@ -1,3 +1,5 @@
+
+> **Фирменная палитра:** сигнальный жёлтый `#FFD600`; глубокий чёрный `#111111`.
 <p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Klipot mark" width="92"></p>
 <h1 align="center">Klipot</h1>
 <p align="center"><strong>Ecosystem Integration &amp; Control Plane</strong></p>
