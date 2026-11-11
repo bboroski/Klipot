@@ -22,7 +22,6 @@ python one.py check
 Browser labs use local models and synthetic data. They do not run native C, read hardware telemetry or control devices. The portal does not merge independent runtimes.
 
 ## Project documentation
-![Klipot portal vector preview](assets/neon-syndicate/overview.svg)
 
 *Static vector preview, not a live browser screenshot.*
 
