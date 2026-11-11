@@ -2,19 +2,19 @@
 <html lang="en">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#0D0D0D">
-<meta name="description" content="Klipot is the black-and-yellow control portal for a modular engineering ecosystem: nine repositories, shared contracts and interactive browser labs.">
+<meta name="theme-color" content="#111111">
+<meta name="description" content="Klipot is the black-and-yellow control portal for a modular engineering ecosystem: eleven repositories, shared contracts and interactive browser labs.">
 <meta name="color-scheme" content="dark">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Klipot — Ecosystem Integration & Control Plane">
-<meta property="og:description" content="One control plane. Nine repository projects. Explore the repository mesh, contracts and interactive labs.">
+<meta property="og:description" content="One control plane. Eleven repository projects. Explore the repository mesh, contracts and interactive labs.">
 <meta property="og:image" content="https://bboroski.github.io/Klipot/assets/portal-ui-preview.svg">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" type="image/svg+xml" href="assets/klipot-mark.svg">
 <title>Klipot — Ecosystem Integration & Control Plane</title>
 <style>
 
-:root{color-scheme:dark;--bg:#0D0D0D;--surface:#1A1A1A;--surface2:#141414;--stroke:#262626;--ink:#E6E6E6;--muted:#999999;--accent:#FFD600;--accent-soft:#BFA100;--accent-dim:#332B00;--red:#FF4444;--green:#4CAF50;--radius:10px;font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+:root{color-scheme:dark;--bg:#111111;--surface:#1A1A1A;--surface2:#141414;--stroke:#262626;--ink:#E6E6E6;--muted:#999999;--accent:#FFD600;--accent-soft:#BFA100;--accent-dim:#332B00;--red:#FF4444;--green:#4CAF50;--radius:10px;font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(950px 580px at 84% -12%,#332B002b 0%,transparent 65%),radial-gradient(720px 460px at -10% 55%,#26262618 0%,transparent 65%),var(--bg)}
@@ -23,10 +23,10 @@ button,input,select{font:inherit}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
 .app{display:block;min-height:100vh}
-.rail{position:sticky;top:0;z-index:30;width:100%;height:auto;padding:13px clamp(18px,4vw,58px);background:#0D0D0DeF;border-bottom:1px solid var(--stroke);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:22px}
+.rail{position:sticky;top:0;z-index:30;width:100%;height:auto;padding:13px clamp(18px,4vw,58px);background:#111111eF;border-bottom:1px solid var(--stroke);backdrop-filter:blur(18px);display:flex;align-items:center;justify-content:space-between;gap:22px}
 .brand{display:flex;align-items:center;gap:12px;min-width:max-content;padding:2px 0}
-.sigil{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--accent);color:#0D0D0D;font-size:23px;font-weight:950;letter-spacing:-.08em;box-shadow:0 0 34px #FFD6002c;position:relative;overflow:hidden}
-.sigil:after{content:"";position:absolute;inset:5px;border:1px solid #0D0D0D55;border-radius:8px}
+.sigil{display:grid;place-items:center;width:42px;height:42px;border-radius:12px;background:var(--accent);color:#111111;font-size:23px;font-weight:950;letter-spacing:-.08em;box-shadow:0 0 34px #FFD6002c;position:relative;overflow:hidden}
+.sigil:after{content:"";position:absolute;inset:5px;border:1px solid #11111155;border-radius:8px}
 .brand strong{display:block;letter-spacing:.18em;font-size:14px}
 .brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
 .nav{display:flex;align-items:center;justify-content:center;gap:5px}
@@ -56,11 +56,11 @@ a{color:inherit;text-decoration:none}
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #262626;border-radius:10px;padding:10px 15px;color:var(--ink);background:#1A1A1A;transition:transform .16s,background .16s,border-color .16s,box-shadow .16s;min-height:42px}
 .btn:hover{transform:translateY(-2px);background:#262626;border-color:#BFA100;box-shadow:0 9px 26px #0007}
 .btn:active{transform:translateY(1px) scale(.985)}
-.btn.primary{color:#0D0D0D;background:var(--accent);border-color:var(--accent);font-weight:850}
+.btn.primary{color:#111111;background:var(--accent);border-color:var(--accent);font-weight:850}
 .btn.primary:hover{background:var(--accent-soft);border-color:var(--accent-soft);box-shadow:0 8px 28px #FFD6002a}
 .btn.small{padding:7px 10px;min-height:34px;font-size:11px}
 .btn:disabled{opacity:.38;cursor:not-allowed;transform:none;box-shadow:none}
-.hero-visual{padding:12px;display:grid;place-items:center;overflow:hidden;position:relative;background:radial-gradient(500px 270px at 50% 45%,#FFD60012,transparent 72%),linear-gradient(145deg,#1A1A1A,#0D0D0D)}
+.hero-visual{padding:12px;display:grid;place-items:center;overflow:hidden;position:relative;background:radial-gradient(500px 270px at 50% 45%,#FFD60012,transparent 72%),linear-gradient(145deg,#1A1A1A,#111111)}
 .hero-visual:before{content:"KLIPOT / SYSTEM MAP";position:absolute;left:22px;top:18px;color:#999999;font:9px/1 ui-monospace,monospace;letter-spacing:.18em}
 .hero-visual img{width:100%;height:auto;display:block;filter:drop-shadow(0 12px 35px #0008)}
 .metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:16px 0 30px}
@@ -76,7 +76,7 @@ a{color:inherit;text-decoration:none}
 .feature-card h3{font-size:14px;margin:13px 0 5px}
 .feature-card p{margin:0;color:var(--muted);font-size:11px;line-height:1.6}
 .toolbar{display:flex;gap:8px;flex-wrap:wrap}
-.field{background:#0D0D0D;border:1px solid #262626;border-radius:9px;padding:9px 11px;color:var(--ink);min-width:170px}
+.field{background:#111111;border:1px solid #262626;border-radius:9px;padding:9px 11px;color:var(--ink);min-width:170px}
 .field:focus{border-color:var(--accent)}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .project{padding:18px;background:linear-gradient(145deg,#1A1A1A,#141414);transition:transform .2s,border-color .2s,box-shadow .2s}
@@ -104,7 +104,7 @@ a{color:inherit;text-decoration:none}
 .lab-controls label{display:grid;gap:5px;color:var(--muted);font-size:10px}
 .lab-controls input{width:100px}
 .lab-controls input[type=checkbox]{width:auto;accent-color:var(--accent)}
-.readout{margin-top:14px;padding:12px;border-radius:10px;background:#0D0D0D;border:1px solid #262626;font:11px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#E6E6E6;min-height:48px;white-space:pre-wrap}
+.readout{margin-top:14px;padding:12px;border-radius:10px;background:#111111;border:1px solid #262626;font:11px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace;color:#E6E6E6;min-height:48px;white-space:pre-wrap}
 .readout .ok{color:var(--green)}
 .readout .warn{color:var(--accent)}
 .readout .bad{color:var(--red)}
@@ -141,14 +141,14 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 <section class="view" id="view-overview">
   <div class="hero"><div class="hero-copy">
 <div class="eyebrow">SYSTEMS PORTAL · PROJECT MESH</div>
-<h1>One control plane.<br><span>Nine repository projects.</span></h1>
+<h1>One control plane.<br><span>Eleven repository projects.</span></h1>
 <p class="lead">Klipot is the front door to a modular engineering ecosystem. Discover each project's responsibility, follow explicit interfaces, inspect integration rules and test API concepts in safe browser labs — without turning independent systems into one fragile monolith.</p>
 <div class="actions">
 <button class="btn primary" data-go="projects">Explore the project mesh ↗</button>
 <button class="btn" data-go="labs">Launch interactive labs</button>
 <button class="btn" data-copy="git clone https://github.com/bboroski/Klipot.git">Copy quick-start command</button>
 </div>
-</div><div class="hero-visual"><img src="assets/sambu-ecosystem-overview.svg" alt="Engineering ecosystem map covering nine repositories coordinated through Klipot"></div></div>
+</div><div class="hero-visual"><img src="assets/sambu-ecosystem-overview.svg" alt="Engineering ecosystem map covering eleven repositories coordinated through Klipot"></div></div>
   <div class="metrics">
 <div class="metric"><strong>09</strong><small>independent repositories</small></div>
 <div class="metric"><strong>04</strong><small>interactive browser labs</small></div>
@@ -170,7 +170,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="flow"><div class="node"><strong>NUN</strong><small>Minimal kernel specification · documentation scaffold</small></div><div class="node"><strong>NUNLauncher</strong><small>Kernel bootstrap specification · documentation scaffold</small></div></div>
 </section>
 <section class="view" id="view-projects" hidden>
-  <div class="section-head"><div><div class="eyebrow">Repository directory</div><h2>Nine repositories</h2><p>Filter by domain, inspect the role, then jump straight into the source.</p></div></div>
+  <div class="section-head"><div><div class="eyebrow">Repository directory</div><h2>Eleven repositories</h2><p>Filter by domain, inspect the role, then jump straight into the source.</p></div></div>
   <div class="toolbar"><input class="field" id="search" type="search" placeholder="Search repositories…" aria-label="Search repositories"><select class="field" id="filter" aria-label="Filter repositories"><option value="all">All domains</option><option value="embedded">Embedded core</option><option value="hardware">Hardware / manufacturing</option><option value="developer">Developer tools</option><option value="control">Control plane</option><option value="system">Operating system / bootstrap</option></select></div>
   <div class="grid" id="project-grid" style="margin-top:14px"></div><div class="note">Repository maturity labels are curated snapshots, not live CI results. Follow each repository's own build and hardware-validation instructions.</div>
 </section>
@@ -188,7 +188,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
   <div class="protocol" style="margin-top:18px"><article class="panel"><h3>Machine-near contract</h3><ul><li>Kloz defines status, memory and versioned platform operations.</li><li>CO owns lifecycle state and callback sequencing.</li><li>SaintSI observes progress with a caller-owned timebase.</li><li>ReaperCripple composes board services, bootstrap, fixture and manufacturing policy.</li></ul></article><article class="panel"><h3>Developer and desktop contract</h3><ul><li>SAMBU describes bounded workflows and supplies the language/tooling layer.</li><li>ToolNG embeds a portable policy/workflow core, not the Python runtime.</li><li>Klipot indexes capabilities, documentation and compatibility boundaries.</li><li>Browser labs are illustrative simulations, not device evidence.</li></ul></article><article class="panel"><h3>Evidence vocabulary</h3><ul><li><b>Observed</b> — the check ran and produced a measured result.</li><li><b>Not found</b> — the check ran, but the target was absent.</li><li><b>Unknown</b> — access or coverage was insufficient.</li><li><b>Failed</b> — a completed operation returned an error.</li><li><b>Passed</b> — all declared requirements were measured and satisfied.</li></ul></article><article class="panel"><h3>Version and safety rules</h3><ul><li>Use fixed-width C fields and explicit size/version markers.</li><li>Never serialize native structs by copying memory.</li><li>Convert clock units explicitly and bound wrap intervals.</li><li>Never infer pinouts or operating limits from generic profiles.</li><li>Host tests do not replace target and hardware-in-the-loop validation.</li></ul></article></div>
   <div class="actions"><a class="btn primary" href="https://github.com/bboroski/Klipot/blob/main/docs/INTEGRATION_PROTOCOL.md" target="_blank" rel="noopener">Open full protocol ↗</a><a class="btn" href="https://github.com/bboroski/Klipot/blob/main/contracts/mesh-envelope.h" target="_blank" rel="noopener">C ABI reference ↗</a><a class="btn" href="https://github.com/bboroski/Klipot/blob/main/registry/ecosystem.json" target="_blank" rel="noopener">Machine-readable registry ↗</a></div>
 </section>
-<footer class="footer"><span>Klipot · ENGINEERING ECOSYSTEM CONTROL PLANE</span><span>BLACK / YELLOW EDITION · NINE REPOSITORIES · EXPLICIT CONTRACTS · NO FABRICATED HARDWARE STATUS</span></footer>
+<footer class="footer"><span>Klipot · ENGINEERING ECOSYSTEM CONTROL PLANE</span><span>BLACK / YELLOW EDITION · ELEVEN REPOSITORIES · EXPLICIT CONTRACTS · NO FABRICATED HARDWARE STATUS</span></footer>
 </main></div><div class="toast" id="toast" role="status" aria-live="polite"></div>
 <script>
 const projects=[
