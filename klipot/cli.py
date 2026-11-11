@@ -9,6 +9,7 @@ from typing import Sequence
 
 from . import __version__
 from .planner import ManifestError, build_plan, validate_manifest
+from .semantic_graph import SemanticGraphError, expand_domains
 
 
 def _load(path: str):
@@ -44,9 +45,24 @@ def main(argv: Sequence[str] | None = None) -> int:
     plan_parser.add_argument(
         "--json", action="store_true", help="emit machine-readable JSON"
     )
+    semantic_parser = subparsers.add_parser(
+        "semantic", help="expand curated cross-domain relationships"
+    )
+    semantic_parser.add_argument("seeds", nargs="+", help="domain identifiers")
+    semantic_parser.add_argument("--depth", type=int, default=2, help="bounded expansion depth (1..5)")
+    semantic_parser.add_argument("--json", action="store_true", help="emit machine-readable JSON")
     args = parser.parse_args(argv)
 
     try:
+        if args.command == "semantic":
+            related = expand_domains(args.seeds, depth=args.depth)
+            if args.json:
+                print(json.dumps(related, ensure_ascii=False, indent=2, sort_keys=True))
+            else:
+                for item in related:
+                    print(f"{item['domain']:<24} {item['score']:.8f}")
+            return 0
+
         document = _load(args.manifest)
         if args.command == "validate":
             index = validate_manifest(document)
@@ -67,7 +83,7 @@ def main(argv: Sequence[str] | None = None) -> int:
                     f"(depends on: {dependencies})"
                 )
         return 0
-    except ManifestError as exc:
+    except (ManifestError, SemanticGraphError) as exc:
         print(f"klipot: error: {exc}", file=sys.stderr)
         return 2
 

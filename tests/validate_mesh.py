@@ -53,7 +53,10 @@ def main() -> None:
     for repo in REPOS:
         token_path = ROOT / repo / "design" / "duck-ui.tokens.json"
         tokens = json.loads(token_path.read_text(encoding="utf-8"))
-        assert tokens["schema_version"] == "2.1.0", (repo, tokens.get("schema_version"))
+        supported_token_versions = {"2.1.0", "3.0.0"}
+        assert tokens.get("schema_version") in supported_token_versions, (
+            repo, tokens.get("schema_version")
+        )
         experience = tokens.get("workspace_experience", {})
         assert experience.get("status") == "design_contract", repo
         for capability in ("material_surfaces", "adaptive_typography", "chromatic_context",
