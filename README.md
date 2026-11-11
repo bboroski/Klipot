@@ -34,7 +34,15 @@
 | [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Specification only |
 | [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Specification only |
 | [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Архітектурний напрям Elbrus/E2K | Proposal; target evidence pending |
-| [Luci](https://github.com/bboroski/Luci) | Python CLI, 13 доменів, registry і policy validation | Experimental foundation |
+| [Luci](https://github.com/bboroski/Luci) | Документаційний каркас дизайн-системи й інтеграційних меж | Scope pending |
+
+## NUN Mesh
+
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — seven connected engineering repositories coordinated through versioned contracts" width="100%"></p>
+
+**NUN Mesh** — це сім контрактно пов'язаних інженерних репозиторіїв: Kloz, CO, SaintSI, ReaperCripple, SAMBU, ToolNG і Klipot. Чотири додаткові напрями каталогу — NUN, NUNLauncher, Fragile-Baby та Luci — зберігають окремі межі зрілості: специфікації, архітектурні пропозиції або документаційний каркас. Вони не видаються за перевірені runtime чи апаратну підтримку.
+
+Кожен компонент зберігає власне володіння кодом і життєвим циклом. Інтеграції здійснюються через версіоновані контракти, адаптери й перевірювані докази.
 
 ## Локальний запуск
 
