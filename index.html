@@ -15,7 +15,7 @@
 <title>Klipot — Ecosystem Integration & Control Plane</title>
 <style>
 
-:root{color-scheme:dark;--bg:#050505;--surface:#11171C;--surface2:#0D1115;--stroke:#29343B;--ink:#FFFFFF;--muted:#A6B2BC;--accent:#FCEE0A;--accent-soft:#A69B00;--accent-dim:#252400;--red:#FF003C;--green:#4CAF50;--radius:10px;font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
+:root{color-scheme:dark;--bg:#050505;--surface:#11171C;--surface2:#0D1115;--stroke:#29343B;--ink:#FFFFFF;--muted:#A6B2BC;--accent:#FCEE0A;--accent-soft:#A69B00;--accent-dim:#252400;--red:#FF003C;--green:#4CAF50;--radius:10px;--motion-fast:110ms;--motion-standard:180ms;--motion-slow:240ms;--motion-max:320ms;--motion-ease:cubic-bezier(.2,.75,.25,1);font:15px/1.55 Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif}
 *{box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{margin:0;min-height:100vh;color:var(--ink);background:radial-gradient(950px 580px at 84% -12%,#2524002b 0%,transparent 65%),radial-gradient(720px 460px at -10% 55%,#29343B18 0%,transparent 65%),var(--bg)}
@@ -31,7 +31,7 @@ a{color:inherit;text-decoration:none}
 .brand strong{display:block;letter-spacing:.18em;font-size:14px}
 .brand small{display:block;color:var(--muted);font-size:9px;letter-spacing:.18em;text-transform:uppercase}
 .nav{display:flex;align-items:center;justify-content:center;gap:5px}
-.nav button{display:flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);text-align:left;padding:10px 13px;font-size:12px;font-weight:650;transition:background .18s,border-color .18s,color .18s,transform .18s}
+.nav button{display:flex;align-items:center;gap:8px;border:1px solid transparent;border-radius:10px;background:transparent;color:var(--muted);text-align:left;padding:10px 13px;font-size:12px;font-weight:650;transition:background var(--motion-standard),border-color var(--motion-standard),color var(--motion-standard),transform var(--motion-fast)}
 .nav button:hover{background:#FCEE0A0d;border-color:#FCEE0A30;color:var(--ink);transform:translateY(-1px)}
 .nav button[aria-current=page]{background:#FCEE0A16;border-color:#FCEE0A55;color:var(--accent)}
 .nav .ico{width:17px;text-align:center;font-size:15px}
@@ -42,7 +42,7 @@ a{color:inherit;text-decoration:none}
 .crumb{font-size:10px;color:#A6B2BC;letter-spacing:.17em;text-transform:uppercase}
 .status{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:11px}
 .dot{width:7px;height:7px;border-radius:99px;background:var(--accent);box-shadow:0 0 12px #FCEE0A99}
-.view{animation:enter .32s ease both}
+.view{animation:enter var(--motion-max) var(--motion-ease) both}
 .view[hidden]{display:none}
 @keyframes enter{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
 .hero{display:grid;grid-template-columns:1.1fr .9fr;gap:16px;align-items:stretch}
@@ -54,7 +54,7 @@ a{color:inherit;text-decoration:none}
 .hero h1 span{color:var(--accent)}
 .lead{color:#FFFFFF;max-width:690px;font-size:16px;line-height:1.72}
 .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:27px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #29343B;border-radius:10px;padding:10px 15px;color:var(--ink);background:#11171C;transition:transform .16s,background .16s,border-color .16s,box-shadow .16s;min-height:42px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:1px solid #29343B;border-radius:10px;padding:10px 15px;color:var(--ink);background:#11171C;transition:transform var(--motion-fast),background var(--motion-fast),border-color var(--motion-fast),box-shadow var(--motion-fast);min-height:42px}
 .btn:hover{transform:translateY(-2px);background:#29343B;border-color:#A69B00;box-shadow:0 9px 26px #0007}
 .btn:active{transform:translateY(1px) scale(.985)}
 .btn.primary{color:#050505;background:var(--accent);border-color:var(--accent);font-weight:850}
@@ -80,7 +80,7 @@ a{color:inherit;text-decoration:none}
 .field{background:#050505;border:1px solid #29343B;border-radius:9px;padding:9px 11px;color:var(--ink);min-width:170px}
 .field:focus{border-color:var(--accent)}
 .grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.project{padding:18px;background:linear-gradient(145deg,#11171C,#0D1115);transition:transform .2s,border-color .2s,box-shadow .2s}
+.project{padding:18px;background:linear-gradient(145deg,#11171C,#0D1115);transition:transform var(--motion-slow),border-color var(--motion-standard),box-shadow var(--motion-slow)}
 .project:hover{transform:translateY(-3px);border-color:#A69B00;box-shadow:0 20px 48px #0008}
 .project-top{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap}
 .project h3{font-size:20px;margin:12px 0 5px;letter-spacing:-.035em}
@@ -110,7 +110,7 @@ a{color:inherit;text-decoration:none}
 .readout .warn{color:var(--accent)}
 .readout .bad{color:var(--red)}
 .progress{height:7px;border-radius:99px;background:#29343B;overflow:hidden;margin-top:9px}
-.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#A69B00);transition:width .22s}
+.progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--accent),#A69B00);transition:width var(--motion-slow)}
 .protocol{display:grid;grid-template-columns:1fr 1fr;gap:11px}
 .protocol .panel{box-shadow:none}
 .protocol ul{padding-left:18px;color:var(--muted);font-size:12px}
@@ -135,7 +135,7 @@ button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{ou
 .workspace-controls label{display:grid;gap:6px;color:var(--muted);font-size:11px;font-weight:700;letter-spacing:.04em}
 .workspace-controls .field{min-width:155px}
 .workspace-samples{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
-.workspace-sample{min-width:0;min-height:155px;padding:16px;border:1px solid #2A353D;border-radius:12px;background:#11171C;transition:transform .18s,border-color .18s,box-shadow .18s}
+.workspace-sample{min-width:0;min-height:155px;padding:16px;border:1px solid #2A353D;border-radius:12px;background:#11171C;transition:transform var(--motion-standard),border-color var(--motion-standard),box-shadow var(--motion-standard)}
 .workspace-sample:hover{transform:translateY(-2px);border-color:#6C5B00}
 .workspace-sample h3{font-size:16px;margin:13px 0 6px}
 .workspace-sample p{font-size:12px;color:#A6B2BC;margin:0}
