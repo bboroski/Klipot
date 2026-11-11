@@ -53,12 +53,18 @@ def main() -> None:
     for repo in REPOS:
         token_path = ROOT / repo / "design" / "duck-ui.tokens.json"
         tokens = json.loads(token_path.read_text(encoding="utf-8"))
-        assert tokens["schema_version"] == "2.1.0", (repo, tokens.get("schema_version"))
+        schema_version = tokens.get("schema_version")
+        assert schema_version in {"2.1.0", "3.0.0"}, (repo, schema_version)
         experience = tokens.get("workspace_experience", {})
         assert experience.get("status") == "design_contract", repo
         for capability in ("material_surfaces", "adaptive_typography", "chromatic_context",
                            "adaptive_density", "timeline_and_undo", "privacy_and_sandbox"):
             assert capability in experience, (repo, capability)
+        if schema_version == "3.0.0":
+            assert len(tokens.get("palette", {})) == 6, (repo, "base palette")
+            assert len(tokens.get("functional_shades", {})) == 14, (repo, "functional shades")
+            assert len(tokens.get("animations", [])) == 10, (repo, "animation profiles")
+            assert len(tokens.get("transitions", [])) == 10, (repo, "transition profiles")
 
         stylesheet = ROOT / repo / "assets" / "duck-ui" / "duck-ui.css"
         assert stylesheet.is_file(), f"{repo}: missing shared adaptive stylesheet"
@@ -66,6 +72,14 @@ def main() -> None:
         for marker in (".duck-glass", ".duck-metal", ".duck-paper",
                        "prefers-reduced-motion", "duck-density-calm"):
             assert marker in css, (repo, marker)
+        if schema_version == "3.0.0":
+            for animation in tokens["animations"]:
+                assert animation["class"] in css, (repo, animation["class"])
+                assert f'@keyframes {animation["keyframes"]}' in css, (
+                    repo, animation["keyframes"]
+                )
+            for transition in tokens["transitions"]:
+                assert transition["class"] in css, (repo, transition["class"])
 
         integration_doc = ROOT / repo / "docs" / "ADAPTIVE_WORKSPACE_INTEGRATION.md"
         assert integration_doc.is_file(), f"{repo}: missing adaptive workspace contract"
