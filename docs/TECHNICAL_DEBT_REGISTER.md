@@ -6,9 +6,9 @@
 
 ## Findings
 
-| ID | Domain | Preliminary risk | Status | Evidence | Next action |
-|---|---|---:|---|---|---|
-| KLIPOT-DOC-001 | Documentation / mesh contract | Moderate (8 before mitigation) | mitigated — CI confirmation pending | Earlier cross-repository validation reported that `README.md`, `README.en.md` and `README.ru.md` lacked a local `nun-mesh*.svg` reference. The PR now includes `assets/nun-mesh-overview.svg` in all three language variants. | Confirm the next cross-repository mesh-contract run; close only after all three README references and local asset checks pass. |
+| ID | Domain | Impact | Likelihood | Risk | Effort (1–5) | Owner | Target | Acceptance decision | Status | Evidence | Next action |
+|---|---|---:|---:|---:|---:|---|---|---|---|---|---|
+| KLIPOT-DOC-001 | Documentation / mesh contract | 2 | 4 | Moderate (8 before mitigation) | 1 | TBD (maintainer) | After sibling README PRs merge | Pending CI confirmation | mitigated — CI confirmation pending | Earlier cross-repository validation reported that the README variants lacked a local `nun-mesh*.svg` reference. This branch now includes `assets/nun-mesh-overview.svg` in all three Klipot README variants and updates the mesh validator to accept and validate token schemas 2.1.0 and 3.0.0. | Confirm the next cross-repository mesh-contract run after the sibling README diagram PRs are merged; close only when all seven checkout diagrams and token compatibility checks pass. |
 
 ## Risk method
 
