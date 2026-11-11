@@ -45,7 +45,10 @@ def main() -> None:
         diagrams = list((base / "assets").glob("*nun-mesh*.svg"))
         assert diagrams, f"{repo}: no mesh SVG"
         for diagram in diagrams:
-            ET.parse(diagram)
+            try:
+                ET.parse(diagram)
+            except ET.ParseError as error:
+                raise AssertionError(f"{repo}/{diagram}: invalid SVG XML: {error}") from error
 
     for repo in REPOS:
         token_path = ROOT / repo / "design" / "duck-ui.tokens.json"
