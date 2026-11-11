@@ -3,6 +3,20 @@
 <p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
 <p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL%20%C2%B7%20HTML%20%2B%20JAVASCRIPT-FFD600?style=for-the-badge&labelColor=111111" alt="Static portal · HTML + JavaScript"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
+<sub>Оновлено: 2026-11-11</sub>
+
+
+## Навігація
+
+- [Поточні можливості](#поточні-можливості)
+- [Швидкий старт і перевірка](#швидкий-старт-і-перевірка)
+- [Архітектура, межі та достовірність](#архітектура-межі-та-достовірність)
+- [Прев'ю порталу](#превю-порталу)
+- [Інженерна якість](#інженерна-якість)
+- [Карта документації](#карта-документації)
+- [NUN Mesh та пов'язані репозиторії](#nun-mesh-та-повязані-репозиторії)
+- [Дизайн і документація](#дизайн-і-документація)
+- [Ліцензія](#ліцензія)
 
 > **Klipot** — Klipot — центральний каталог і контрольна площина інженерної екосистеми: модулі, ролі, контракти, посилання та перевірювані інтеграційні межі.
 
@@ -23,14 +37,28 @@ python one.py check
 ## Архітектура, межі та достовірність
 Browser-labs використовують локальну модель і synthetic data; вони не запускають native C, не читають hardware telemetry і не керують пристроями. Каталог не перетворює незалежні репозиторії на моноліт.
 
+## Прев'ю порталу
+
+Статичне векторне прев'ю концепції Klipot у стилі Duck Black / Yellow. Це дизайн-макет, а не скриншот запущеного порталу.
+
+<p align="center"><img src="assets/portal-ui-preview.svg" alt="Klipot: векторне прев'ю порталу з каталогом репозиторіїв і навігацією" width="960"></p>
+<p align="center"><em>Портал, каталог репозиторіїв і швидкі переходи до лабораторій</em></p>
+
 ## Інженерна якість
 - Перевіряйте збірку й тести саме для цільової платформи; host CI не замінює hardware qualification.
 - Статуси **implemented**, **partial**, **planned** мають підтверджуватися кодом, тестами та документацією.
 - Не оголошуйте функцію production-ready лише на підставі макета, специфікації чи відкритого Pull Request.
 - Зовнішні інтеграції мають бути явними, версіонованими, ізольованими й перевірюваними.
 
+## Карта документації
+
+- [Архітектура порталу](docs/ARCHITECTURE.md)
+- [Контракти екосистеми](docs/CONTRACTS.md)
+- [Інтеграційний протокол](docs/INTEGRATION_PROTOCOL.md)
+- [Інтерфейс порталу](docs/PORTAL_UI.md)
+
 ## NUN Mesh та пов'язані репозиторії
-[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci)
+[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher)
 
 Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
 
