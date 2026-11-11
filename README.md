@@ -1,84 +1,44 @@
 <p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Klipot mark" width="92"></p>
 <h1 align="center">Klipot</h1>
-<p align="center"><strong>Ecosystem Integration &amp; Control Plane</strong></p>
-<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111"><img src="https://img.shields.io/badge/LICENSE-NOT%20DECLARED-FFD600?style=for-the-badge&labelColor=111111"></p>
+<p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
+<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL%20%C2%B7%20HTML%20%2B%20JAVASCRIPT-FFD600?style=for-the-badge&labelColor=111111" alt="Static portal · HTML + JavaScript"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
-<p align="center"><sub><a href="design/DUCK_UI_SYSTEM.md">Duck Black / Yellow UI standard</a> · <a href="assets/duck-ui/duck-ui-preview.svg">Vector UI preview</a></sub></p>
 
----
+> **Klipot** — Klipot — центральний каталог і контрольна площина інженерної екосистеми: модулі, ролі, контракти, посилання та перевірювані інтеграційні межі.
 
-**Klipot — центральний каталог і контрольна площина інженерної екосистеми.** Він показує модулі, межі відповідальності, інтеграційні контракти й точки входу в документацію, не зливаючи незалежні runtime в один моноліт.
-
-## Можливості порталу
-
-- Каталог модулів із фільтрами за доменом і пошуком.
-- Посилання на вихідний код, GUI-документацію та інструкції запуску.
-- Копіювання команд clone.
+## Поточні можливості
+- Каталог репозиторіїв із пошуком і фільтрами.
 - Machine-readable registry та versioned integration protocol.
-- Browser-labs для демонстрації allocation, lifecycle, heartbeat і capability-gate моделей.
-- CI-перевірка метаданих, контрактів, схем і синтаксису статичного порталу.
+- Browser-labs для локальної демонстрації allocation, lifecycle і capability-gate моделей.
+- CI-перевірки метаданих, схем, контрактів і JavaScript.
+- Оновлений cross-repository roadmap та quality contracts.
 
-**Межа симуляції:** browser-labs не виконують C-код, не читають телеметрію обладнання, не керують fixtures і не доводять фізичний стан пристрою.
-
-## Карта екосистеми
-
-| Репозиторій | Роль | Поточний статус |
-|---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Мова, IDE, modeling і workflow | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Локальна діагностика Windows | Windows desktop utility |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded bring-up та manufacturing lifecycle | Host-tested; target qualification окремо |
-| [Kloz](https://github.com/bboroski/Kloz) | Bare-metal C11 substrate і platform ABI | Host-tested core |
-| [CO](https://github.com/bboroski/CO) | Життєвий цикл компонентів | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-нагляд і CRC | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Каталог і control plane | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Specification only |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Specification only |
-| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Архітектурний напрям Elbrus/E2K | Proposal; target evidence pending |
-| [Luci](https://github.com/bboroski/Luci) | Документаційний каркас дизайн-системи й інтеграційних меж | Scope pending |
-
-## NUN Mesh
-
-<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — seven connected engineering repositories coordinated through versioned contracts" width="100%"></p>
-
-**NUN Mesh** — це сім контрактно пов'язаних інженерних репозиторіїв: Kloz, CO, SaintSI, ReaperCripple, SAMBU, ToolNG і Klipot. Чотири додаткові напрями каталогу — NUN, NUNLauncher, Fragile-Baby та Luci — зберігають окремі межі зрілості: специфікації, архітектурні пропозиції або документаційний каркас. Вони не видаються за перевірені runtime чи апаратну підтримку.
-
-Кожен компонент зберігає власне володіння кодом і життєвим циклом. Інтеграції здійснюються через версіоновані контракти, адаптери й перевірювані докази.
-
-## Локальний запуск
-
-Відкрийте <code>index.html</code> або запустіть локальний сервер:
-
-~~~bash
+## Швидкий старт і перевірка
+```bash
 python -m http.server 8080
-~~~
-
-Перейдіть на <code>http://localhost:8080</code>. Зовнішній framework чи пакет JavaScript не потрібен.
-
-## Публікація та перевірки
-
-Workflow: <code>.github/workflows/pages.yml</code>. Для GitHub Pages виберіть **Settings → Pages → GitHub Actions**.
-
-~~~bash
-python one.py
+# open http://localhost:8080
 python one.py check
-~~~
+```
 
-Перевірка охоплює портал, маніфести, схеми та JavaScript; вона не є підтвердженням коректності кожного зовнішнього репозиторію.
+## Архітектура, межі та достовірність
+Browser-labs використовують локальну модель і synthetic data; вони не запускають native C, не читають hardware telemetry і не керують пристроями. Каталог не перетворює незалежні репозиторії на моноліт.
 
-## Системне управління
+## Інженерна якість
+- Перевіряйте збірку й тести саме для цільової платформи; host CI не замінює hardware qualification.
+- Статуси **implemented**, **partial**, **planned** мають підтверджуватися кодом, тестами та документацією.
+- Не оголошуйте функцію production-ready лише на підставі макета, специфікації чи відкритого Pull Request.
+- Зовнішні інтеграції мають бути явними, версіонованими, ізольованими й перевірюваними.
 
-1. **Володіння доменом:** кожен модуль відповідає за власний код, API, тести та реліз.
-2. **Явні зв'язки:** інтеграції проходять через версіоновані контракти.
-3. **Докази перед статусом:** passed, observed, not found, unknown і failed не змішуються.
-4. **Обмежене виконання:** capacity, ownership, timeout і cleanup описуються явно.
-5. **Чесна зрілість:** host-тест не підміняє emulator або hardware qualification.
+## NUN Mesh та пов'язані репозиторії
+[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci)
 
-Документація: [Integration Protocol](docs/INTEGRATION_PROTOCOL.md) · [Ecosystem Registry](registry/ecosystem.json) · [Portal UI](docs/PORTAL_UI.md).
+Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
+
+## Дизайн і документація
+Базовий інтерфейсний напрям екосистеми — **Duck Black / Yellow**: чорні поверхні, жовтий акцент для дій і станів, читабельна типографіка, доступний контраст, клавіатурна навігація та підтримка reduced motion. Деталі дивіться в [design/DUCK_UI_SYSTEM.md](design/DUCK_UI_SYSTEM.md), якщо файл присутній у цьому репозиторії.
 
 ## Ліцензія
-
-Файл <code>LICENSE</code> відсутній; ліцензію не оголошено. Визначте умови використання до публічного розповсюдження.
+Ліцензію не оголошено; файл LICENSE відсутній.
 
 ---
-
-**Створено з любов'ю до системності, інженерії та людей.**
+**Створено з любов'ю до інженерії, системності та людей.**
