@@ -37,7 +37,12 @@ def main() -> None:
             readme_path = base / readme_name
             body = readme_path.read_text(encoding="utf-8")
             assert "NUN Mesh" in body, f"{repo}/{readme_name}: missing mesh section"
-            refs = re.findall(r'<img[^>]+src="([^"]+nun-mesh[^"]*\.svg)"', body)
+            image_tags = re.findall(r"<img\\b[^>]*>", body, flags=re.IGNORECASE)
+            refs = []
+            for tag in image_tags:
+                src = re.search(r"\\bsrc\\s*=\\s*['\"]([^'\"]+)['\"]", tag, flags=re.IGNORECASE)
+                if src and re.search(r"nun-mesh[^/]*\\.svg$", src.group(1), flags=re.IGNORECASE):
+                    refs.append(src.group(1))
             assert refs, f"{repo}/{readme_name}: missing local mesh diagram"
             for ref in refs:
                 assert (base / ref).is_file(), f"{repo}/{readme_name}: missing {ref}"
