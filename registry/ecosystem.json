@@ -274,6 +274,23 @@
       "physical_theory_status": "unverified-hypothesis",
       "metadata_only": true,
       "proves_geometric_mass_generation": false
+    },
+    "runtime_event_envelope_v1": {
+      "version": "1.0.0",
+      "canonical_schema": "https://github.com/bboroski/SAMBU/blob/feat/substrate-runtime-contract-v1/schemas/runtime-event-v1.schema.json",
+      "specification": "https://github.com/bboroski/SAMBU/blob/feat/substrate-runtime-contract-v1/docs/INTERSUBSTRATE_RUNTIME_API_V1.md",
+      "implementation": "SAMBU host reference only",
+      "delivery": "bounded in-process FIFO",
+      "max_envelope_bytes": 262144,
+      "distributed_transport_implemented": false
+    },
+    "resource_descriptor_v1": {
+      "version": "1.0.0",
+      "canonical_schema": "https://github.com/bboroski/SAMBU/blob/feat/substrate-runtime-contract-v1/schemas/resource-descriptor-v1.schema.json",
+      "specification": "https://github.com/bboroski/SAMBU/blob/feat/substrate-runtime-contract-v1/docs/INTERSUBSTRATE_RUNTIME_API_V1.md",
+      "metadata_only": true,
+      "contains_raw_pointers": false,
+      "grants_authority": false
     }
   }
 }
