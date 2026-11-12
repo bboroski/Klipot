@@ -18,6 +18,7 @@ EXPECTED = {
     "SAMBU": "sambu",
     "ToolNG": "toolng",
 }
+REGISTRY_ONLY = set(EXPECTED.values()) | {"nun", "nunlauncher", "fragile-baby", "luci"}
 
 
 def readme_paths(repo: str) -> tuple[str, ...]:
