@@ -1,8 +1,8 @@
 # Production Release Standard
 
-**Repository:** bboroski/Klipot  
-**Default branch:** `main`  
-**Project profile:** Python package with static web UI  
+**Repository:** bboroski/Klipot
+**Default branch:** `main`
+**Project profile:** Python package with static web UI
 **Existing workflow inventory:** 5 workflow file(s) were visible at the time this baseline was prepared.
 
 ## Purpose and scope
