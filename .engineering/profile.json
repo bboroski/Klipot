@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "standard_id": "PERSONA-ENG-STD",
+  "repository": "bboroski/Klipot",
+  "project": {
+    "domain": "Ecosystem integration portal and control plane",
+    "mission": "Catalog independent repositories and expose versioned integration contracts, links, metadata, and browser-side demonstrations.",
+    "maturity": "static-html-javascript-portal"
+  },
+  "architecture": {
+    "preserve_existing_boundaries": true,
+    "primary_technologies": [
+      "HTML",
+      "JavaScript",
+      "machine-readable registry",
+      "versioned integration protocol",
+      "static browser labs"
+    ],
+    "explicit_non_goals": [
+      "Do not convert independent repositories into one monolithic runtime",
+      "Browser labs use synthetic/local models and do not execute native C",
+      "Registry/catalog membership does not grant execution or hardware access"
+    ]
+  },
+  "safety_boundaries": [
+    "Treat registry and remote repository metadata as untrusted input and validate schemas.",
+    "Browser labs remain demonstrations unless a separately reviewed runtime integration is implemented.",
+    "Do not imply that listing a repository proves its build, security, or runtime compatibility.",
+    "External links and integration contracts must remain explicit and versioned."
+  ],
+  "native_validation": {
+    "status": "defined",
+    "commands": [
+      "python one.py check",
+      "python -m json.tool registry/ecosystem.json"
+    ],
+    "evidence_note": "Existing mesh-contract checks remain responsible for cross-repository contract validation."
+  },
+  "required_gates": [
+    "profile-validation",
+    "native-project-checks",
+    "architecture-and-compatibility-review",
+    "security-and-privacy-review",
+    "documentation-review",
+    "human-review",
+    "target-qualification-when-applicable"
+  ],
+  "merge_policy": {
+    "pull_request_required": true,
+    "direct_main_push_policy": "enforce-with-branch-rules",
+    "bypass_required_checks": false,
+    "release_requires_separate_qualification": true
+  },
+  "status_vocabulary": [
+    "PROPOSED",
+    "PLANNED",
+    "IMPLEMENTED",
+    "TESTED",
+    "VERIFIED",
+    "MERGED",
+    "RELEASED",
+    "BLOCKED"
+  ]
+}
