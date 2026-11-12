@@ -1,0 +1,3 @@
+// swift-tools-version: 6.0
+import PackageDescription
+let package = Package(name:"KlipotBackend",platforms:[.macOS(.v13)],products:[.library(name:"KlipotBackendCore",targets:["KlipotBackendCore"]),.executable(name:"klipot-server",targets:["KlipotBackendServer"])],dependencies:[.package(url:"https://github.com/vapor/vapor.git",from:"4.110.0")],targets:[.target(name:"KlipotBackendCore",dependencies:[.product(name:"Vapor",package:"vapor")]),.executableTarget(name:"KlipotBackendServer",dependencies:["KlipotBackendCore",.product(name:"Vapor",package:"vapor")]),.testTarget(name:"KlipotBackendCoreTests",dependencies:["KlipotBackendCore"])],swiftLanguageModes:[.v6])
