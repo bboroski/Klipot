@@ -1,98 +1,73 @@
-<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Duck mark" width="104" /></p>
+<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Klipot mark" width="92"></p>
 <h1 align="center">Klipot</h1>
 <p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
-<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/LICENSE-TEXT%20MISSING-FFD600?style=for-the-badge&labelColor=111111" /></p>
+<p align="center"><strong>Статический портал · HTML + JavaScript</strong></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
-<hr />
+<sub>Обновлено: 2026-11-11</sub>
 
-**Единая карта инженерной экосистемы: модули, контракты, документация и операторский портал — без принудительного слияния независимых runtime в монолит.**
 
-## Позиционирование
+## Навигация
 
-Klipot помогает командам видеть связи между компонентами, понимать зоны ответственности и находить описанные интеграционные контракты. Это каталог и control plane для прозрачной координации, а не скрытый монолит.
+- [Текущие возможности](#текущие-возможности)
+- [Быстрый старт и проверка](#быстрый-старт-и-проверка)
+- [Архитектура и подтверждённые границы](#архитектура-и-подтверждённые-границы)
+- [Превью портала](#превью-портала)
+- [Инженерное качество](#инженерное-качество)
+- [Карта документации](#карта-документации)
+- [NUN Mesh и связанные репозитории](#nun-mesh-и-связанные-репозитории)
+- [Дизайн и документация](#дизайн-и-документация)
+- [Лицензия](#лицензия)
 
-## Возможности портала
+> **Klipot** — Klipot — центральный каталог и control plane инженерной экосистемы: репозитории, роли, контракты, ссылки и проверяемые границы интеграции.
 
-- Каталог модулей с фильтрами по доменам и поиском.
-- Ссылки на исходный код, документацию GUI и инструкции запуска.
-- Копирование clone-команд.
+## Текущие возможности
+- Каталог репозиториев с поиском и фильтрами.
 - Machine-readable registry и versioned integration protocol.
-- Browser-labs для демонстрации allocation, lifecycle, heartbeat и capability-gate.
-- CI-проверки метаданных, контрактов, схем и синтаксиса статического портала.
+- Browser labs для локальной демонстрации allocation, lifecycle и capability gates.
+- CI-проверки метаданных, схем, контрактов и JavaScript; cross-repository roadmap.
 
-**Важно:** browser-labs — симуляции. Они не исполняют C-код, не читают телеметрию реального оборудования, не управляют производственными fixtures и не подтверждают физическое состояние устройства.
-
-## Девять зарегистрированных модулей
-
-| Репозиторий | Роль | Текущая зрелость |
-|---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Язык, IDE, моделирование и workflow | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Диагностика Windows и локальные доказательства | Windows desktop utility |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калибровка и производство | Host-tested; target validation required |
-| [Kloz](https://github.com/bboroski/Kloz) | Переносной C11 substrate и platform ABI | Host-tested core |
-| [CO](https://github.com/bboroski/CO) | Детерминированный жизненный цикл компонентов | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-мониторинг и CRC | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракты и портал | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Спецификация минимального ядра ОС | Documentation scaffold |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Спецификация bootstrap и handoff | Documentation scaffold |
-
-NUN и NUNLauncher пока не являются загружаемой ОС или загрузчиком: соответствующих реализаций в этих репозиториях нет.
-
-## Инкубационные репозитории (не активные модули)
-
-| Репозиторий | Текущее состояние |
-|---|---|
-| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Заготовка; продуктовая роль ещё не определена |
-| [Luci](https://github.com/bboroski/Luci) | Минимальный scaffold; назначение и runtime ещё не определены |
-
-Оба репозитория присутствуют в инвентаре, но не публикуют capabilities и не включаются в интеграционные планы до прохождения promotion gate.
-
-## Локальный запуск
-
-Откройте <code>index.html</code> в современном браузере или запустите локальный сервер:
-
-~~~bash
+## Быстрый старт и проверка
+```bash
 python -m http.server 8080
-~~~
-
-Затем откройте <code>http://localhost:8080</code>. Внешний JavaScript framework или пакет не требуется.
-
-## Публикация и проверки
-
-Портал использует workflow GitHub Pages в <code>.github/workflows/pages.yml</code>. В настройках репозитория необходимо выбрать **Settings → Pages → GitHub Actions**.
-
-~~~bash
-python one.py
+# открыть http://localhost:8080
 python one.py check
-~~~
+```
 
-Команда проверки валидирует портал, manifests, схемы и JavaScript без открытия браузера.
+## Архитектура и подтверждённые границы
+Browser labs используют локальные модели и synthetic data. Они не запускают native C, не читают аппаратную телеметрию и не управляют устройствами. Каталог не объединяет независимые репозитории в монолит.
 
-## Управление экосистемой
+## Превью портала
 
-1. **Владение доменом:** каждый модуль отвечает за свой код, API, тесты и релиз.
-2. **Явные связи:** интеграции используют версионируемые интерфейсы, а не скрытые глобальные переменные.
-3. **Доказательства важнее статуса:** observed, not found, unknown, failed и passed различаются.
-4. **Ограниченное выполнение:** capacity, ownership, timeout и cleanup документируются явно.
-5. **Честная зрелость:** adapter-ready контракт не называется завершённой production-интеграцией.
+Статическое векторное превью концепции Klipot в стиле Duck Black / Yellow. Это дизайн-макет, а не скриншот работающего портала.
 
-## Критерии готовности
+<p align="center"><img src="assets/portal-ui-preview.svg" alt="Klipot: векторное превью портала с каталогом репозиториев и навигацией" width="960"></p>
+<p align="center"><em>Портал, каталог репозиториев и быстрые переходы к лабораториям</em></p>
 
-Host-тест доказывает только переносимые программные инварианты. Проверка целевого компилятора, linker map, board revision, fixtures, происхождения измерений и hardware-in-the-loop — отдельные evidence gates.
+## Инженерное качество
+- Запускайте проверки для целевой платформы; host CI не заменяет аппаратную квалификацию.
+- Статусы implemented, partial и planned должны подтверждаться кодом, тестами и доказательствами.
+- Макет, спецификация или открытый Pull Request не доказывают production-ready реализацию.
+- Внешние интеграции должны быть явными, версионированными, изолированными и тестируемыми.
 
-Документация:
-- [Общий протокол интеграции](docs/INTEGRATION_PROTOCOL.md)
-- [Реестр модулей](registry/ecosystem.json)
-- [Руководство по UI портала](docs/PORTAL_UI.md)
+## Карта документации
 
-## Техническая идентичность
+- [Архитектура портала](docs/ARCHITECTURE.md)
+- [Контракты экосистемы](docs/CONTRACTS.md)
+- [Протокол интеграции](docs/INTEGRATION_PROTOCOL.md)
+- [Интерфейс портала](docs/PORTAL_UI.md)
 
-**Klipot** — каноническое имя портала и control plane. GitHub-путь и публичный Pages URL являются стабильными адресами проекта.
+## NUN Mesh и связанные репозитории
+[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher)
 
-## Экосистема
+Каждый репозиторий сохраняет каноническое имя, собственный код, API, цикл выпуска и границы ответственности. Интеграция означает версионированные контракты, а не автоматическое слияние независимых runtime.
 
-[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci).
+## Дизайн и документация
+Общее направление интерфейсов — **Duck Black / Yellow**: тёмные поверхности, жёлтые акценты для действий и состояний, читаемая типографика, доступный контраст, клавиатурная навигация и поддержка reduced motion. Подробности — в [design/DUCK_UI_SYSTEM.md](design/DUCK_UI_SYSTEM.md), если файл присутствует.
+
+Базовые цветовые токены: чёрный #111111 и жёлтый #FFD600; сохраняйте их контраст и единый смысл во всём портале.
 
 ## Лицензия
+Лицензия не объявлена; файл LICENSE отсутствует.
 
-В прежней документации проекта была указана MIT, но отдельного файла LICENSE в репозитории нет. Подтвердите лицензию и добавьте её полный текст до распространения.
+---
+**Создано с любовью к инженерии, системности и людям.**

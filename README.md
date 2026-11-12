@@ -1,104 +1,86 @@
-<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Duck mark" width="104" /></p>
+<p align="center"><img src="assets/duck-ui/duck-mark.svg" alt="Klipot mark" width="92"></p>
 <h1 align="center">Klipot</h1>
 <p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
-<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/CORE-HTML%20%2B%20JS-FFD600?style=for-the-badge&labelColor=111111" /><img src="https://img.shields.io/badge/LICENSE-TEXT%20MISSING-FFD600?style=for-the-badge&labelColor=111111" /></p>
+<p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL%20%C2%B7%20HTML%20%2B%20JAVASCRIPT-FFD600?style=for-the-badge&labelColor=111111" alt="Static portal · HTML + JavaScript"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
-<hr />
+<sub>Оновлено: 2026-11-11</sub>
 
-**Єдина карта інженерної екосистеми: модулі, контракти, документація та операторський портал — без штучного злиття незалежних runtime.**
 
-## Продуктова роль
 
-Klipot допомагає командам бачити, як пов'язані компоненти, хто володіє кожною зоною відповідальності та які інтеграційні контракти вже описані. Це каталог і control plane для прозорої координації, а не прихований моноліт.
+## NEON SYNDICATE — portal visual overview
 
-## Що надає портал
+<p align="center"><img src="assets/neon-syndicate/overview.svg" alt="Klipot NEON SYNDICATE high-resolution vector portal preview" width="1200"></p>
+<p align="center"><em>Static vector design preview, not a browser screenshot. The live portal is implemented in index.html.</em></p>
 
-- Каталог модулів із фільтрами за доменом і пошуком.
-- Посилання на вихідний код, GUI-документацію та інструкції запуску.
-- Копіювання clone-команд.
+[Brand and interface specification](design/NEON_SYNDICATE.md) · [Design tokens](design/neon-syndicate.tokens.json)
+
+## Навігація
+
+- [Поточні можливості](#поточні-можливості)
+- [Швидкий старт і перевірка](#швидкий-старт-і-перевірка)
+- [Архітектура, межі та достовірність](#архітектура-межі-та-достовірність)
+- [Прев'ю порталу](#превю-порталу)
+- [Інженерна якість](#інженерна-якість)
+- [Карта документації](#карта-документації)
+- [NUN Mesh та пов'язані репозиторії](#nun-mesh-та-повязані-репозиторії)
+- [Дизайн і документація](#дизайн-і-документація)
+- [Ліцензія](#ліцензія)
+
+> **Klipot** — Klipot — центральний каталог і контрольна площина інженерної екосистеми: модулі, ролі, контракти, посилання та перевірювані інтеграційні межі.
+
+## Поточні можливості
+- Каталог репозиторіїв із пошуком і фільтрами.
 - Machine-readable registry та versioned integration protocol.
-- Browser-labs для демонстрації allocation, lifecycle, heartbeat і capability-gate концепцій.
-- CI-перевірку метаданих, контрактів, схем і синтаксису статичного порталу.
+- Browser-labs для локальної демонстрації allocation, lifecycle і capability-gate моделей.
+- CI-перевірки метаданих, схем, контрактів і JavaScript.
+- Оновлений cross-repository roadmap та quality contracts.
 
-**Важливо:** browser-labs є симуляціями. Вони не виконують C-код, не читають телеметрію реального обладнання, не керують виробничими fixtures і не доводять фізичний стан пристрою.
-
-## Дев'ять зареєстрованих модулів
-
-| Репозиторій | Роль | Поточна зрілість |
-|---|---|---|
-| [SAMBU](https://github.com/bboroski/SAMBU) | Мова, IDE, modeling і workflow | Experimental alpha |
-| [ToolNG](https://github.com/bboroski/ToolNG) | Windows-діагностика та локальні докази | Windows desktop utility |
-| [ReaperCripple](https://github.com/bboroski/ReaperCripple) | Embedded BSP, калібрування й виробництво | Host-tested; target validation required |
-| [Kloz](https://github.com/bboroski/Kloz) | Переносний C11 substrate та platform ABI | Host-tested core |
-| [CO](https://github.com/bboroski/CO) | Детермінований життєвий цикл компонентів | Host-tested core |
-| [SaintSI](https://github.com/bboroski/SaintSI) | Heartbeat-нагляд і CRC | Host-tested core |
-| [Klipot](https://github.com/bboroski/Klipot) | Каталог, контракти та портал | Static portal |
-| [NUN](https://github.com/bboroski/NUN) | Специфікація мінімального ядра ОС | Documentation scaffold |
-| [NUNLauncher](https://github.com/bboroski/NUNLauncher) | Специфікація bootstrap і handoff | Documentation scaffold |
-
-NUN і NUNLauncher наразі не є завантажуваною ОС або завантажувачем: у цих репозиторіях ще немає відповідних реалізацій.
-
-## Інкубаційні репозиторії (поки не активні модулі)
-
-| Репозиторій | Поточний стан |
-|---|---|
-| [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) | Placeholder; продуктова роль ще не визначена |
-| [Luci](https://github.com/bboroski/Luci) | Мінімальний scaffold; призначення та runtime ще не визначені |
-
-Ці два репозиторії присутні в інвентарі, але не публікують capabilities і не допускаються до інтеграційного плану до проходження promotion gate.
-
-## Локальний запуск
-
-Відкрийте <code>index.html</code> у сучасному браузері або запустіть локальний сервер:
-
-~~~bash
+## Швидкий старт і перевірка
+```bash
 python -m http.server 8080
-~~~
-
-Потім відкрийте <code>http://localhost:8080</code>. Зовнішній framework чи пакет JavaScript не потрібен.
-
-## Публікація та перевірки
-
-Портал використовує GitHub Pages workflow у <code>.github/workflows/pages.yml</code>. У налаштуваннях репозиторію має бути вибрано **Settings → Pages → GitHub Actions**.
-
-~~~bash
-python one.py
+# open http://localhost:8080
 python one.py check
-~~~
+```
 
-Перевірка не відкриває браузер: вона перевіряє портал, маніфести, схеми та JavaScript.
+## Архітектура, межі та достовірність
+Browser-labs використовують локальну модель і synthetic data; вони не запускають native C, не читають hardware telemetry і не керують пристроями. Каталог не перетворює незалежні репозиторії на моноліт.
 
-## Управління екосистемою
+## Прев'ю порталу
 
-1. **Володіння доменом:** кожен модуль володіє своїм кодом, API, тестами та релізом.
-2. **Явний зв'язок:** інтеграції проходять через версійовані інтерфейси, а не приховані глобальні змінні.
-3. **Докази перед статусом:** відрізняються observed, not found, unknown, failed і passed.
-4. **Обмежене виконання:** capacity, ownership, timeout і cleanup документуються явно.
-5. **Чесна зрілість:** adapter-ready контракт не називається завершеною production-інтеграцією.
+Статичне векторне прев'ю концепції Klipot у стилі NEON SYNDICATE. Це дизайн-макет, а не скриншот запущеного порталу.
 
-## Критерії готовності
+<p align="center"><img src="assets/neon-syndicate/overview.svg" alt="Klipot: векторне прев'ю порталу з каталогом репозиторіїв і навігацією" width="960"></p>
+<p align="center"><em>Портал, каталог репозиторіїв і швидкі переходи до лабораторій</em></p>
 
-Host-тест доводить лише переносні програмні інваріанти. Перевірка цільового компілятора, linker map, board revision, fixtures, походження вимірювань і hardware-in-the-loop — окремі evidence gates.
+## Інженерна якість
+- Перевіряйте збірку й тести саме для цільової платформи; host CI не замінює hardware qualification.
+- Статуси **implemented**, **partial**, **planned** мають підтверджуватися кодом, тестами та документацією.
+- Не оголошуйте функцію production-ready лише на підставі макета, специфікації чи відкритого Pull Request.
+- Зовнішні інтеграції мають бути явними, версіонованими, ізольованими й перевірюваними.
 
-Документація:
-- [Спільний протокол інтеграції](docs/INTEGRATION_PROTOCOL.md)
-- [Реєстр модулів](registry/ecosystem.json)
-- [Посібник з UI порталу](docs/PORTAL_UI.md)
+## Карта документації
 
-## Технічна ідентичність
+- [Архітектура порталу](docs/ARCHITECTURE.md)
+- [Контракти екосистеми](docs/CONTRACTS.md)
+- [Інтеграційний протокол](docs/INTEGRATION_PROTOCOL.md)
+- [Інтерфейс порталу](docs/PORTAL_UI.md)
 
-**Klipot** — канонічна назва порталу й control plane. GitHub-шлях і публічний Pages URL є стабільними адресами проєкту.
+## NUN Mesh та пов'язані репозиторії
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — локальна діаграма контрактів між независимыми репозиториями" width="960"></p>
 
-## Екосистема
+[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher)
 
-[ SAMBU ](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher) · [Fragile-Baby](https://github.com/bboroski/Fragile-Baby) · [Luci](https://github.com/bboroski/Luci).
+Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
+
+## Дизайн і документація
+Базовий інтерфейсний напрям екосистеми — **NEON SYNDICATE**: чорні поверхні, жовтий акцент для дій і станів, читабельна типографіка, доступний контраст, клавіатурна навігація та підтримка reduced motion. Деталі дивіться в [design/NEON_SYNDICATE.md](design/NEON_SYNDICATE.md), якщо файл присутній у цьому репозиторії.
 
 ## Ліцензія
+Ліцензію не оголошено; файл LICENSE відсутній.
 
-Проєктна документація раніше заявляла MIT, але окремого файлу LICENSE у репозиторії немає. Підтвердіть ліцензію та додайте її повний текст перед розповсюдженням.
+---
+**Створено з любов'ю до інженерії, системності та людей.**
 
+## Федерація Hellduck
 
-## Reaper-inspired engineering integration
-
-- [Project-specific architecture mapping](docs/REAPER_DOMAIN_INTEGRATION.md)
-- [Canonical 50-pattern catalogue in SAMBU](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
+Цей репозиторій входить до федерації [Hellduck](https://github.com/bboroski/Hellduck) — спільного каталогу проєктів, контрактних зв’язків і станів інтеграції. Вихідний код, API, тести та цикл випуску залишаються відповідальністю цього репозиторію; Hellduck індексує зв’язки й не завантажує та не виконує код учасників. Практичні сценарії взаємодії, типи адаптерів і межі сумісності: [Integration Playbook](https://github.com/bboroski/Hellduck/blob/main/docs/INTEGRATION_PLAYBOOK.md).

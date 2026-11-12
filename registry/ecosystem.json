@@ -190,24 +190,38 @@
     {
       "id": "fragile-baby",
       "repository": "bboroski/Fragile-Baby",
-      "role": "incubation-placeholder",
-      "maturity": "incubating-unscoped",
-      "provides": [],
-      "consumes": [],
-      "integration_eligible": false,
-      "promotion_gate": "docs/ENGINEERING_PROMOTION_GATE.md",
-      "url": "https://github.com/bboroski/Fragile-Baby"
+      "role": "elbrus-platform-support-workstream",
+      "maturity": "architecture-proposal-toolchain-and-target-evidence-required",
+      "provides": [
+        "elbrus-support-roadmap",
+        "architecture-validation-matrix"
+      ],
+      "consumes": [
+        "exact-elbrus-cpu-specification",
+        "vendor-toolchain",
+        "emulator-or-hardware-evidence"
+      ],
+      "url": "https://github.com/bboroski/Fragile-Baby",
+      "ecosystem": "SAMBU",
+      "module_id": "fragile-baby-elbrus-support"
     },
     {
       "id": "luci",
       "repository": "bboroski/Luci",
-      "role": "incubation-placeholder",
-      "maturity": "incubating-unscoped",
-      "provides": [],
-      "consumes": [],
-      "integration_eligible": false,
-      "promotion_gate": "docs/ENGINEERING_PROMOTION_GATE.md",
-      "url": "https://github.com/bboroski/Luci"
+      "role": "programming-workspace-design-scaffold",
+      "maturity": "documentation-only-runtime-and-threat-model-not-yet-defined",
+      "provides": [
+        "workspace-boundary-design",
+        "developer-tooling-integration-notes"
+      ],
+      "consumes": [
+        "runtime-definition",
+        "supported-platform-matrix",
+        "threat-model"
+      ],
+      "url": "https://github.com/bboroski/Luci",
+      "ecosystem": "SAMBU",
+      "module_id": "luci-developer-workspace"
     }
   ],
   "canonical_registry": "https://github.com/bboroski/SAMBU/blob/main/ecosystem/registry.json",
@@ -248,6 +262,30 @@
       "reference_only": true,
       "clinical_decision_support": false,
       "hardware_control": false
+    },
+    "closed_domain_metric_v1": {
+      "version": 1,
+      "code": "CDM-1",
+      "canonical_specification": "https://github.com/bboroski/SAMBU/blob/main/docs/CLOSED_DOMAIN_METRIC.md",
+      "canonical_schema": "https://github.com/bboroski/SAMBU/blob/main/data/physics/closed_domain_metric.schema.json",
+      "example": "https://github.com/bboroski/SAMBU/blob/main/data/physics/closed_domain_metric.example.json",
+      "validator": "https://github.com/bboroski/SAMBU/blob/main/tools/validate_closed_domain.py",
+      "integrations": {
+        "ToolNG": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "ReaperCripple": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Kloz": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "CO": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "SaintSI": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Klipot": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "NUN": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "NUNLauncher": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Fragile-Baby": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md",
+        "Luci": "docs/CLOSED_DOMAIN_METRIC_INTEGRATION.md"
+      },
+      "maturity": "experimental-data-contract",
+      "physical_theory_status": "unverified-hypothesis",
+      "metadata_only": true,
+      "proves_geometric_mass_generation": false
     }
   }
 }

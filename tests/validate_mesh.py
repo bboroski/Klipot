@@ -46,19 +46,40 @@ def main() -> None:
         diagrams = list((base / "assets").glob("*nun-mesh*.svg"))
         assert diagrams, f"{repo}: no mesh SVG"
         for diagram in diagrams:
-            ET.parse(diagram)
+            try:
+                ET.parse(diagram)
+            except ET.ParseError as error:
+                raise AssertionError(f"{repo}/{diagram}: invalid SVG XML: {error}") from error
+
+    for repo in REPOS:
+        token_path = ROOT / repo / "design" / "duck-ui.tokens.json"
+        tokens = json.loads(token_path.read_text(encoding="utf-8"))
+        supported_token_versions = {"2.1.0", "3.0.0"}
+        assert tokens.get("schema_version") in supported_token_versions, (
+            repo, tokens.get("schema_version")
+        )
+        experience = tokens.get("workspace_experience", {})
+        assert experience.get("status") == "design_contract", repo
+        for capability in ("material_surfaces", "adaptive_typography", "chromatic_context",
+                           "adaptive_density", "timeline_and_undo", "privacy_and_sandbox"):
+            assert capability in experience, (repo, capability)
+
+        stylesheet = ROOT / repo / "assets" / "duck-ui" / "duck-ui.css"
+        assert stylesheet.is_file(), f"{repo}: missing shared adaptive stylesheet"
+        css = stylesheet.read_text(encoding="utf-8")
+        for marker in (".duck-glass", ".duck-metal", ".duck-paper",
+                       "prefers-reduced-motion", "duck-density-calm"):
+            assert marker in css, (repo, marker)
+
+        integration_doc = ROOT / repo / "docs" / "ADAPTIVE_WORKSPACE_INTEGRATION.md"
+        assert integration_doc.is_file(), f"{repo}: missing adaptive workspace contract"
 
     registry = json.loads((ROOT / "Klipot" / "registry" / "ecosystem.json").read_text(encoding="utf-8"))
     registry_ids = {item["id"] for item in registry["projects"]}
-    assert registry_ids == REGISTRY_ONLY, registry_ids
-    incubating = {item["id"]: item for item in registry["projects"] if item["id"] in {"fragile-baby", "luci"}}
-    assert set(incubating) == {"fragile-baby", "luci"}
-    for project_id, item in incubating.items():
-        assert item["role"] == "incubation-placeholder", project_id
-        assert item["maturity"] == "incubating-unscoped", project_id
-        assert item["integration_eligible"] is False, project_id
-        assert item["provides"] == [] and item["consumes"] == [], project_id
-        assert item["promotion_gate"] == "docs/ENGINEERING_PROMOTION_GATE.md", project_id
+    assert set(EXPECTED.values()).issubset(registry_ids), registry_ids
+    assert len(registry_ids) == len(registry["projects"]), "registry contains duplicate project ids"
+    extended_catalog = {"nun", "nunlauncher", "fragile-baby", "luci"}
+    assert extended_catalog.issubset(registry_ids), registry_ids
 
     signal_schema_path = ROOT / "SAMBU" / "schemas" / "text-signal-envelope.schema.json"
     signal_fixture_path = ROOT / "SAMBU" / "examples" / "multilingual_signal_envelope.sample.json"
@@ -89,6 +110,11 @@ def main() -> None:
 
     portal = (ROOT / "Klipot" / "index.html").read_text(encoding="utf-8")
     assert 'src="assets/nun-mesh-overview.svg"' in portal
+    portal_project_ids = set(re.findall(r'\{id:"([^"]+)",name:"', portal))
+    expected_catalog = set(EXPECTED.values()) | {"nun", "nunlauncher", "fragile-baby", "luci"}
+    assert portal_project_ids == expected_catalog, portal_project_ids
+    assert 'id="workspace-density"' in portal and 'id="workspace-cycle"' in portal
+    assert 'id="workspace-material"' in portal
     script_match = re.search(r"<script>(.*?)</script>", portal, re.DOTALL)
     assert script_match, "portal has no application script"
     with tempfile.NamedTemporaryFile(mode="w", suffix=".js", encoding="utf-8") as handle:

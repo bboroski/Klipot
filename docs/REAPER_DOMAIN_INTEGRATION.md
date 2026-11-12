@@ -1,27 +1,27 @@
-# Reaper-Domain Integration — Klipot
+# Engineering Pattern Integration — Klipot
 
-**Role:** ecosystem catalogue, contract graph, and operator portal  
-**Canonical catalogue:** [SAMBU — 50 curated engineering patterns](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
+**Role:** ecosystem catalogue, contract graph and operator portal  
+**Reference catalogue:** [SAMBU — 50 engineering patterns](https://github.com/bboroski/SAMBU/blob/main/data/reaper/engineering_patterns_50.tsv)
 
-## Catalogue semantics
+## Catalogue taxonomy
 
-Klipot may expose the five Reaper-inspired subject areas as searchable documentation tags:
+Klipot may expose five searchable technical domains:
 
-1. biosynthetic transformation and cybernetics;
-2. mass-effect physics as fictional simulation vocabulary;
-3. infrastructure, protection, and fault containment;
-4. cycles, evolution, and dependency risk;
-5. synthetic intelligence and distributed consensus.
+1. data pipelines and controlled state transformation;
+2. physical modeling and parameter provenance;
+3. infrastructure resilience and fault containment;
+4. lifecycle governance and dependency risk;
+5. distributed intelligence and integrity verification.
 
-These tags are metadata only. They are not capability identifiers, permission grants, runtime plugins, or evidence that a component implements the named concept.
+These labels are metadata only. They are not capability identifiers, permission grants, runtime plugins or evidence that a component implements a named function.
 
 ## Contract and graph rules
 
-- Keep stable IDs, version constraints, provenance, licenses, and artifact digests separate from display terminology.
-- Use the existing deterministic DAG planner for dependency closure; reject cycles, unknown references, and ambiguous providers.
-- A catalogue record cannot grant filesystem, network, device, or execution permissions.
-- Browser labs remain simulations and must not imply access to firmware, fixtures, or real telemetry.
+- Keep stable IDs, version constraints, provenance, licenses and artifact digests separate from display terminology.
+- Use the existing deterministic DAG planner for dependency closure; reject cycles, unknown references and ambiguous providers.
+- A catalogue record cannot grant filesystem, network, device or execution permissions.
+- Browser labs remain simulations and must not imply access to firmware, fixtures or live telemetry.
 
 ## Acceptance
 
-The portal may provide filters, glossary search, and cross-links to project integration notes. Any future ingestion pipeline must validate the schema and source provenance before publishing a record. Keep project ownership, independent releases, and safety authority with each repository.
+The portal may provide filters, glossary search and cross-links to integration notes. Any ingestion pipeline must validate schema and source provenance before publishing. Project ownership, independent releases and safety authority remain with each repository.
