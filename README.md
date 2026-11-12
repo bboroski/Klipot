@@ -3,7 +3,7 @@
 <p align="center"><strong>Ecosystem Integration & Control Plane</strong></p>
 <p align="center"><img src="https://img.shields.io/badge/STATUS-STATIC%20PORTAL%20%C2%B7%20HTML%20%2B%20JAVASCRIPT-FFD600?style=for-the-badge&labelColor=111111" alt="Static portal · HTML + JavaScript"></p>
 <p align="center"><a href="README.md">🇺🇦 Українська</a> · <a href="README.en.md">🇬🇧 English</a> · <a href="README.ru.md">🇷🇺 Русский</a></p>
-<sub>Оновлено: 2026-11-12</sub>
+<sub>Оновлено: 2026-11-11</sub>
 
 
 
@@ -13,6 +13,20 @@
 <p align="center"><em>Static vector design preview, not a browser screenshot. The live portal is implemented in index.html.</em></p>
 
 [Brand and interface specification](design/NEON_SYNDICATE.md) · [Design tokens](design/neon-syndicate.tokens.json)
+
+## Навігація
+
+- [Поточні можливості](#поточні-можливості)
+- [Швидкий старт і перевірка](#швидкий-старт-і-перевірка)
+- [Архітектура, межі та достовірність](#архітектура-межі-та-достовірність)
+- [Прев'ю порталу](#превю-порталу)
+- [Інженерна якість](#інженерна-якість)
+- [Карта документації](#карта-документації)
+- [NUN Mesh та пов'язані репозиторії](#nun-mesh-та-повязані-репозиторії)
+- [Дизайн і документація](#дизайн-і-документація)
+- [Ліцензія](#ліцензія)
+
+> **Klipot** — Klipot — центральний каталог і контрольна площина інженерної екосистеми: модулі, ролі, контракти, посилання та перевірювані інтеграційні межі.
 
 ## Поточні можливості
 - Каталог репозиторіїв із пошуком і фільтрами.
@@ -51,24 +65,26 @@ Browser-labs використовують локальну модель і synth
 - [Інтеграційний протокол](docs/INTEGRATION_PROTOCOL.md)
 - [Інтерфейс порталу](docs/PORTAL_UI.md)
 
+## NUN Mesh та пов'язані репозиторії
+<p align="center"><img src="assets/nun-mesh-overview.svg" alt="NUN Mesh — локальна діаграма контрактів між независимыми репозиториями" width="960"></p>
+
+[SAMBU](https://github.com/bboroski/SAMBU) · [ToolNG](https://github.com/bboroski/ToolNG) · [ReaperCripple](https://github.com/bboroski/ReaperCripple) · [Kloz](https://github.com/bboroski/Kloz) · [CO](https://github.com/bboroski/CO) · [SaintSI](https://github.com/bboroski/SaintSI) · [Klipot](https://github.com/bboroski/Klipot) · [NUN](https://github.com/bboroski/NUN) · [NUNLauncher](https://github.com/bboroski/NUNLauncher)
+
+Репозиторії зберігають власні назви, код, API, цикли випуску та межі відповідальності. Інтеграція означає узгоджені контракти, а не автоматичне злиття незалежних runtime.
+
+## Дизайн і документація
+Базовий інтерфейсний напрям екосистеми — **NEON SYNDICATE**: чорні поверхні, жовтий акцент для дій і станів, читабельна типографіка, доступний контраст, клавіатурна навігація та підтримка reduced motion. Деталі дивіться в [design/NEON_SYNDICATE.md](design/NEON_SYNDICATE.md), якщо файл присутній у цьому репозиторії.
+
 ## Ліцензія
 Ліцензію не оголошено; файл LICENSE відсутній.
 
 ---
+**Створено з любов'ю до інженерії, системності та людей.**
 
-## Статус інтеграцій
+## Федерація Hellduck
 
-- Репозиторій зберігає власні API, збірку, тести та цикл випуску; міжпроєктна взаємодія відбувається через явні версіоновані контракти.
-- STaas (SaaS integration control plane) і MoonTreach (CI/test acceleration) розвиваються окремими Pull Requests. Їх не слід вважати можливостями `main` або production-ready до злиття та проходження обов'язкових перевірок.
-- Правила федерації та інтеграції: [Hellduck Integration Playbook](https://github.com/bboroski/Hellduck/blob/main/docs/INTEGRATION_PLAYBOOK.md).
+Цей репозиторій входить до федерації [Hellduck](https://github.com/bboroski/Hellduck) — спільного каталогу проєктів, контрактних зв’язків і станів інтеграції. Вихідний код, API, тести та цикл випуску залишаються відповідальністю цього репозиторію; Hellduck індексує зв’язки й не завантажує та не виконує код учасників. Практичні сценарії взаємодії, типи адаптерів і межі сумісності: [Integration Playbook](https://github.com/bboroski/Hellduck/blob/main/docs/INTEGRATION_PLAYBOOK.md).
 
-## Інженерний стандарт
-Індекс аудиту, тестових воріт, безпеки, супроводу та критеріїв інтеграції: [Engineering Improvement Index](docs/ENGINEERING_IMPROVEMENT_INDEX.md).
+## Engineering improvement index
 
-## Інтеграційні межі
-Зберігайте незалежні API, runtime та цикли випуску; інтегруйте через версіоновані контракти. [Hellduck Integration Playbook](https://github.com/bboroski/Hellduck/blob/main/docs/INTEGRATION_PLAYBOOK.md).
-
----
-**「在天愿作比翼鸟，在地愿为连理枝。」**
-
-*«У небі — птахами-нерозлучниками, на землі — гілками одного дерева».*
+[Repository-specific engineering roadmap and verification boundaries](docs/ENGINEERING_IMPROVEMENT_INDEX.md).
