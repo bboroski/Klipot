@@ -12,6 +12,8 @@ on:
       - "registry/**"
       - "index.html"
       - "web/**"
+      - ".satan/**"
+      - ".github/workflows/satan.yml"
       - ".github/workflows/mesh-contracts.yml"
   push:
     branches: [main]
@@ -20,11 +22,13 @@ on:
       - "tests/**"
       - "assets/**"
       - "ecosystem/**"
+      - "README*"
       - "docs/**"
       - "registry/**"
-      - "README*"
       - "index.html"
       - "web/**"
+      - ".satan/**"
+      - ".github/workflows/satan.yml"
       - ".github/workflows/mesh-contracts.yml"
   workflow_dispatch:
   schedule:
