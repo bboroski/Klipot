@@ -1,0 +1,52 @@
+{
+  "schema_version": "moontreach.repository.v1",
+  "repository": "bboroski/Klipot",
+  "always_run": [
+    "repo-check"
+  ],
+  "fallback_on_unmapped": true,
+  "full_suite_on_merge_group": true,
+  "max_changed_files": 250,
+  "commands": {
+    "repo-check": {
+      "argv": [
+        "python",
+        "one.py",
+        "check"
+      ],
+      "timeout_seconds": 1200
+    }
+  },
+  "rules": [
+    {
+      "id": "application-and-contracts",
+      "paths": [
+        "**/*.py",
+        "**/*.js",
+        "**/*.json",
+        "**/*.html",
+        "**/*.css",
+        "one.py",
+        "package.json"
+      ],
+      "checks": [
+        "repo-check"
+      ]
+    },
+    {
+      "id": "docs-and-workflows",
+      "paths": [
+        "docs/**",
+        "README*",
+        ".github/**",
+        "moontreach.json"
+      ],
+      "checks": [
+        "repo-check"
+      ]
+    }
+  ],
+  "fallback_checks": [
+    "repo-check"
+  ]
+}
