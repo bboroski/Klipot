@@ -84,3 +84,8 @@ Browser-labs використовують локальну модель і synth
 ## Федерація Hellduck
 
 Цей репозиторій входить до федерації [Hellduck](https://github.com/bboroski/Hellduck) — спільного каталогу проєктів, контрактних зв’язків і станів інтеграції. Вихідний код, API, тести та цикл випуску залишаються відповідальністю цього репозиторію; Hellduck індексує зв’язки й не завантажує та не виконує код учасників. Практичні сценарії взаємодії, типи адаптерів і межі сумісності: [Integration Playbook](https://github.com/bboroski/Hellduck/blob/main/docs/INTEGRATION_PLAYBOOK.md).
+
+
+## LOVE-50 — Chinese engineering doctrine
+
+The five groups of Chinese-language maxims are translated into testable engineering practices, with repository adoption boundaries and a machine-readable manifest: [LOVE-50 doctrine](docs/LOVE_50_CHINESE_DOCTRINE.md) · [policy manifest](ecosystem/love-50.json).
