@@ -152,7 +152,7 @@ def validate_accessibility_contract(repo: str, tokens: dict, css: str) -> None:
     }
     for variable, token_name in css_variables.items():
         match = re.search(
-            rf"(?m)^\\s*{re.escape(variable)}\\s*:\\s*(#[0-9A-Fa-f]{{6}})\\s*;",
+            rf"(?m)^\s*{re.escape(variable)}\s*:\s*(#[0-9A-Fa-f]{6})\s*;",
             css,
         )
         assert match, (repo, f"stylesheet is missing {variable}")
