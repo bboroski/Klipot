@@ -1,0 +1,197 @@
+{
+  "schema_version": 1,
+  "architecture": "NUN Mesh Multi-Axis Layer Fabric (MALF)",
+  "repository": "bboroski/Klipot",
+  "role": "Static web portal, ecosystem registry and integration control plane",
+  "maturity": "HTML/CSS/JavaScript portal and local browser simulations; not a device runtime or autonomous deployment control plane.",
+  "layers": [
+    {
+      "id": "L0",
+      "name": "Experience",
+      "responsibility": "User or operator surface."
+    },
+    {
+      "id": "L1",
+      "name": "Interface contracts",
+      "responsibility": "Versioned APIs, schemas, event formats and public data types."
+    },
+    {
+      "id": "L2",
+      "name": "Application orchestration",
+      "responsibility": "Use cases, sequencing and workflow composition."
+    },
+    {
+      "id": "L3",
+      "name": "Domain kernel",
+      "responsibility": "Deterministic domain models, algorithms and invariants."
+    },
+    {
+      "id": "L4",
+      "name": "Policy and capabilities",
+      "responsibility": "Authorization, guardrails, bounds and allowed operations."
+    },
+    {
+      "id": "L5",
+      "name": "Ports and contracts",
+      "responsibility": "Abstract clocks, storage, sources, external APIs and platform services."
+    },
+    {
+      "id": "L6",
+      "name": "Adapters and platform",
+      "responsibility": "Concrete browser, OS, hardware and external-service implementations."
+    },
+    {
+      "id": "L7",
+      "name": "State and data",
+      "responsibility": "Registries, persisted settings, events, artifacts and provenance."
+    },
+    {
+      "id": "L8",
+      "name": "Runtime and delivery",
+      "responsibility": "Build, packaging, browser/runtime composition and deployment."
+    },
+    {
+      "id": "L9",
+      "name": "Assurance and evidence",
+      "responsibility": "Tests, schemas, coverage, observability and verification records."
+    }
+  ],
+  "placement": [
+    {
+      "layer": "L0",
+      "area": "Portal experience",
+      "components": [
+        "index.html",
+        "portal UI",
+        "browser labs"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L1",
+      "area": "Registry and web contracts",
+      "components": [
+        "manifest v1",
+        "registry schema",
+        "integration protocol"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L2",
+      "area": "Portal orchestration",
+      "components": [
+        "catalog workflow",
+        "search/filter",
+        "graph presentation"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L3",
+      "area": "Ecosystem metadata domain",
+      "components": [
+        "module model",
+        "dependency graph",
+        "maturity model"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L4",
+      "area": "Integration governance",
+      "components": [
+        "contract policy",
+        "evidence gate",
+        "maturity gate"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L5",
+      "area": "Registry/metadata ports",
+      "components": [
+        "registry loader",
+        "manifest parser",
+        "metadata source port"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L6",
+      "area": "Browser and source adapters",
+      "components": [
+        "browser APIs",
+        "static assets",
+        "synthetic data providers"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L7",
+      "area": "Registry and view state",
+      "components": [
+        "registry/",
+        "manifests/",
+        "contracts/",
+        "local UI state"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L8",
+      "area": "Static portal delivery",
+      "components": [
+        "HTML/CSS/JS",
+        "static hosting",
+        "Pages workflow"
+      ],
+      "status": "mapped-from-repository-scope"
+    },
+    {
+      "layer": "L9",
+      "area": "Portal and contract assurance",
+      "components": [
+        "registry CI",
+        "schema checks",
+        "JS validation"
+      ],
+      "status": "mapped-from-repository-scope"
+    }
+  ],
+  "vertical_slices": [
+    {
+      "id": "slice-1",
+      "title": "Repository discovery",
+      "flow": "Registry input → schema validation → metadata domain → searchable catalog → detail/navigation link."
+    },
+    {
+      "id": "slice-2",
+      "title": "Dependency visualization",
+      "flow": "Versioned provides/consumes → contract compatibility policy → graph model → portal visualization with confidence labels."
+    },
+    {
+      "id": "slice-3",
+      "title": "Browser simulation",
+      "flow": "Synthetic input → local model → validation → visible result clearly labeled as simulation, never live hardware telemetry."
+    }
+  ],
+  "dependency_rules": [
+    "presentation-calls-application-via-versioned-interface",
+    "application-depends-on-domain-policy-and-ports",
+    "adapters-implement-ports-not-the-reverse",
+    "state-access-through-versioned-repository-or-registry-contract",
+    "runtime-composes-inner-layers",
+    "cross-repository-integration-requires-versioned-contract"
+  ],
+  "cross_cutting": [
+    "security-and-trust",
+    "resilience-and-bounds",
+    "compatibility-and-versioning",
+    "observability-and-provenance",
+    "accessibility-where-applicable",
+    "measured-performance"
+  ],
+  "guardrails": "The portal is not an autonomous GitHub controller, plugin loader, firmware runtime or hardware telemetry source. Browser labs use synthetic/local models. The canonical registry source and its mirrors must be distinguished; a visual edge is not proof of a live integration.",
+  "status_note": "Architecture contract only; no capability is considered implemented without source and test evidence."
+}
