@@ -1,0 +1,99 @@
+{
+  "schema_version": "bboroski.modular-monolith-profile.v1",
+  "project": "Klipot",
+  "maturity": "static-portal",
+  "architecture": {
+    "mode": "static-web",
+    "scope": "Static ecosystem portal with repository discovery, contract cataloguing and local browser labs backed by small Python tooling.",
+    "runtime_boundary": "Browser UI and local Python CLI are separate execution contexts; portal metadata does not execute repository code.",
+    "composition_rule": "Keep portal rendering, registry data, contract schemas and local planning logic in explicit modules with versioned JSON/C interfaces."
+  },
+  "entrypoints": [
+    {
+      "path": "index.html",
+      "kind": "static-web-entry"
+    },
+    {
+      "path": "klipot/cli.py",
+      "kind": "python-cli"
+    }
+  ],
+  "components": [
+    {
+      "id": "repository-registry",
+      "responsibility": "Searchable repository catalogue and machine-readable manifests.",
+      "status": "implemented",
+      "integration": "in-process"
+    },
+    {
+      "id": "contract-catalog",
+      "responsibility": "Versioned integration envelope and contract metadata.",
+      "status": "implemented",
+      "integration": "versioned-contract"
+    },
+    {
+      "id": "semantic-planner",
+      "responsibility": "Local dependency and integration path planning.",
+      "status": "implemented",
+      "integration": "in-process"
+    },
+    {
+      "id": "browser-labs",
+      "responsibility": "Local illustrative allocation, lifecycle and capability demonstrations.",
+      "status": "partial",
+      "integration": "isolated-target"
+    }
+  ],
+  "dependencies": [
+    {
+      "project": "Hellduck",
+      "relationship": "federation and workspace metadata projection",
+      "runtime_dependency": false
+    },
+    {
+      "project": "Luci",
+      "relationship": "domain registry metadata reference",
+      "runtime_dependency": false
+    }
+  ],
+  "preserved_boundaries": [
+    "Static portal does not provide server-side authorization or a hosted database.",
+    "Browser labs use local/synthetic state unless an explicit adapter is introduced.",
+    "Repository registry entries are metadata, not executable plugin instructions."
+  ],
+  "forbidden_composition": [
+    "No automatic checkout or execution of third-party repository code.",
+    "No implicit cross-repository write access.",
+    "No presentation of sample data as live telemetry."
+  ],
+  "build_profiles": [
+    {
+      "id": "static-portal",
+      "status": "declared",
+      "commands": [
+        "python -m http.server 8080"
+      ],
+      "evidence": [
+        "index.html",
+        "registry",
+        "schemas"
+      ]
+    },
+    {
+      "id": "python-cli-tests",
+      "status": "declared",
+      "commands": [
+        "python -m pytest"
+      ],
+      "evidence": [
+        "pyproject.toml",
+        "klipot/cli.py",
+        "tests"
+      ]
+    }
+  ],
+  "gaps": [
+    "Add browser-level accessibility and interaction tests for the portal.",
+    "Keep portal metadata synchronized with reviewed federation contracts."
+  ]
+}
