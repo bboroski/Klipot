@@ -18,6 +18,7 @@ EXPECTED = {
     "SAMBU": "sambu",
     "ToolNG": "toolng",
 }
+DESIGN_ONLY_REPOS = ("NUN", "NUNLauncher", "Fragile-Baby", "Luci")
 
 
 def readme_paths(repo: str) -> tuple[str, ...]:
@@ -208,6 +209,23 @@ def main() -> None:
 
         integration_doc = ROOT / repo / "docs" / "ADAPTIVE_WORKSPACE_INTEGRATION.md"
         assert integration_doc.is_file(), f"{repo}: missing adaptive workspace contract"
+
+    # These projects share the design contract but are outside the original C/Python mesh suite.
+    for repo in DESIGN_ONLY_REPOS:
+        tokens_path = ROOT / repo / "design" / "duck-ui.tokens.json"
+        tokens = json.loads(tokens_path.read_text(encoding="utf-8"))
+        assert tokens.get("schema_version") in {"2.1.0", "3.0.0"}, (
+            repo, tokens.get("schema_version")
+        )
+        experience = tokens.get("workspace_experience", {})
+        assert experience.get("status") == "design_contract", repo
+        stylesheet = ROOT / repo / "assets" / "duck-ui" / "duck-ui.css"
+        assert stylesheet.is_file(), f"{repo}: missing shared adaptive stylesheet"
+        css = stylesheet.read_text(encoding="utf-8")
+        for marker in (".duck-glass", ".duck-metal", ".duck-paper",
+                       "prefers-reduced-motion", "duck-density-calm"):
+            assert marker in css, (repo, marker)
+        validate_accessibility_contract(repo, tokens, css)
 
     registry = json.loads((ROOT / "Klipot" / "registry" / "ecosystem.json").read_text(encoding="utf-8"))
     registry_ids = {item["id"] for item in registry["projects"]}
