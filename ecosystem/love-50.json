@@ -1,0 +1,498 @@
+{
+  "policy_id": "love-50.chinese-maxims",
+  "version": "1.0.0",
+  "status": "specified",
+  "canonical_repository": "bboroski/Klipot",
+  "source_note": "This is an engineering interpretation of the user-supplied collection. The collection mixes idioms, folk sayings, classical poetic lines and modern formulations; item 50 is a Chinese rendering of 1 Corinthians 13:4 rather than a traditional Chinese folk proverb. No historical authorship is inferred for unattributed items.",
+  "principles": [
+    "Translate literary metaphors into observable, testable engineering behaviour; do not claim software has human emotions.",
+    "Preserve user agency, privacy, consent, accessibility and least privilege.",
+    "Prefer explicit contracts, reproducible behaviour, reversible operations and graceful degradation.",
+    "Keep system, firmware, device and kernel operations within their existing authority boundaries.",
+    "A principle is SPECIFIED until implementation, automated tests and environment-specific evidence exist."
+  ],
+  "groups": [
+    {
+      "id": "fate",
+      "name": "Судьба и предопределение",
+      "range": "1–10",
+      "engineering": "Контракты, идентичность и совместимость"
+    },
+    {
+      "id": "fidelity",
+      "name": "Верность и преданность",
+      "range": "11–20",
+      "engineering": "Долговечность, целостность и восстановление"
+    },
+    {
+      "id": "passion",
+      "name": "Сила чувств и страсть",
+      "range": "21–30",
+      "engineering": "Отзывчивость, производительность и UX"
+    },
+    {
+      "id": "harmony",
+      "name": "Гармония в браке и семье",
+      "range": "31–40",
+      "engineering": "Интеграция, координация и владение"
+    },
+    {
+      "id": "wisdom",
+      "name": "Философия и мудрость любви",
+      "range": "41–50",
+      "engineering": "Безопасность, границы и сопровождение"
+    }
+  ],
+  "maxims": [
+    {
+      "id": 1,
+      "group": "fate",
+      "zh": "千里姻缘一线牵",
+      "pinyin": "Qiānlǐ yīnyuán yīxiàn qiān",
+      "gloss": "Далёкий союз связывает одна нить.",
+      "engineering_practice": "Стабильные идентификаторы и явные контракты связывают компоненты без жёсткой сцепки.",
+      "verification": "Проверять интеграцию по публичному интерфейсу, а не по внутренним деталям."
+    },
+    {
+      "id": 2,
+      "group": "fate",
+      "zh": "有缘千里来相会，无缘对面不相逢",
+      "pinyin": "Yǒuyuán qiānlǐ lái xiānghuì, wúyuán duìmiàn bù xiāngféng",
+      "gloss": "Совместимость важнее физической близости.",
+      "engineering_practice": "Интеграция разрешается только при явном совпадении версии, возможностей и условий.",
+      "verification": "Несовместимость должна давать понятный отказ, а не случайный fallback."
+    },
+    {
+      "id": 3,
+      "group": "fate",
+      "zh": "百年修得同船渡，千年修得共枕眠",
+      "pinyin": "Bǎinián xiū dé tóng chuán dù, qiānnián xiū dé gòng zhěn mián",
+      "gloss": "Совместный путь требует долгой подготовки.",
+      "engineering_practice": "Проверять не только вызов API, но и полный жизненный цикл взаимодействующих модулей.",
+      "verification": "Добавлять интеграционные тесты на запуск, работу, сбой и завершение."
+    },
+    {
+      "id": 4,
+      "group": "fate",
+      "zh": "天作之合",
+      "pinyin": "Tiān zuò zhī hé",
+      "gloss": "Союз, словно созданный Небесами.",
+      "engineering_practice": "Подбирать минимальные интерфейсы под реальные роли компонентов.",
+      "verification": "Контракты должны быть типизированными, версионированными и документированными."
+    },
+    {
+      "id": 5,
+      "group": "fate",
+      "zh": "在天愿作比翼鸟，在地愿为连理枝",
+      "pinyin": "Zài tiān yuàn zuò bǐyìniǎo, zài dì yuàn wéi liánlǐzhī",
+      "gloss": "Пара держится вместе, не теряя согласованности.",
+      "engineering_practice": "Связанные модули развиваются синхронно по совместимой матрице версий.",
+      "verification": "Проверять совместимость provider/consumer и не сливать независимые runtime."
+    },
+    {
+      "id": 6,
+      "group": "fate",
+      "zh": "缘分天注定",
+      "pinyin": "Yuánfèn tiān zhùdìng",
+      "gloss": "Связь заранее определена.",
+      "engineering_practice": "Воспроизводимость важнее случайного autodiscovery: фиксировать версии, конфигурацию и входные условия.",
+      "verification": "Повторный запуск с теми же входами должен давать сопоставимый результат."
+    },
+    {
+      "id": 7,
+      "group": "fate",
+      "zh": "不是冤家不聚头",
+      "pinyin": "Bù shì yuānjiā bù jùtóu",
+      "gloss": "Даже конфликтующие стороны могут встретиться.",
+      "engineering_practice": "Коллизии зависимостей, циклы и несовместимые требования должны выявляться явно.",
+      "verification": "Тестировать конфликтующие версии и исключать молчаливое перезаписывание настроек."
+    },
+    {
+      "id": 8,
+      "group": "fate",
+      "zh": "前世有缘，今生相见",
+      "pinyin": "Qiánshì yǒuyuán, jīnshēng xiāngjiàn",
+      "gloss": "Нынешняя встреча имеет прошлую историю.",
+      "engineering_practice": "Сохранять происхождение данных, историю изменений и миграционный контекст.",
+      "verification": "Обеспечить provenance, version metadata и проверяемые миграции."
+    },
+    {
+      "id": 9,
+      "group": "fate",
+      "zh": "红线牵情",
+      "pinyin": "Hóngxiàn qiān qíng",
+      "gloss": "Красная нить соединяет участников.",
+      "engineering_practice": "Использовать безопасные correlation IDs для сквозной диагностики.",
+      "verification": "Один запрос прослеживается между компонентами; идентификаторы не содержат персональных данных."
+    },
+    {
+      "id": 10,
+      "group": "fate",
+      "zh": "门当户对",
+      "pinyin": "Mén dāng hù duì",
+      "gloss": "Соответствие по возможностям и условиям.",
+      "engineering_practice": "До интеграции проверять capability matrix, платформу, ABI и ресурсные требования.",
+      "verification": "Несовпадающие возможности не должны объявляться поддерживаемыми."
+    },
+    {
+      "id": 11,
+      "group": "fidelity",
+      "zh": "执子之手，与子偕老",
+      "pinyin": "Zhí zǐ zhī shǒu, yǔ zǐ xiélǎo",
+      "gloss": "Долгое совместное обязательство.",
+      "engineering_practice": "Сохранять пользовательские и межмодульные обещания на протяжении жизненного цикла продукта.",
+      "verification": "Изменения публичного API сопровождаются deprecation policy и migration path."
+    },
+    {
+      "id": 12,
+      "group": "fidelity",
+      "zh": "海枯石烂",
+      "pinyin": "Hǎi kū shí làn",
+      "gloss": "Стойкость даже перед предельными испытаниями.",
+      "engineering_practice": "Защищать целостность и восстанавливаемость данных при сбоях.",
+      "verification": "Тестировать повреждение, частичную запись, восстановление и отказоустойчивость."
+    },
+    {
+      "id": 13,
+      "group": "fidelity",
+      "zh": "白头偕老",
+      "pinyin": "Báitóu xiélǎo",
+      "gloss": "Сохранять совместимость на долгом пути.",
+      "engineering_practice": "Проектировать версии и поддержку так, чтобы обновление не ломало существующих пользователей без предупреждения.",
+      "verification": "Проверять миграции и backward compatibility на поддерживаемых версиях."
+    },
+    {
+      "id": 14,
+      "group": "fidelity",
+      "zh": "矢志不渝",
+      "pinyin": "Shǐzhì bùyú",
+      "gloss": "Не отступать от принятого обещания.",
+      "engineering_practice": "Документированные гарантии должны соответствовать реальному поведению кода.",
+      "verification": "Каждое публичное обещание подкреплено тестом или явно помечено как planned."
+    },
+    {
+      "id": 15,
+      "group": "fidelity",
+      "zh": "山盟海誓",
+      "pinyin": "Shānméng hǎishì",
+      "gloss": "Клятва крепка, как горы и море.",
+      "engineering_practice": "Надёжность подтверждается проверками, а не лозунгами.",
+      "verification": "Для критических контрактов использовать регрессионные, негативные и fault-injection тесты."
+    },
+    {
+      "id": 16,
+      "group": "fidelity",
+      "zh": "一心一意",
+      "pinyin": "Yīxīn yīyì",
+      "gloss": "Один источник намерения и согласия.",
+      "engineering_practice": "Избегать конкурирующих источников истины и неоднозначного владения состоянием.",
+      "verification": "Определить canonical owner для каждой записи, настройки и перехода состояния."
+    },
+    {
+      "id": 17,
+      "group": "fidelity",
+      "zh": "生死契阔，与子成说",
+      "pinyin": "Shēngsǐ qìkuò, yǔ zǐ chéng shuō",
+      "gloss": "Обязательство действует и в трудных состояниях.",
+      "engineering_practice": "Явно описывать lifecycle, shutdown, rollback и восстановление после частичного отказа.",
+      "verification": "Покрывать все состояния и переходы, включая interrupted/failed initialization."
+    },
+    {
+      "id": 18,
+      "group": "fidelity",
+      "zh": "情比金坚",
+      "pinyin": "Qíng bǐ jīn jiān",
+      "gloss": "Доверие крепче золота.",
+      "engineering_practice": "Проверять целостность, происхождение и границы достоверности данных.",
+      "verification": "Хеш подтверждает совпадение содержимого, но не подменяет аутентификацию или авторство."
+    },
+    {
+      "id": 19,
+      "group": "fidelity",
+      "zh": "相濡以沫",
+      "pinyin": "Xiāngrú yǐ mò",
+      "gloss": "Помогать друг другу в тяжёлых условиях.",
+      "engineering_practice": "Компоненты должны деградировать контролируемо, сохраняя минимально полезную функцию.",
+      "verification": "При недоступности зависимости выдавать ограниченный результат и план восстановления."
+    },
+    {
+      "id": 20,
+      "group": "fidelity",
+      "zh": "患难与共",
+      "pinyin": "Huànnàn yǔ gòng",
+      "gloss": "Разделять испытания и восстановление.",
+      "engineering_practice": "Сбой одного участника не должен бесконтрольно распространяться на всю систему.",
+      "verification": "Тестировать fault isolation, bounded retries, timeout и rollback."
+    },
+    {
+      "id": 21,
+      "group": "passion",
+      "zh": "一日不见，如隔三秋",
+      "pinyin": "Yī rì bù jiàn, rú gé sān qiū",
+      "gloss": "Ожидание ощущается особенно долго.",
+      "engineering_practice": "Уважать latency budget и своевременно сообщать о длительной операции.",
+      "verification": "Устанавливать измеримые таймауты, progress states и cancellation."
+    },
+    {
+      "id": 22,
+      "group": "passion",
+      "zh": "情人眼里出西施",
+      "pinyin": "Qíngrén yǎnlǐ chū Xīshī",
+      "gloss": "Восприятие зависит от точки зрения.",
+      "engineering_practice": "Оценивать удобство глазами разных пользователей, не полагаясь на вкус разработчика.",
+      "verification": "Проверять доступность, читаемость, локализацию и сценарии реального пользователя."
+    },
+    {
+      "id": 23,
+      "group": "passion",
+      "zh": "爱屋及乌",
+      "pinyin": "Ài wū jí wū",
+      "gloss": "Принимать и окружение любимого человека.",
+      "engineering_practice": "Учитывать реальные edge cases, старые данные и соседние компоненты, а не только идеальный сценарий.",
+      "verification": "Добавлять тесты на неизвестные, частичные и нестандартные входы."
+    },
+    {
+      "id": 24,
+      "group": "passion",
+      "zh": "心有灵犀一点通",
+      "pinyin": "Xīn yǒu língxī yīdiǎn tōng",
+      "gloss": "Понимать друг друга без лишних догадок.",
+      "engineering_practice": "Контекст и смысл передачи должны быть явными в API, событиях и ошибках.",
+      "verification": "Не полагаться на скрытое глобальное состояние или неформальные соглашения."
+    },
+    {
+      "id": 25,
+      "group": "passion",
+      "zh": "两情若是久长时，又岂在朝朝暮暮",
+      "pinyin": "Liǎng qíng ruò shì jiǔcháng shí, yòu qǐ zài zhāozhāo mùmù",
+      "gloss": "Надёжная связь не требует постоянной близости.",
+      "engineering_practice": "Использовать асинхронность и слабую связанность там, где синхронное взаимодействие не нужно.",
+      "verification": "Компоненты сохраняют корректность при задержке, повторе и временном отсутствии соседа."
+    },
+    {
+      "id": 26,
+      "group": "passion",
+      "zh": "入骨相思知不知",
+      "pinyin": "Rùgǔ xiāngsī zhī bù zhī",
+      "gloss": "Глубокое переживание не всегда видно снаружи.",
+      "engineering_practice": "Собирать только необходимую диагностику и не путать наблюдаемость с наблюдением за личной жизнью.",
+      "verification": "Telemetry минимальна, локальна/opt-in там, где уместно, и не включает секреты."
+    },
+    {
+      "id": 27,
+      "group": "passion",
+      "zh": "衣带渐宽终不悔，为伊消得人憔悴",
+      "pinyin": "Yīdài jiàn kuān zhōng bù huǐ, wèi yī xiāo dé rén qiáocuì",
+      "gloss": "Длительное усилие имеет цену.",
+      "engineering_practice": "Не допускать незаметного истощения памяти, CPU, батареи и других ресурсов.",
+      "verification": "Использовать профилирование, нагрузочные тесты и проверки утечек."
+    },
+    {
+      "id": 28,
+      "group": "passion",
+      "zh": "问世间情为何物，直教生死相许",
+      "pinyin": "Wèn shìjiān qíng wèi héwù, zhí jiào shēngsǐ xiāngxǔ",
+      "gloss": "Сильное чувство требует серьёзной ответственности.",
+      "engineering_practice": "Для необратимых действий требовать явного намерения и проверяемых preconditions.",
+      "verification": "Опасные операции требуют подтверждения, ограниченного scope и recovery plan."
+    },
+    {
+      "id": 29,
+      "group": "passion",
+      "zh": "刻骨铭心",
+      "pinyin": "Kègǔ míngxīn",
+      "gloss": "Оставляет неизгладимый след.",
+      "engineering_practice": "Сохранять важную историю изменений и аудируемые результаты, не записывая лишние личные данные.",
+      "verification": "Для значимых операций доступны provenance и понятный audit trail."
+    },
+    {
+      "id": 30,
+      "group": "passion",
+      "zh": "一见钟情",
+      "pinyin": "Yījiàn zhōngqíng",
+      "gloss": "Понятное первое впечатление.",
+      "engineering_practice": "Сделать первый запуск и базовый сценарий ясными с минимальным порогом входа.",
+      "verification": "Проверять onboarding, sensible defaults и понятную пустую/ошибочную страницу."
+    },
+    {
+      "id": 31,
+      "group": "harmony",
+      "zh": "琴瑟和鸣",
+      "pinyin": "Qínsè hémíng",
+      "gloss": "Компоненты звучат согласованно.",
+      "engineering_practice": "Согласовывать интерфейсы и форматы сообщений на границах модулей.",
+      "verification": "Интеграционный тест подтверждает совместную работу реальных контрактов."
+    },
+    {
+      "id": 32,
+      "group": "harmony",
+      "zh": "举案齐眉",
+      "pinyin": "Jǔ àn qíméi",
+      "gloss": "Взаимное уважение и равное достоинство.",
+      "engineering_practice": "Уважать ownership модулей, авторов API и границы полномочий.",
+      "verification": "Не менять чужие контракты и данные без владельца и миграционного плана."
+    },
+    {
+      "id": 33,
+      "group": "harmony",
+      "zh": "相敬如宾",
+      "pinyin": "Xiāngjìng rú bīn",
+      "gloss": "Относиться к другому с уважением.",
+      "engineering_practice": "Интеграция не должна иметь скрытых побочных эффектов или захватывать чужие ресурсы.",
+      "verification": "Проверять side effects, permissions и очистку временных ресурсов."
+    },
+    {
+      "id": 34,
+      "group": "harmony",
+      "zh": "夫唱妇随",
+      "pinyin": "Fū chàng fù suí",
+      "gloss": "Действовать в согласованном ритме.",
+      "engineering_practice": "События и callbacks имеют предсказуемый порядок, правила владения и возврата ошибок.",
+      "verification": "Проверять порядок вызовов, re-entrancy и повторное событие."
+    },
+    {
+      "id": 35,
+      "group": "harmony",
+      "zh": "家和万事兴",
+      "pinyin": "Jiā hé wànshì xīng",
+      "gloss": "Общее благополучие поддерживает все дела.",
+      "engineering_practice": "Собирать локальные quality gates в непрерывный интеграционный процесс.",
+      "verification": "PR CI проверяет тесты, схемы, форматирование и документацию, когда они затронуты."
+    },
+    {
+      "id": 36,
+      "group": "harmony",
+      "zh": "比翼双飞",
+      "pinyin": "Bǐyì shuāngfēi",
+      "gloss": "Двигаться вперёд как совместимая пара.",
+      "engineering_practice": "Согласовывать выпуск связанных компонентов и их матрицу совместимости.",
+      "verification": "Release artifacts фиксируют версии и доказательства совместимости."
+    },
+    {
+      "id": 37,
+      "group": "harmony",
+      "zh": "恩爱夫妻",
+      "pinyin": "Ēn'ài fūqī",
+      "gloss": "Долговременная забота между партнёрами.",
+      "engineering_practice": "Поддерживать понятную политику поддержки и окончания жизненного цикла.",
+      "verification": "Объявлять deprecation, security support window и владельца сопровождения."
+    },
+    {
+      "id": 38,
+      "group": "harmony",
+      "zh": "同甘共苦",
+      "pinyin": "Tónggān gòngkǔ",
+      "gloss": "Разделять удачные и трудные сценарии.",
+      "engineering_practice": "Интеграционные тесты должны проверять и успех, и отказ соседнего компонента.",
+      "verification": "Тестировать partial failure, stale data и восстановление."
+    },
+    {
+      "id": 39,
+      "group": "harmony",
+      "zh": "床头打架床尾和",
+      "pinyin": "Chuángtóu dǎjià chuángwěi hé",
+      "gloss": "После конфликта возможны примирение и восстановление.",
+      "engineering_practice": "Предусмотреть детерминированное разрешение конфликтов и безопасное повторение операций.",
+      "verification": "Повторяемая команда не создаёт дубликаты; rollback и retry имеют чёткую семантику."
+    },
+    {
+      "id": 40,
+      "group": "harmony",
+      "zh": "嫁鸡随鸡，嫁狗随狗",
+      "pinyin": "Jià jī suí jī, jià gǒu suí gǒu",
+      "gloss": "Совместно проходить изменения и смену обстоятельств.",
+      "engineering_practice": "Миграции и обновления должны учитывать пользователя, оставляя понятный путь возврата.",
+      "verification": "Предусматривать export, backup и migration notes; не принуждать к скрытому переходу."
+    },
+    {
+      "id": 41,
+      "group": "wisdom",
+      "zh": "真金不怕火炼，真爱不怕考验",
+      "pinyin": "Zhēnjīn bù pà huǒ liàn, zhēn'ài bù pà kǎoyàn",
+      "gloss": "Подлинная надёжность выдерживает проверку.",
+      "engineering_practice": "Проверять систему при нагрузке, некорректных входах и внешних отказах.",
+      "verification": "Добавлять boundary, stress и fault-injection тесты для критических путей."
+    },
+    {
+      "id": 42,
+      "group": "wisdom",
+      "zh": "爱之深，责之切",
+      "pinyin": "Ài zhī shēn, zé zhī qiè",
+      "gloss": "Чем выше забота, тем внимательнее обратная связь.",
+      "engineering_practice": "Ошибки и review findings должны быть точными, доброжелательными и исправимыми.",
+      "verification": "Сообщение содержит причину, безопасный следующий шаг и границы уверенности."
+    },
+    {
+      "id": 43,
+      "group": "wisdom",
+      "zh": "距离产生美",
+      "pinyin": "Jùlí chǎnshēng měi",
+      "gloss": "Дистанция помогает сохранять ясность.",
+      "engineering_practice": "Использовать модульные границы, least privilege и минимальную передачу данных.",
+      "verification": "Проверять, что компонент получает только необходимые права и поля."
+    },
+    {
+      "id": 44,
+      "group": "wisdom",
+      "zh": "宁缺毋滥",
+      "pinyin": "Nìng quē wú làn",
+      "gloss": "Лучше меньше, но качественнее.",
+      "engineering_practice": "Не добавлять зависимости, функции и автоматизацию без доказанной потребности.",
+      "verification": "Новое усложнение требует задачи, сравнения вариантов и сопровождения."
+    },
+    {
+      "id": 45,
+      "group": "wisdom",
+      "zh": "得成比目何辞死，愿作鸳鸯不羡仙",
+      "pinyin": "Dé chéng bǐmù hé cí sǐ, yuàn zuò yuānyāng bù xiàn xiān",
+      "gloss": "Надёжная пара ценнее эффектной, но пустой идеи.",
+      "engineering_practice": "Использовать резервирование только при независимом fallback и доказанной пользе.",
+      "verification": "Тестировать отказ основного пути и автономность резервного."
+    },
+    {
+      "id": 46,
+      "group": "wisdom",
+      "zh": "君子之交淡如水，小人之交甘若醴",
+      "pinyin": "Jūnzǐ zhī jiāo dàn rú shuǐ, xiǎorén zhī jiāo gān ruò lǐ",
+      "gloss": "Лучшие отношения прозрачны, без скрытой выгоды.",
+      "engineering_practice": "Держать интерфейсы простыми, прозрачными и свободными от скрытых действий.",
+      "verification": "Побочные эффекты и сбор данных документируются и проверяются."
+    },
+    {
+      "id": 47,
+      "group": "wisdom",
+      "zh": "落花有意，流水无情",
+      "pinyin": "Luòhuā yǒuyì, liúshuǐ wúqíng",
+      "gloss": "Намерения сторон могут не совпадать.",
+      "engineering_practice": "Не предполагать поддержку или согласие другой системы, если этого не подтверждают факты.",
+      "verification": "Несовместимость, отказ и отсутствие ответа отображаются как разные состояния."
+    },
+    {
+      "id": 48,
+      "group": "wisdom",
+      "zh": "天长地久",
+      "pinyin": "Tiāncháng dìjiǔ",
+      "gloss": "Долговечность требует заботы о будущем.",
+      "engineering_practice": "Поддерживать сопровождение, обновляемость и понятное владение проектом.",
+      "verification": "Проверять зависимости, сроки поддержки, документацию и reproducible builds."
+    },
+    {
+      "id": 49,
+      "group": "wisdom",
+      "zh": "愿得一心人，白首不相离",
+      "pinyin": "Yuàn dé yīxīn rén, báishǒu bù xiānglí",
+      "gloss": "Постоянство строится на верности обязательствам.",
+      "engineering_practice": "Сохранять стабильные публичные API и заранее сообщать о несовместимых изменениях.",
+      "verification": "Нужны contract tests, versioning и migration guide."
+    },
+    {
+      "id": 50,
+      "group": "wisdom",
+      "zh": "爱是恒久忍耐，又有恩慈",
+      "pinyin": "Ài shì héngjiǔ rěnnài, yòu yǒu ēncí",
+      "gloss": "Любовь проявляется в терпении и доброте.",
+      "engineering_practice": "Обеспечивать понятные подсказки, ограниченные повторы, доступность и не обвиняющие сообщения.",
+      "verification": "Повтор не бесконечен; UX учитывает ошибки и людей с разными возможностями."
+    }
+  ]
+}
