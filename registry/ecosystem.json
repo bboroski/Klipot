@@ -11,6 +11,32 @@
   },
   "projects": [
     {
+      "id": "9circ",
+      "repository": "bboroski/9circ",
+      "role": "unclassified project pending scope and source inventory",
+      "maturity": "unknown",
+      "provides": [],
+      "consumes": [],
+      "url": "https://github.com/bboroski/9circ",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "nine-circ-unclassified"
+    },
+    {
+      "id": "blopscore",
+      "repository": "bboroski/BlopScore",
+      "role": "native Windows hardware-inspection application design",
+      "maturity": "design-only · implementation not verified",
+      "provides": [],
+      "consumes": [
+        "planned read-only ToolNG diagnostic evidence"
+      ],
+      "url": "https://github.com/bboroski/BlopScore",
+      "module_manifest": "sambu.module.json",
+      "ecosystem": "SAMBU",
+      "module_id": "blopscore-hardware-inspection"
+    },
+    {
       "id": "co",
       "repository": "bboroski/CO",
       "role": "lifecycle-runtime",
@@ -32,8 +58,8 @@
     {
       "id": "fragile-baby",
       "repository": "bboroski/Fragile-Baby",
-      "role": "elbrus-platform-support-workstream",
-      "maturity": "architecture-proposal-toolchain-and-target-evidence-required",
+      "role": "Elbrus/E2K architecture and platform qualification workstream",
+      "maturity": "architecture proposal · target evidence pending",
       "provides": [
         "elbrus-support-roadmap",
         "architecture-validation-matrix"
@@ -45,7 +71,8 @@
       ],
       "url": "https://github.com/bboroski/Fragile-Baby",
       "ecosystem": "SAMBU",
-      "module_id": "fragile-baby-elbrus-support"
+      "module_id": "fragile-baby-e2k-qualification",
+      "module_manifest": "sambu.module.json"
     },
     {
       "id": "jungelist-massive",
@@ -105,8 +132,8 @@
     {
       "id": "luci",
       "repository": "bboroski/Luci",
-      "role": "programming-workspace-design-scaffold",
-      "maturity": "documentation-only-runtime-and-threat-model-not-yet-defined",
+      "role": "Local engineering-domain policy and manifest-validation control plane",
+      "maturity": "experimental Python + JSON foundation",
       "provides": [
         "workspace-boundary-design",
         "developer-tooling-integration-notes"
@@ -118,26 +145,28 @@
       ],
       "url": "https://github.com/bboroski/Luci",
       "ecosystem": "SAMBU",
-      "module_id": "luci-developer-workspace"
+      "module_id": "luci-engineering-control-plane",
+      "module_manifest": "sambu.module.json"
     },
     {
       "id": "nun",
       "repository": "bboroski/NUN",
-      "role": "minimal-operating-system-kernel-specification",
-      "maturity": "documentation-scaffold-no-kernel-implementation",
+      "role": "Early x86_64 kernel substrate with versioned boot, memory, and execution contracts",
+      "maturity": "early x86_64 kernel bring-up · not a complete OS",
       "provides": [
         "kernel-architecture-documentation"
       ],
       "consumes": [],
       "url": "https://github.com/bboroski/NUN",
       "ecosystem": "NUN",
-      "module_id": "nun-kernel"
+      "module_id": "nun-kernel",
+      "module_manifest": "sambu.module.json"
     },
     {
       "id": "nunlauncher",
       "repository": "bboroski/NUNLauncher",
-      "role": "kernel-bootstrap-and-handoff-specification",
-      "maturity": "documentation-scaffold-no-loader-implementation",
+      "role": "Host-side kernel image admission and pre-handoff metadata validation",
+      "maturity": "host-tested C11 validator · unsigned image admission",
       "provides": [
         "kernel-bootstrap-documentation"
       ],
@@ -146,7 +175,8 @@
       ],
       "url": "https://github.com/bboroski/NUNLauncher",
       "ecosystem": "NUN",
-      "module_id": "nunlauncher-bootstrap"
+      "module_id": "nunlauncher-admission",
+      "module_manifest": "sambu.module.json"
     },
     {
       "id": "reapercripple",
