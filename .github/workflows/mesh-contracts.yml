@@ -75,6 +75,26 @@ jobs:
         with:
           repository: bboroski/ToolNG
           path: ToolNG
+      - name: Checkout NUN
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/NUN
+          path: NUN
+      - name: Checkout NUNLauncher
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/NUNLauncher
+          path: NUNLauncher
+      - name: Checkout Fragile-Baby
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/Fragile-Baby
+          path: Fragile-Baby
+      - name: Checkout Luci
+        uses: actions/checkout@v4
+        with:
+          repository: bboroski/Luci
+          path: Luci
       - name: Set up Node for portal syntax validation
         uses: actions/setup-node@v4
         with:
